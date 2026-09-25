@@ -717,4 +717,98 @@ These are related to the plane sections by confocal conicoids (sharing the same 
 </ol>
 Classification uses \(\text{rank}(A)\), \(\text{sign}(A)\), \(\Delta=\det(4\times4\text{ matrix})\), and \(\delta=\det(A)\). \(\blacksquare\)</p></div>
 
-</div></body></html>
+</div>
+
+<div class="card pyq"><div class="card-title">PYQ 2025 Q1e — Cone Through Intersection of Plane and Sphere</div>
+<p>Find the equation of the cone with vertex at the origin passing through the curve of intersection of the plane \(x+y+z=1\) and the sphere \(x^2+y^2+z^2=1\).</p></div>
+<div class="card sol"><div class="card-title">Solution</div>
+<p>Homogenize the sphere using the plane \(x+y+z=1\): replace \(1\) by \((x+y+z)\) in the sphere equation.
+\[x^2+y^2+z^2=(x+y+z)^2=x^2+y^2+z^2+2xy+2yz+2zx.\]
+Cancelling \(x^2+y^2+z^2\) from both sides:
+\[0=2xy+2yz+2zx.\]
+Hence the cone is \(\boxed{xy+yz+zx=0}\). \(\blacksquare\)</p></div>
+
+<div class="card pyq"><div class="card-title">PYQ 2025 Q2c-i — Cylinder Parallel to a Given Line</div>
+<p>Find the equation of the cylinder whose generators are parallel to the line \(\dfrac{x}{1}=\dfrac{y}{2}=\dfrac{z}{3}\) and pass through the curve \(x^2+y^2=9,\ z=0\).</p></div>
+<div class="card sol"><div class="card-title">Solution</div>
+<p>A general point on the guiding curve: \((x_0,y_0,0)\) with \(x_0^2+y_0^2=9\). The generator through it parallel to \((1,2,3)\): \(x=x_0+t,\ y=y_0+2t,\ z=3t\). Eliminating \(t=z/3\):
+\[x_0=x-\tfrac{z}{3},\quad y_0=y-\tfrac{2z}{3}.\]
+Substituting into \(x_0^2+y_0^2=9\):
+\[\left(x-\frac{z}{3}\right)^2+\left(y-\frac{2z}{3}\right)^2=9.\]
+Expanding: \(x^2+y^2-\dfrac{2xz}{3}-\dfrac{4yz}{3}+\dfrac{5z^2}{9}=9\). Multiplying through by 9:
+\[\boxed{9x^2+9y^2-6xz-12yz+5z^2=81.}\] \(\blacksquare\)</p></div>
+
+<div class="card pyq"><div class="card-title">PYQ 2025 Q2c-ii — Shortest Distance Between Two Skew Lines</div>
+<p>Find the shortest distance between the lines \(\dfrac{x-1}{2}=\dfrac{y-2}{3}=\dfrac{z-3}{4}\) and \(\dfrac{x-2}{3}=\dfrac{y-4}{4}=\dfrac{z-5}{5}\).</p></div>
+<div class="card sol"><div class="card-title">Solution</div>
+<p>Direction vectors: \(\mathbf{d_1}=(2,3,4)\), \(\mathbf{d_2}=(3,4,5)\).
+\[\mathbf{n}=\mathbf{d_1}\times\mathbf{d_2}=\begin{vmatrix}\hat{i}&\hat{j}&\hat{k}\\2&3&4\\3&4&5\end{vmatrix}=(15-16)\hat{i}-(10-12)\hat{j}+(8-9)\hat{k}=(-1,2,-1).\]
+Points on the lines: \(A=(1,2,3)\) on \(L_1\), \(B=(2,4,5)\) on \(L_2\). \(\overrightarrow{AB}=(1,2,2)\).
+\[\text{SD}=\frac{|\overrightarrow{AB}\cdot\mathbf{n}|}{|\mathbf{n}|}=\frac{|(1)(-1)+(2)(2)+(2)(-1)|}{\sqrt{1+4+1}}=\frac{|-1+4-2|}{\sqrt{6}}=\frac{1}{\sqrt{6}}=\boxed{\dfrac{\sqrt{6}}{6}.}\] \(\blacksquare\)</p></div>
+
+<div class="card pyq"><div class="card-title">PYQ 2025 Q3b — Sphere Through Four Points</div>
+<p>Find the equation of the sphere passing through the points \((0,0,0)\), \((1,0,0)\), \((0,1,0)\), \((0,0,1)\). Find its centre and radius.</p></div>
+<div class="card sol"><div class="card-title">Solution</div>
+<p>General sphere: \(x^2+y^2+z^2+2ux+2vy+2wz+d=0\). Substituting each point:
+<ul>
+  <li>\((0,0,0)\): \(d=0\).</li>
+  <li>\((1,0,0)\): \(1+2u=0\Rightarrow u=-\tfrac{1}{2}\).</li>
+  <li>\((0,1,0)\): \(1+2v=0\Rightarrow v=-\tfrac{1}{2}\).</li>
+  <li>\((0,0,1)\): \(1+2w=0\Rightarrow w=-\tfrac{1}{2}\).</li>
+</ul>
+Sphere: \(x^2+y^2+z^2-x-y-z=0\). Centre \(\left(\tfrac{1}{2},\tfrac{1}{2},\tfrac{1}{2}\right)\), radius \(r=\sqrt{\tfrac{1}{4}+\tfrac{1}{4}+\tfrac{1}{4}}=\dfrac{\sqrt{3}}{2}\). \(\blacksquare\)</p></div>
+
+<div class="card pyq"><div class="card-title">PYQ 2025 Q4a — Sphere Through a Circle and a Point</div>
+<p>Find the equation of the sphere that passes through the circle \(x^2+y^2+z^2=9,\ 2x+3y+4z=5\) and the point \((1,2,3)\).</p></div>
+<div class="card sol"><div class="card-title">Solution</div>
+<p>Any sphere through the given circle has the form:
+\[x^2+y^2+z^2-9+\lambda(2x+3y+4z-5)=0.\]
+Substituting \((1,2,3)\): \(1+4+9-9+\lambda(2+6+12-5)=0\Rightarrow 5+15\lambda=0\Rightarrow\lambda=-\tfrac{1}{3}\).
+\[x^2+y^2+z^2-9-\tfrac{1}{3}(2x+3y+4z-5)=0.\]
+Multiply by 3: \(\boxed{3x^2+3y^2+3z^2-2x-3y-4z-22=0.}\) \(\blacksquare\)</p></div>
+
+<div class="card pyq"><div class="card-title">PYQ 2026 Q1e — Sphere and Tangent Plane</div>
+<p>Find the equation of the sphere with centre \((1,-1,2)\) passing through the point \((3,1,1)\). Also find the equation of the tangent plane at \((3,1,1)\).</p></div>
+<div class="card sol"><div class="card-title">Solution</div>
+<p>Radius: \(r=\sqrt{(3-1)^2+(1+1)^2+(1-2)^2}=\sqrt{4+4+1}=3\).
+Sphere: \((x-1)^2+(y+1)^2+(z-2)^2=9\).
+The tangent plane at \((x_1,y_1,z_1)\) on sphere \((x-a)^2+(y-b)^2+(z-c)^2=r^2\) is:
+\[(x_1-a)(x-a)+(y_1-b)(y-b)+(z_1-c)(z-c)=r^2.\]
+At \((3,1,1)\): \(2(x-1)+2(y+1)+(-1)(z-2)=9\Rightarrow 2x+2y-z=9\). So tangent plane: \(\boxed{2x+2y-z=9.}\) \(\blacksquare\)</p></div>
+
+<div class="card pyq"><div class="card-title">PYQ 2026 Q2c — Shortest Distance Between Vector-form Lines</div>
+<p>Find the shortest distance between the lines \(\mathbf{r}=(1+\lambda)\hat{i}+(2-\lambda)\hat{j}+(3+\lambda)\hat{k}\) and \(\mathbf{r}=(2+\mu)\hat{i}+(1+2\mu)\hat{j}+(3-\mu)\hat{k}\).</p></div>
+<div class="card sol"><div class="card-title">Solution</div>
+<p>Direction vectors: \(\mathbf{d_1}=(1,-1,1)\), \(\mathbf{d_2}=(1,2,-1)\). Points: \(A_1=(1,2,3)\), \(A_2=(2,1,3)\).
+\[\mathbf{n}=\mathbf{d_1}\times\mathbf{d_2}=\begin{vmatrix}\hat{i}&\hat{j}&\hat{k}\\1&-1&1\\1&2&-1\end{vmatrix}=(1-2)\hat{i}-(-1-1)\hat{j}+(2+1)\hat{k}=(-1,2,3).\]
+\(\overrightarrow{A_1A_2}=(1,-1,0)\).
+\[\text{SD}=\frac{|(1,-1,0)\cdot(-1,2,3)|}{|(-1,2,3)|}=\frac{|-1-2+0|}{\sqrt{1+4+9}}=\frac{3}{\sqrt{14}}=\boxed{\dfrac{3\sqrt{14}}{14}.}\] \(\blacksquare\)</p></div>
+
+<div class="card pyq"><div class="card-title">PYQ 2026 Q3c — Right Circular Cone and Plane Section</div>
+<p>Find the equation of the cone with vertex at the origin, axis along the \(z\)-axis, and semi-vertical angle \(45°\). Show that the plane \(z=k\) cuts this cone in a circle of radius \(|k|\).</p></div>
+<div class="card sol"><div class="card-title">Solution</div>
+<p>For a point \((x,y,z)\) on the cone, the angle between the position vector and the \(z\)-axis satisfies:
+\[\cos 45°=\frac{|z|}{\sqrt{x^2+y^2+z^2}}\implies \frac{1}{2}=\frac{z^2}{x^2+y^2+z^2}\implies x^2+y^2=z^2.\]
+Cone equation: \(\boxed{x^2+y^2=z^2.}\)
+At \(z=k\): \(x^2+y^2=k^2\), which is a circle of radius \(|k|\) in the plane \(z=k\). \(\blacksquare\)</p></div>
+
+<div class="card pyq"><div class="card-title">PYQ 2026 Q4c-i — Hyperboloid of One Sheet Through Two Circles</div>
+<p>Find the equation of the hyperboloid of one sheet passing through the circle \(x^2+y^2=1,\ z=0\) and the circle \(x^2+y^2=4,\ z=2\).</p></div>
+<div class="card sol"><div class="card-title">Solution</div>
+<p>By symmetry about the \(z\)-axis, assume the standard form \(\dfrac{x^2}{a^2}+\dfrac{y^2}{a^2}-\dfrac{z^2}{c^2}=1\) (since cross-sections are circles).
+<ul>
+  <li>At \(z=0\): \(\dfrac{1}{a^2}=1\Rightarrow a^2=1\).</li>
+  <li>At \(z=2\): \(\dfrac{4}{1}-\dfrac{4}{c^2}=1\Rightarrow \dfrac{4}{c^2}=3\Rightarrow c^2=\dfrac{4}{3}\).</li>
+</ul>
+Hyperboloid: \(\boxed{x^2+y^2-\dfrac{3z^2}{4}=1.}\) \(\blacksquare\)</p></div>
+
+<div class="card pyq"><div class="card-title">PYQ 2026 Q4c-ii — Cylinder with \(z\)-axis Generators and Enclosed Volume</div>
+<p>Find the equation of the cylinder with generators parallel to the \(z\)-axis passing through the ellipse \(x^2+2y^2=1,\ z=0\). Also find the volume enclosed between the cylinder, the plane \(z=0\), and the plane \(z=h\).</p></div>
+<div class="card sol"><div class="card-title">Solution</div>
+<p>The cylinder with generators parallel to the \(z\)-axis and guiding curve \(x^2+2y^2=1\) in the plane \(z=0\) is simply \(\boxed{x^2+2y^2=1}\) (independent of \(z\)).
+This is an elliptic cylinder with semi-axes \(a=1\) (along \(x\)) and \(b=\tfrac{1}{\sqrt{2}}\) (along \(y\)).
+Area of ellipse: \(\pi ab=\pi\cdot 1\cdot\dfrac{1}{\sqrt{2}}=\dfrac{\pi}{\sqrt{2}}\).
+Volume between \(z=0\) and \(z=h\):
+\[V=h\times\text{Area}=\boxed{\dfrac{\pi h}{\sqrt{2}}.}\] \(\blacksquare\)</p></div>
+
+</body></html>

@@ -923,4 +923,126 @@ Classic: solving quadratic \(ax^2+bx+c=0\): root \(x=(-b+\sqrt{b^2-4ac})/(2a)\).
 <strong>Backward stability:</strong> algorithm is backward stable if \(\|\delta x\|/\|x\|=O(u)\) (machine epsilon) for all \(x\). Backward stable \(\Rightarrow\) forward error \(\le\kappa(f)\cdot O(u)\).
 <strong>Inner product \(\hat{s}=\sum_{i=1}^n\hat{x}_iy_i\):</strong> floating-point evaluation satisfies \(\hat{s}=\mathbf{x}^T\mathbf{y}+O(nu\|\mathbf{x}\|\|\mathbf{y}\|)\). Relative error \(\le nu\), so backward stable for small \(n\). For large \(n\): pairwise summation or compensated summation (Kahan) reduces error to \(O(u)\) regardless of \(n\). \(\blacksquare\)</p></div>
 
+<h2>§ PYQ 2025 — Numerical Analysis & Computer Programming</h2>
+
+<div class="card pyq"><div class="card-title">PYQ 2025 Q5b (10m) — Gauss-Seidel Iteration</div>
+<p>Describe the Gauss-Seidel iteration method for solving the linear system \(Ax=b\). Apply it to solve \(4x+y=9\), \(x+3y=10\) starting from \((0,0)\). Perform 3 iterations.</p></div>
+<div class="card sol"><div class="card-title">Solution</div>
+<p>Gauss-Seidel uses the latest updated values immediately: \(x^{(k+1)}=\dfrac{9-y^{(k)}}{4}\), \(y^{(k+1)}=\dfrac{10-x^{(k+1)}}{3}\).</p>
+<p><strong>Iter 1:</strong> \(x=\frac{9-0}{4}=2.25\), \(y=\frac{10-2.25}{3}=2.583\).</p>
+<p><strong>Iter 2:</strong> \(x=\frac{9-2.583}{4}=1.604\), \(y=\frac{10-1.604}{3}=2.799\).</p>
+<p><strong>Iter 3:</strong> \(x=\frac{9-2.799}{4}=1.550\), \(y=\frac{10-1.550}{3}=2.817\).</p>
+<p>Converges to exact \(x=\frac{17}{11}\approx1.545\), \(y=\frac{31}{11}\approx2.818\). Diagonal dominance (\(4>1\), \(3>1\)) guarantees convergence. \(\blacksquare\)</p></div>
+
+<div class="card pyq"><div class="card-title">PYQ 2025 Q5c-i (5m) — Number System Conversions</div>
+<p>Convert \((125.75)_{10}\) to binary and hexadecimal. Convert \((1101.011)_2\) to decimal.</p></div>
+<div class="card sol"><div class="card-title">Solution</div>
+<p>\(125=(1111101)_2\) (repeated division by 2). \(0.75=(0.11)_2\) (since \(0.75\times2=1.5\to1\), \(0.5\times2=1.0\to1\)).</p>
+<p>So \((125.75)_{10}=(1111101.11)_2\). Grouping in nibbles from point: \(0111\ 1101.\ 1100=(7D.C)_{16}\).</p>
+<p>For \((1101.011)_2\): \(8+4+0+1+0+\frac{1}{4}+\frac{1}{8}=13+0.25+0.125=13.375\). \(\blacksquare\)</p></div>
+
+<div class="card pyq"><div class="card-title">PYQ 2025 Q5c-ii (5m) — Boolean Simplification</div>
+<p>Simplify the Boolean expression \(F=AB'+A'B+AB\) and draw the corresponding logic circuit.</p></div>
+<div class="card sol"><div class="card-title">Solution</div>
+<p>\(F=AB'+A'B+AB=(AB'+AB)+A'B=A(B'+B)+A'B=A\cdot1+A'B=A+A'B\).</p>
+<p>By absorption: \(A+A'B=(A+A')(A+B)=1\cdot(A+B)=A+B\).</p>
+<p>The circuit is simply an OR gate with inputs \(A\) and \(B\). \(\blacksquare\)</p></div>
+
+<div class="card pyq"><div class="card-title">PYQ 2025 Q6b (15m) — Karnaugh Map Minimization</div>
+<p>Minimize the Boolean function \(F(A,B,C,D)=\sum m(0,1,3,5,7,8,9,11,13,15)\) using a Karnaugh map.</p></div>
+<div class="card sol"><div class="card-title">Solution</div>
+<p>Plot 10 minterms on a 4-variable K-map (rows: \(AB\), columns: \(CD\) in Gray code).</p>
+<p>Groups identified:<br>
+• \(\{0,1,8,9\}\): \(A\) varies, \(B=0,C=0\) → \(\bar{B}\bar{C}\)<br>
+• \(\{1,3,5,7\}\): \(A=0,D=1\) → \(\bar{A}D\)<br>
+• \(\{5,7,13,15\}\): \(B=1,D=1\) → \(BD\)<br>
+• \(\{9,11,13,15\}\): \(A=1,D=1\) → \(AD\)</p>
+<p>Minimal SOP (using essential primes \(\bar{B}\bar{C}\) and \(AD\), plus \(BD\) to cover \(\{5,7\}\)):
+\[F=\bar{B}\bar{C}+AD+BD=\bar{B}\bar{C}+D(A+B).\] \(\blacksquare\)</p></div>
+
+<div class="card pyq"><div class="card-title">PYQ 2025 Q7b (15m) — Lagrange Interpolation</div>
+<p>Use Lagrange's interpolation formula to find \(f(3)\) given: \(f(0)=2,\,f(1)=3,\,f(4)=5,\,f(5)=7\).</p></div>
+<div class="card sol"><div class="card-title">Solution</div>
+<p>Nodes: \(x_0=0,x_1=1,x_2=4,x_3=5\). At \(x=3\):</p>
+<p>\(L_0=\frac{(3-1)(3-4)(3-5)}{(0-1)(0-4)(0-5)}=\frac{(2)(-1)(-2)}{(-1)(-4)(-5)}=\frac{4}{-20}=-\frac{1}{5}\).</p>
+<p>\(L_1=\frac{(3)(3-4)(3-5)}{(1)(1-4)(1-5)}=\frac{3(-1)(-2)}{1(-3)(-4)}=\frac{6}{12}=\frac{1}{2}\).</p>
+<p>\(L_2=\frac{(3)(3-1)(3-5)}{(4)(4-1)(4-5)}=\frac{3(2)(-2)}{4(3)(-1)}=\frac{-12}{-12}=1\).</p>
+<p>\(L_3=\frac{(3)(3-1)(3-4)}{(5)(5-1)(5-4)}=\frac{3(2)(-1)}{5(4)(1)}=\frac{-6}{20}=-\frac{3}{10}\).</p>
+<p>\(f(3)=2(-\tfrac{1}{5})+3(\tfrac{1}{2})+5(1)+7(-\tfrac{3}{10})=-0.4+1.5+5-2.1=4.0\). \(\blacksquare\)</p></div>
+
+<div class="card pyq"><div class="card-title">PYQ 2025 Q8b (15m) — Trapezoidal Rule & Error</div>
+<p>State the trapezoidal rule. Use it with \(h=0.25\) to evaluate \(\int_0^1 e^{-x^2}dx\). Compare with Simpson's rule. Find the error bound.</p></div>
+<div class="card sol"><div class="card-title">Solution</div>
+<p>Trapezoidal rule: \(\int_a^b f\,dx\approx\dfrac{h}{2}[f(x_0)+2f(x_1)+\cdots+2f(x_{n-1})+f(x_n)]\). Error bound: \(|E_T|\le\dfrac{(b-a)h^2}{12}\max|f''|\).</p>
+<p>Points \(x=0,0.25,0.5,0.75,1\). Values: \(f(0)=1,\;f(0.25)\approx0.9394,\;f(0.5)\approx0.7788,\;f(0.75)\approx0.5698,\;f(1)\approx0.3679\).</p>
+<p>Trapezoidal: \(\frac{0.25}{2}[1+2(0.9394+0.7788+0.5698)+0.3679]=\frac{0.25}{2}[1+4.5760+0.3679]=\frac{0.25}{2}(5.9439)\approx0.7430\).</p>
+<p>For Simpson's 1/3 (same 5 pts): \(\frac{0.25}{3}[1+4(0.9394)+2(0.7788)+4(0.5698)+0.3679]=\frac{0.25}{3}(8.9613)\approx0.7468\).</p>
+<p>Exact \(\approx0.7468\). Trapezoidal error \(\approx0.0038\); Simpson error \(\approx0\) (4th-order). Error bound for trapezoidal: \(|f''(x)|=|2e^{-x^2}(2x^2-1)|\le2\), so \(|E_T|\le\frac{(1)(0.25)^2}{12}(2)\approx0.0104\). \(\blacksquare\)</p></div>
+
+<h2>§ PYQ 2026 — Numerical Analysis & Computer Programming</h2>
+
+<div class="card pyq"><div class="card-title">PYQ 2026 Q5b (10m) — Newton-Raphson: Quadratic Convergence & Application</div>
+<p>Describe Newton-Raphson method. Prove that it has quadratic convergence near a simple root. Apply it to find \(\sqrt[3]{28}\) correct to 4 decimal places.</p></div>
+<div class="card sol"><div class="card-title">Solution</div>
+<p>NR formula: \(x_{n+1}=x_n-\dfrac{f(x_n)}{f'(x_n)}\). Quadratic convergence: error \(e_{n+1}\approx\dfrac{f''(\xi)}{2f'(\xi)}e_n^2\) (see proof in §Proofs above).</p>
+<p>For \(\sqrt[3]{28}\): \(f(x)=x^3-28\), \(f'(x)=3x^2\). Formula: \(x_{n+1}=x_n-\dfrac{x_n^3-28}{3x_n^2}=\dfrac{2x_n^3+28}{3x_n^2}\).</p>
+<p>Start \(x_0=3\): \(x_1=\dfrac{2(27)+28}{3(9)}=\dfrac{82}{27}\approx3.0370\).</p>
+<p>\(x_2=\dfrac{2(3.0370)^3+28}{3(3.0370)^2}=\dfrac{2(28.04)+28}{27.67}=\dfrac{84.08}{27.67}\approx3.0366\).</p>
+<p>\(x_3\approx3.0366\) (converged). \(\sqrt[3]{28}\approx3.0366\). \(\blacksquare\)</p></div>
+
+<div class="card pyq"><div class="card-title">PYQ 2026 Q5c (10m) — Logic Gates & NAND Universality</div>
+<p>What are logic gates? Define AND, OR, NOT, NAND, NOR, XOR. Draw truth tables for NAND and XOR. Show NAND is universal.</p></div>
+<div class="card sol"><div class="card-title">Solution</div>
+<p>Logic gates implement Boolean operations on binary inputs.</p>
+<p>NAND truth table: \(00\to1,\;01\to1,\;10\to1,\;11\to0\). XOR truth table: \(00\to0,\;01\to1,\;10\to1,\;11\to0\).</p>
+<p>NAND is universal (any Boolean function buildable from NAND alone):<br>
+• NOT: \(\overline{A}=A\text{ NAND }A\)<br>
+• AND: \(A\cdot B=(A\text{ NAND }B)\text{ NAND }(A\text{ NAND }B)\)<br>
+• OR: \(A+B=(A\text{ NAND }A)\text{ NAND }(B\text{ NAND }B)\)</p>
+<p>Since AND, OR, NOT form a functionally complete set, and all three are realizable with NAND, NAND alone suffices for any Boolean function. \(\blacksquare\)</p></div>
+
+<div class="card pyq"><div class="card-title">PYQ 2026 Q6b-i (8m) — Signed Binary Representations & IEEE 754</div>
+<p>Represent \(-37\) in 8-bit signed magnitude, one's complement, and two's complement. Also represent \(1.5\) in IEEE 754 single-precision format.</p></div>
+<div class="card sol"><div class="card-title">Solution</div>
+<p>\(37=(00100101)_2\).</p>
+<p>• Signed magnitude \(-37\): \(\mathbf{1}0100101\) (flip sign bit).<br>
+• One's complement: \(\mathbf{11011010}\) (invert all bits of \(00100101\)).<br>
+• Two's complement: \(\mathbf{11011011}\) (one's complement + 1).</p>
+<p>IEEE 754 single for \(1.5=1.1_2\times2^0\): sign bit \(=0\), exponent \(=127+0=127=(01111111)_2\), mantissa (after implicit 1) \(=1\underbrace{00\cdots0}_{22}\).</p>
+<p>Full 32-bit: \(0\;01111111\;10000000000000000000000\). \(\blacksquare\)</p></div>
+
+<div class="card pyq"><div class="card-title">PYQ 2026 Q6b-ii (7m) — Hex to Binary/Decimal; Repeating Binary Fraction</div>
+<p>Convert \((2A3F)_{16}\) to binary and decimal. Convert \((0.1)_{10}\) to binary (show it is a repeating fraction).</p></div>
+<div class="card sol"><div class="card-title">Solution</div>
+<p>\(2=0010,\;A=1010,\;3=0011,\;F=1111\). So \((2A3F)_{16}=(0010\,1010\,0011\,1111)_2\).</p>
+<p>Decimal: \(2\times16^3+10\times16^2+3\times16+15=8192+2560+48+15=10815\).</p>
+<p>For \((0.1)_{10}\) to binary (multiply-by-2 method):</p>
+<p>\(0.1\times2=0.2\to0;\;0.2\times2=0.4\to0;\;0.4\times2=0.8\to0;\;0.8\times2=1.6\to1;\;0.6\times2=1.2\to1;\;0.2\times2=0.4\to0\;\cdots\) (repeats).</p>
+<p>\((0.1)_{10}=(0.\overline{0001100110011\ldots})_2=(0.0\overline{0011})_2\). It is a non-terminating repeating binary fraction. \(\blacksquare\)</p></div>
+
+<div class="card pyq"><div class="card-title">PYQ 2026 Q7b (15m) — Simpson's 1/3 Rule with 6 Intervals</div>
+<p>Use Simpson's 1/3 rule with 6 intervals to evaluate \(\int_0^6\dfrac{1}{1+x^2}dx\). Compare with the exact value \(\arctan 6\).</p></div>
+<div class="card sol"><div class="card-title">Solution</div>
+<p>\(h=1\), \(n=6\) (even ✓). Points \(x=0,1,2,3,4,5,6\). \(f(x)=1/(1+x^2)\):</p>
+<p>\(f(0)=1,\;f(1)=0.5,\;f(2)=0.2,\;f(3)=0.1,\;f(4)=\tfrac{1}{17}\approx0.0588,\;f(5)=\tfrac{1}{26}\approx0.0385,\;f(6)=\tfrac{1}{37}\approx0.0270\).</p>
+<p>Simpson's 1/3: \(\dfrac{h}{3}[f_0+4f_1+2f_2+4f_3+2f_4+4f_5+f_6]\)</p>
+<p>\(=\dfrac{1}{3}[1+2+0.4+0.4+0.1176+0.154+0.0270]=\dfrac{1}{3}(4.0986)\approx1.3662\).</p>
+<p>Exact: \(\arctan 6\approx1.4056\). Error \(\approx0.0394\). (Large error due to coarse \(h=1\); function has significant curvature near \(x=0\).) \(\blacksquare\)</p></div>
+
+<div class="card pyq"><div class="card-title">PYQ 2026 Q8b (15m) — Runge-Kutta 4th Order Method</div>
+<p>Derive the RK4 method. Apply it with \(h=0.1\) to solve \(y'=x+y\), \(y(0)=1\), for \(y(0.1)\).</p></div>
+<div class="card sol"><div class="card-title">Solution</div>
+<p>RK4 (weights from Simpson's 1/3 on slope estimates at \(x_n,\,x_n+h/2,\,x_n+h/2,\,x_n+h\)):
+\[k_1=hf(x_n,y_n),\quad k_2=hf\!\left(x_n+\tfrac{h}{2},y_n+\tfrac{k_1}{2}\right),\]
+\[k_3=hf\!\left(x_n+\tfrac{h}{2},y_n+\tfrac{k_2}{2}\right),\quad k_4=hf(x_n+h,y_n+k_3),\]
+\[y_{n+1}=y_n+\tfrac{1}{6}(k_1+2k_2+2k_3+k_4).\]
+Local truncation error \(O(h^5)\), global error \(O(h^4)\).</p>
+<p>At \(x_0=0,y_0=1\), \(f(x,y)=x+y\):</p>
+<p>\(k_1=0.1(0+1)=0.1\).</p>
+<p>\(k_2=0.1(0.05+1+0.05)=0.1(1.1)=0.11\).</p>
+<p>\(k_3=0.1(0.05+1+0.055)=0.1(1.105)=0.1105\).</p>
+<p>\(k_4=0.1(0.1+1+0.1105)=0.1(1.2105)=0.12105\).</p>
+<p>\(y(0.1)=1+\tfrac{1}{6}(0.1+0.22+0.221+0.12105)=1+\tfrac{0.66205}{6}=1+0.11034=1.11034\).</p>
+<p>Exact: \(y=2e^x-x-1\Rightarrow y(0.1)=2e^{0.1}-1.1\approx1.11034\). \(\checkmark\) \(\blacksquare\)</p></div>
+
 </div></body></html>

@@ -727,4 +727,91 @@
 
 <div class="card pyq"><div class="card-title">PYQ 2008 — Bernoulli and Euler Numbers</div><p>Define Bernoulli numbers \(B_n\) via the generating function and give the first few values.</p></div>
 <div class="card sol"><div class="card-title">Solution</div><p>Bernoulli numbers are defined by \(\dfrac{t}{e^t-1}=\sum_{n=0}^\infty B_n\frac{t^n}{n!}\) for \(|t|<2\pi\). First few: \(B_0=1,B_1=-1/2,B_2=1/6,B_3=0,B_4=-1/30,B_6=1/42,\ldots\) (odd \(B_n=0\) for \(n\ge3\)). Applications: \(\sum_{k=1}^\infty\frac{1}{k^{2n}}=\frac{(-1)^{n+1}(2\pi)^{2n}B_{2n}}{2(2n)!}\) (e.g., \(\sum 1/k^2=\pi^2/6\) from \(B_2=1/6\)). Euler numbers \(E_n\) arise from \(\text{sech}(t)=\sum E_n t^n/n!\): \(E_0=1,E_2=-1,E_4=5,\ldots\)</p></div>
-</div></body></html>
+</div>
+
+<div class="card pyq"><div class="card-title">PYQ 2025 — Maxima and Minima of \(f(x)=x^5-5x^4+5x^3-1\)</div><p>Find the maxima and minima of \(f(x)=x^5-5x^4+5x^3-1\). Classify each critical point. <em>[10 marks]</em></p></div>
+<div class="card sol"><div class="card-title">Solution</div><p>\(f'(x)=5x^4-20x^3+15x^2=5x^2(x^2-4x+3)=5x^2(x-1)(x-3)\). Critical points: \(x=0,\,1,\,3\).<br>
+\(f''(x)=20x^3-60x^2+30x\).<br>
+At \(x=0\): \(f''(0)=0\) — second derivative test inconclusive. Check sign of \(f'\): for \(x<0\), \(f'(x)=5x^2(x-1)(x-3)>0\); for \(0<x<1\), \(f'>0\). No sign change — \(x=0\) is an <strong>inflection point</strong>.<br>
+At \(x=1\): \(f''(1)=20-60+30=-10<0\) — <strong>local maximum</strong>, \(f(1)=1-5+5-1=0\).<br>
+At \(x=3\): \(f''(3)=20(27)-60(9)+30(3)=540-540+90=90>0\) — <strong>local minimum</strong>, \(f(3)=243-405+135-1=-28\).</p></div>
+
+<div class="card pyq"><div class="card-title">PYQ 2025 — Differentiability of \(f(x,y)=\sqrt{|xy|}\) at the Origin</div><p>Let \(f:\mathbb{R}^2\to\mathbb{R}\) be defined by \(f(x,y)=\sqrt{|xy|}\). Determine whether \(f\) is differentiable at \((0,0)\). <em>[10 marks]</em></p></div>
+<div class="card sol"><div class="card-title">Solution</div><p><strong>Partial derivatives at \((0,0)\):</strong> \(f_x(0,0)=\lim_{h\to 0}\frac{\sqrt{|h\cdot 0|}-0}{h}=0\), similarly \(f_y(0,0)=0\).<br>
+<strong>Check differentiability:</strong> If \(f\) were differentiable at the origin with gradient \((0,0)\), we would need
+\[\lim_{(h,k)\to(0,0)}\frac{f(h,k)-f(0,0)-0\cdot h-0\cdot k}{\sqrt{h^2+k^2}}=\lim_{(h,k)\to(0,0)}\frac{\sqrt{|hk|}}{\sqrt{h^2+k^2}}=0.\]
+Along \(h=k\): the limit equals \(\dfrac{|h|}{\sqrt{2}\,|h|}=\dfrac{1}{\sqrt{2}}\neq 0\).<br>
+Therefore \(f\) is <strong>not differentiable</strong> at the origin, even though both partial derivatives exist and equal zero. \(\blacksquare\)</p></div>
+
+<div class="card pyq"><div class="card-title">PYQ 2025 — Mean Value Theorem and \(|\sin a-\sin b|\leq|a-b|\)</div><p>State and prove the Mean Value Theorem for \(f:[a,b]\to\mathbb{R}\). Using it, show that \(|\sin a-\sin b|\leq|a-b|\) for all \(a,b\in\mathbb{R}\). <em>[15 marks]</em></p></div>
+<div class="card sol"><div class="card-title">Solution</div><p><strong>MVT:</strong> If \(f\) is continuous on \([a,b]\) and differentiable on \((a,b)\), then \(\exists\, c\in(a,b)\) such that \(f'(c)=\dfrac{f(b)-f(a)}{b-a}\).<br>
+<strong>Proof:</strong> Define \(g(x)=f(x)-\dfrac{f(b)-f(a)}{b-a}(x-a)\). Then \(g\) is continuous on \([a,b]\), differentiable on \((a,b)\), and \(g(a)=g(b)=f(a)\). By Rolle's theorem, \(\exists\, c\in(a,b)\) with \(g'(c)=0\), i.e., \(f'(c)=\dfrac{f(b)-f(a)}{b-a}\). \(\blacksquare\)<br>
+<strong>Application:</strong> Apply MVT to \(\sin x\) on any interval with endpoints \(a,b\): \(\exists\, c\) between \(a\) and \(b\) with
+\[|\sin a-\sin b|=|\cos c|\,|a-b|\leq|a-b|,\]
+since \(|\cos c|\leq 1\) for all \(c\). \(\blacksquare\)</p></div>
+
+<div class="card pyq"><div class="card-title">PYQ 2025 — Double Integral over \(y=x^2\) and \(y=x\)</div><p>Evaluate \(\displaystyle\iint_D(x^2+y^2)\,dA\) where \(D\) is the region bounded by \(y=x^2\) and \(y=x\). <em>[10 marks]</em></p></div>
+<div class="card sol"><div class="card-title">Solution</div><p>The curves intersect at \((0,0)\) and \((1,1)\). For \(0\leq x\leq 1\): \(x^2\leq y\leq x\).
+\[\int_0^1\int_{x^2}^x(x^2+y^2)\,dy\,dx=\int_0^1\left[x^2 y+\frac{y^3}{3}\right]_{y=x^2}^{y=x}dx\]
+\[=\int_0^1\left(x^3-x^4+\frac{x^3-x^6}{3}\right)dx=\int_0^1\left(\frac{4x^3}{3}-x^4-\frac{x^6}{3}\right)dx\]
+\[=\left[\frac{x^4}{3}-\frac{x^5}{5}-\frac{x^7}{21}\right]_0^1=\frac{1}{3}-\frac{1}{5}-\frac{1}{21}=\frac{35-21-5}{105}=\boxed{\dfrac{3}{28}}.\]</p></div>
+
+<div class="card pyq"><div class="card-title">PYQ 2025 — Partial Derivatives: \(u=f(x-y,\,y-z,\,z-x)\)</div><p>If \(u=f(x-y,\,y-z,\,z-x)\), show that \(\dfrac{\partial u}{\partial x}+\dfrac{\partial u}{\partial y}+\dfrac{\partial u}{\partial z}=0\). <em>[10 marks]</em></p></div>
+<div class="card sol"><div class="card-title">Solution</div><p>Let \(p=x-y,\;q=y-z,\;r=z-x\), so \(u=f(p,q,r)\). By the chain rule:
+\[\frac{\partial u}{\partial x}=f_p\frac{\partial p}{\partial x}+f_q\frac{\partial q}{\partial x}+f_r\frac{\partial r}{\partial x}=f_p(1)+f_q(0)+f_r(-1)=f_p-f_r,\]
+\[\frac{\partial u}{\partial y}=f_p(-1)+f_q(1)+f_r(0)=-f_p+f_q,\]
+\[\frac{\partial u}{\partial z}=f_p(0)+f_q(-1)+f_r(1)=-f_q+f_r.\]
+Summing: \((f_p-f_r)+(-f_p+f_q)+(-f_q+f_r)=0.\) \(\blacksquare\)</p></div>
+
+<div class="card pyq"><div class="card-title">PYQ 2025 — Gradient in Polar Coordinates: \(\left(\partial z/\partial x\right)^2+\left(\partial z/\partial y\right)^2\)</div><p>If \(z=f(x,y)\) where \(x=r\cos\theta\) and \(y=r\sin\theta\), show that \(\left(\dfrac{\partial z}{\partial x}\right)^2+\left(\dfrac{\partial z}{\partial y}\right)^2=\left(\dfrac{\partial z}{\partial r}\right)^2+\dfrac{1}{r^2}\left(\dfrac{\partial z}{\partial\theta}\right)^2\). <em>[15 marks]</em></p></div>
+<div class="card sol"><div class="card-title">Solution</div><p>By the chain rule:
+\[\frac{\partial z}{\partial r}=\frac{\partial z}{\partial x}\cos\theta+\frac{\partial z}{\partial y}\sin\theta,\quad \frac{\partial z}{\partial\theta}=-\frac{\partial z}{\partial x}\,r\sin\theta+\frac{\partial z}{\partial y}\,r\cos\theta.\]
+Compute:
+\[\left(\frac{\partial z}{\partial r}\right)^2=z_x^2\cos^2\theta+2z_xz_y\cos\theta\sin\theta+z_y^2\sin^2\theta,\]
+\[\frac{1}{r^2}\left(\frac{\partial z}{\partial\theta}\right)^2=z_x^2\sin^2\theta-2z_xz_y\cos\theta\sin\theta+z_y^2\cos^2\theta.\]
+Adding:
+\[\left(\frac{\partial z}{\partial r}\right)^2+\frac{1}{r^2}\left(\frac{\partial z}{\partial\theta}\right)^2=z_x^2(\cos^2\theta+\sin^2\theta)+z_y^2(\sin^2\theta+\cos^2\theta)=z_x^2+z_y^2. \;\blacksquare\]</p></div>
+
+<div class="card pyq"><div class="card-title">PYQ 2026 — Mixed Partial Derivatives: \(f_{xy}(0,0)\neq f_{yx}(0,0)\)</div><p>If \(f(x,y)=\dfrac{xy(x^2-y^2)}{x^2+y^2}\) for \((x,y)\neq(0,0)\) and \(f(0,0)=0\), verify that \(f_{xy}(0,0)\neq f_{yx}(0,0)\). <em>[10 marks]</em></p></div>
+<div class="card sol"><div class="card-title">Solution</div><p><strong>Computing \(f_x(0,y)\):</strong> For \(y\neq 0\):
+\[f_x(0,y)=\lim_{h\to 0}\frac{f(h,y)-f(0,y)}{h}=\lim_{h\to 0}\frac{hy(h^2-y^2)}{h(h^2+y^2)}=\frac{y(0-y^2)}{y^2}=-y.\]
+So \(f_x(0,0)=0\) and \(f_x(0,y)=-y\).
+\[f_{xy}(0,0)=\lim_{k\to 0}\frac{f_x(0,k)-f_x(0,0)}{k}=\lim_{k\to 0}\frac{-k-0}{k}=-1.\]
+<strong>Similarly,</strong> \(f_y(x,0)=x\) for \(x\neq 0\), and:
+\[f_{yx}(0,0)=\lim_{h\to 0}\frac{f_y(h,0)-f_y(0,0)}{h}=\lim_{h\to 0}\frac{h}{h}=1.\]
+Thus \(f_{xy}(0,0)=-1\neq 1=f_{yx}(0,0)\). The mixed partials fail to be equal because \(f_{xy}\) is not continuous at the origin. \(\blacksquare\)</p></div>
+
+<div class="card pyq"><div class="card-title">PYQ 2026 — Taylor's Theorem and Expansion of \(\log(1+x)\)</div><p>State Taylor's theorem with Lagrange's form of remainder. Expand \(\log(1+x)\) by Taylor's theorem and find the range of \(x\) for which the expansion is valid. <em>[10 marks]</em></p></div>
+<div class="card sol"><div class="card-title">Solution</div><p><strong>Taylor's Theorem:</strong> If \(f\) has \((n+1)\) continuous derivatives on \([0,x]\), then
+\[f(x)=\sum_{k=0}^n\frac{x^k}{k!}f^{(k)}(0)+R_n,\quad R_n=\frac{x^{n+1}}{(n+1)!}f^{(n+1)}(\xi)\]
+for some \(\xi\) between \(0\) and \(x\) (Lagrange's remainder).<br>
+<strong>Expansion of \(\log(1+x)\):</strong> \(f^{(n)}(x)=\dfrac{(-1)^{n-1}(n-1)!}{(1+x)^n}\) for \(n\geq 1\), so \(f^{(n)}(0)=(-1)^{n-1}(n-1)!\):
+\[\log(1+x)=x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}+\cdots=\sum_{n=1}^\infty\frac{(-1)^{n-1}x^n}{n}.\]
+Remainder: \(R_n=\dfrac{(-1)^n x^{n+1}}{(n+1)(1+\xi)^{n+1}}\to 0\) as \(n\to\infty\) provided \(|x|\leq 1\) and \(x\neq -1\).<br>
+<strong>Valid for \(-1 < x \leq 1\).</strong></p></div>
+
+<div class="card pyq"><div class="card-title">PYQ 2026 — Maxima, Minima, and Inflection Points of \(f(x)=\frac{x}{1+x^2}\)</div><p>Find the maxima and minima of \(f(x)=\dfrac{x}{1+x^2}\). Also find the points of inflection. <em>[15 marks]</em></p></div>
+<div class="card sol"><div class="card-title">Solution</div><p>\(f'(x)=\dfrac{(1+x^2)-x(2x)}{(1+x^2)^2}=\dfrac{1-x^2}{(1+x^2)^2}\). Critical points: \(x=\pm 1\).<br>
+\(f''(x)=\dfrac{-2x(1+x^2)^2-\,(1-x^2)\cdot 2(1+x^2)(2x)}{(1+x^2)^4}=\dfrac{2x(x^2-3)}{(1+x^2)^3}\).<br>
+At \(x=1\): \(f''(1)=\dfrac{2(1-3)}{8}=-\dfrac{1}{2}<0\) — <strong>local maximum</strong>, \(f(1)=\dfrac{1}{2}\).<br>
+At \(x=-1\): \(f''(-1)=\dfrac{-2(1-3)}{8}=\dfrac{1}{2}>0\) — <strong>local minimum</strong>, \(f(-1)=-\dfrac{1}{2}\).<br>
+<strong>Inflection points:</strong> \(f''(x)=0\Rightarrow x=0\) or \(x^2=3\Rightarrow x=\pm\sqrt{3}\). Sign changes confirm inflections at \(x=0,\,\sqrt{3},\,-\sqrt{3}\).<br>
+Note also: \(f(x)\to 0\) as \(x\to\pm\infty\) (horizontal asymptote \(y=0\)).</p></div>
+
+<div class="card pyq"><div class="card-title">PYQ 2026 — Double Integral over \(xy=4\), \(x=1\), \(x=4\), \(y=0\)</div><p>Evaluate \(\displaystyle\iint_R xy\,dA\) where \(R\) is the region in the first quadrant bounded by \(xy=4\), \(x=1\), \(x=4\), and \(y=0\). <em>[10 marks]</em></p></div>
+<div class="card sol"><div class="card-title">Solution</div><p>For \(1\leq x\leq 4\), \(y\) ranges from \(0\) to \(4/x\).
+\[\iint_R xy\,dA=\int_1^4\int_0^{4/x}xy\,dy\,dx=\int_1^4 x\cdot\left[\frac{y^2}{2}\right]_0^{4/x}dx=\int_1^4 x\cdot\frac{16}{2x^2}dx=\int_1^4\frac{8}{x}dx\]
+\[=8[\ln x]_1^4=8\ln 4=16\ln 2.\]</p></div>
+
+<div class="card pyq"><div class="card-title">PYQ 2026 — Volume under Paraboloid \(z=4-x^2-y^2\)</div><p>Find the volume of the solid bounded above by the paraboloid \(z=4-x^2-y^2\) and below by the plane \(z=0\). <em>[10 marks]</em></p></div>
+<div class="card sol"><div class="card-title">Solution</div><p>The paraboloid meets \(z=0\) where \(x^2+y^2=4\), i.e., \(r=2\) in polar coordinates. Convert:
+\[V=\iint_{x^2+y^2\leq 4}(4-x^2-y^2)\,dA=\int_0^{2\pi}\int_0^2(4-r^2)\,r\,dr\,d\theta\]
+\[=2\pi\int_0^2(4r-r^3)\,dr=2\pi\left[2r^2-\frac{r^4}{4}\right]_0^2=2\pi\left(8-4\right)=8\pi.\]</p></div>
+
+<div class="card pyq"><div class="card-title">PYQ 2026 — Cardioid \(r=a(1+\cos\theta)\): Tracing and Area</div><p>Trace the curve \(r=a(1+\cos\theta)\) (cardioid). Find its area. <em>[15 marks]</em></p></div>
+<div class="card sol"><div class="card-title">Solution</div><p><strong>Tracing:</strong> The cardioid is symmetric about the polar axis (\(\theta\mapsto -\theta\)). Key values: \(\theta=0\Rightarrow r=2a\) (rightmost point); \(\theta=\pi/2\Rightarrow r=a\); \(\theta=\pi\Rightarrow r=0\) (cusp at the pole); \(\theta=3\pi/2\Rightarrow r=a\). The curve is a heart-shaped closed curve passing through the pole.<br>
+<strong>Area:</strong> Using \((1+\cos\theta)^2=1+2\cos\theta+\cos^2\theta=\dfrac{3}{2}+2\cos\theta+\dfrac{\cos 2\theta}{2}\):
+\[A=\frac{1}{2}\int_0^{2\pi}r^2\,d\theta=\frac{a^2}{2}\int_0^{2\pi}(1+\cos\theta)^2\,d\theta=\frac{a^2}{2}\int_0^{2\pi}\left(\frac{3}{2}+2\cos\theta+\frac{\cos 2\theta}{2}\right)d\theta\]
+\[=\frac{a^2}{2}\left[\frac{3\theta}{2}+2\sin\theta+\frac{\sin 2\theta}{4}\right]_0^{2\pi}=\frac{a^2}{2}\cdot 3\pi=\frac{3\pi a^2}{2}.\]</p></div>
+
+</body></html>
