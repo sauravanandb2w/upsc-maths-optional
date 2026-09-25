@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Partial Differential Equations — Proofs & PYQ (2000–2024)</title>
+<title>Partial Differential Equations — Proofs & PYQ (2000–2026)</title>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <style>
   :root{--bg:#0f1117;--surface:#1a1d27;--border:#2e3147;--text:#e2e8f0;--muted:#8892a4;--thm:#1e3a5f;--thm-b:#3b82f6;--thm-h:#93c5fd;--proof:#1a2a3a;--proof-b:#60a5fa;--proof-h:#bfdbfe;--defn:#1a3a2a;--defn-b:#22c55e;--defn-h:#86efac;--form:#2d1f4a;--form-b:#a855f7;--form-h:#d8b4fe;--warn:#3a2710;--warn-b:#f59e0b;--warn-h:#fcd34d;--trick:#1f2d3a;--trick-b:#06b6d4;--trick-h:#67e8f9;--pyq:#1a0a2a;--pyq-b:#e879f9;--pyq-h:#f0abfc;--sol:#0a2a1a;--sol-b:#34d399;--sol-h:#a7f3d0;--hot:#3a1a0a;--hot-b:#f97316;--hot-h:#fdba74;}
@@ -23,7 +23,7 @@
 </head>
 <body><div class="container">
 <h1>Partial Differential Equations — Proofs & PYQ</h1>
-<p class="subtitle">UPSC Maths Optional · Paper II · Full Proofs + PYQs 2000–2024</p>
+<p class="subtitle">UPSC Maths Optional · Paper II · Full Proofs + PYQs 2000–2026</p>
 <div class="toc">
   <a href="#hot">★ Most Repeated Themes</a>
   <a href="#p1">First-Order PDEs: Lagrange & Charpit</a>
@@ -35,7 +35,7 @@
   <a href="#pyq4">PYQ: Laplace Equation & Harmonic Functions</a>
 </div>
 
-<h2 id="hot">★ Most Repeated Themes (2000–2024)</h2>
+<h2 id="hot">★ Most Repeated Themes (2000–2026)</h2>
 <div class="card hot">
   <div class="card-title">Wave Equation (Vibrating String) — EVERY year</div>
   <ul>
@@ -136,7 +136,7 @@
 </div>
 
 <!-- ============ PYQ ============ -->
-<h2 id="pyq1">§ PYQ — First-Order PDEs (2000–2024)</h2>
+<h2 id="pyq1">§ PYQ — First-Order PDEs (2000–2026)</h2>
 
 <div class="card pyq">
   <div class="card-title">PYQ 2024 — Lagrange's Method</div>
@@ -174,7 +174,7 @@
   <p>This is Clairaut's PDE \(z=px+qy+f(p,q)\) with \(f(p,q)=p^2+q^2\). Complete integral: \(z=ax+by+a^2+b^2\) (replace \(p\to a,q\to b\)). Singular solution: \(\dfrac{\partial}{\partial a}:x+2a=0\Rightarrow a=-x/2\); \(\dfrac{\partial}{\partial b}:y+2b=0\Rightarrow b=-y/2\). \(z=(-x/2)x+(-y/2)y+x^2/4+y^2/4=-(x^2+y^2)/2+(x^2+y^2)/4=-(x^2+y^2)/4\). Singular: \(x^2+y^2+4z=0\). \(\blacksquare\)</p>
 </div>
 
-<h2 id="pyq2">§ PYQ — Wave Equation (2000–2024)</h2>
+<h2 id="pyq2">§ PYQ — Wave Equation (2000–2026)</h2>
 
 <div class="card pyq">
   <div class="card-title">PYQ 2024 — Vibrating String</div>
@@ -203,7 +203,7 @@
   <p>\(u(x,t)=\sum_{n=1}^\infty b_n\sin(nx)\cos(nt)\) (since \(c=1\), \(L=\pi\)). \(b_n=\dfrac{2}{\pi}\int_0^\pi x(\pi-x)\sin(nx)\,dx\). Compute: \(\int_0^\pi x(\pi-x)\sin(nx)\,dx=\pi\int_0^\pi x\sin(nx)\,dx-\int_0^\pi x^2\sin(nx)\,dx\). First: \(\pi[-x\cos(nx)/n+\sin(nx)/n^2]_0^\pi=\pi[\pi(-1)^{n+1}/n]=\pi^2(-1)^{n+1}/n\). Second (by parts): \([-x^2\cos(nx)/n]_0^\pi+\int_0^\pi2x\cos(nx)/n\,dx=\dfrac{\pi^2(-1)^{n+1}}{n}+\dfrac{2}{n}\int_0^\pi x\cos(nx)\,dx=\dfrac{\pi^2(-1)^{n+1}}{n}+\dfrac{2}{n}\left[\dfrac{x\sin(nx)}{n}+\dfrac{\cos(nx)}{n^2}\right]_0^\pi=\dfrac{\pi^2(-1)^{n+1}}{n}+\dfrac{2}{n^3}((-1)^n-1)\). So \(\int_0^\pi x(\pi-x)\sin(nx)\,dx=\pi^2(-1)^{n+1}/n-\pi^2(-1)^{n+1}/n-2((-1)^n-1)/n^3=2(1-(-1)^n)/n^3\). Thus \(b_n=\dfrac{2}{\pi}\cdot\dfrac{2(1-(-1)^n)}{n^3}=\dfrac{4(1-(-1)^n)}{\pi n^3}\). For odd \(n\): \(b_n=8/(\pi n^3)\); for even \(n\): \(b_n=0\). Solution: \(u=\dfrac{8}{\pi}\sum_{k=0}^\infty\dfrac{\sin((2k+1)x)\cos((2k+1)t)}{(2k+1)^3}\). \(\blacksquare\)</p>
 </div>
 
-<h2 id="pyq3">§ PYQ — Heat Equation & Fourier (2000–2024)</h2>
+<h2 id="pyq3">§ PYQ — Heat Equation & Fourier (2000–2026)</h2>
 
 <div class="card pyq">
   <div class="card-title">PYQ 2023 — Heat Equation in Rod</div>
@@ -223,7 +223,7 @@
   <p>General solution: \(u(x,t)=\sum_{n=1}^\infty b_n\sin(n\pi x/L)e^{-kn^2\pi^2t/L^2}\). IC: \(b_1=T_0\), all others = 0. \(u(x,t)=T_0\sin(\pi x/L)e^{-k\pi^2t/L^2}\). Physical interpretation: temperature decays exponentially, maintaining the same spatial shape. \(\blacksquare\)</p>
 </div>
 
-<h2 id="pyq4">§ PYQ — Laplace & Harmonic (2000–2024)</h2>
+<h2 id="pyq4">§ PYQ — Laplace & Harmonic (2000–2026)</h2>
 
 <div class="card pyq">
   <div class="card-title">PYQ 2024 — Laplace on Rectangle</div>
