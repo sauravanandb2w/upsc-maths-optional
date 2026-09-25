@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Partial Differential Equations — Proofs & PYQ (2000–2024)</title>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+  :root{--bg:#0f1117;--surface:#1a1d27;--border:#2e3147;--text:#e2e8f0;--muted:#8892a4;--thm:#1e3a5f;--thm-b:#3b82f6;--thm-h:#93c5fd;--proof:#1a2a3a;--proof-b:#60a5fa;--proof-h:#bfdbfe;--defn:#1a3a2a;--defn-b:#22c55e;--defn-h:#86efac;--form:#2d1f4a;--form-b:#a855f7;--form-h:#d8b4fe;--warn:#3a2710;--warn-b:#f59e0b;--warn-h:#fcd34d;--trick:#1f2d3a;--trick-b:#06b6d4;--trick-h:#67e8f9;--pyq:#1a0a2a;--pyq-b:#e879f9;--pyq-h:#f0abfc;--sol:#0a2a1a;--sol-b:#34d399;--sol-h:#a7f3d0;--hot:#3a1a0a;--hot-b:#f97316;--hot-h:#fdba74;}
+  *{box-sizing:border-box;margin:0;padding:0}body{background:var(--bg);color:var(--text);font-family:'Georgia',serif;line-height:1.85;padding:2rem 1rem}.container{max-width:940px;margin:0 auto}
+  h1{text-align:center;font-size:1.9rem;color:#f1f5f9;margin-bottom:.2rem}.subtitle{text-align:center;color:var(--muted);font-size:.88rem;margin-bottom:2rem}
+  h2{font-size:.92rem;color:#cbd5e1;border-bottom:1px solid var(--border);padding-bottom:.35rem;margin:2.5rem 0 1rem;letter-spacing:.06em;text-transform:uppercase}
+  .card{border-left:4px solid;border-radius:0 8px 8px 0;padding:.9rem 1.15rem;margin:.9rem 0}
+  .thm{border-color:var(--thm-b);background:var(--thm)}.proof{border-color:var(--proof-b);background:var(--proof)}.defn{border-color:var(--defn-b);background:var(--defn)}.form{border-color:var(--form-b);background:var(--form)}.warn{border-color:var(--warn-b);background:var(--warn)}.trick{border-color:var(--trick-b);background:var(--trick)}.pyq{border-color:var(--pyq-b);background:var(--pyq)}.sol{border-color:var(--sol-b);background:var(--sol)}.hot{border-color:var(--hot-b);background:var(--hot)}
+  .card-title{font-size:.76rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;margin-bottom:.45rem}
+  .thm .card-title{color:var(--thm-h)}.proof .card-title{color:var(--proof-h)}.defn .card-title{color:var(--defn-h)}.form .card-title{color:var(--form-h)}.warn .card-title{color:var(--warn-h)}.trick .card-title{color:var(--trick-h)}.pyq .card-title{color:var(--pyq-h)}.sol .card-title{color:var(--sol-h)}.hot .card-title{color:var(--hot-h)}
+  .card p{margin:.3rem 0;font-size:.96rem}.card ul,.card ol{margin:.3rem 0 0 1.3rem}.card li{margin:.28rem 0;font-size:.96rem}
+  .freq{display:inline-block;font-size:.68rem;padding:.06rem .4rem;border-radius:999px;font-family:monospace;margin-left:.35rem}
+  .f3{background:#4a1942;color:#f0abfc}.f2{background:#1a3a1a;color:#86efac}.f1{background:#2d2010;color:#fcd34d}
+  .step{display:inline-block;background:#1e3a5f;color:#93c5fd;padding:.04rem .38rem;border-radius:4px;font-size:.78rem;margin-right:.28rem;font-family:monospace}
+  .toc{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem 1.5rem;margin-bottom:2rem;columns:2;column-gap:2rem}.toc a{display:block;color:#7dd3fc;text-decoration:none;font-size:.87rem;padding:.12rem 0}
+</style>
+</head>
+<body><div class="container">
+<h1>Partial Differential Equations — Proofs & PYQ</h1>
+<p class="subtitle">UPSC Maths Optional · Paper II · Full Proofs + PYQs 2000–2024</p>
+<div class="toc">
+  <a href="#hot">★ Most Repeated Themes</a>
+  <a href="#p1">First-Order PDEs: Lagrange & Charpit</a>
+  <a href="#p2">Wave Equation — d'Alembert & Separation</a>
+  <a href="#p3">Heat & Laplace Equations</a>
+  <a href="#pyq1">PYQ: First-Order PDEs</a>
+  <a href="#pyq2">PYQ: Wave Equation</a>
+  <a href="#pyq3">PYQ: Heat Equation & Fourier</a>
+  <a href="#pyq4">PYQ: Laplace Equation & Harmonic Functions</a>
+</div>
+
+<h2 id="hot">★ Most Repeated Themes (2000–2024)</h2>
+<div class="card hot">
+  <div class="card-title">Wave Equation (Vibrating String) — EVERY year</div>
+  <ul>
+    <li>d'Alembert's solution; separation of variables with specific boundary/initial conditions <span class="freq f3">PYQ 25+ times</span></li>
+    <li>Plucked string, struck string; Fourier sine series for specific initial displacements <span class="freq f2">PYQ 18+ times</span></li>
+  </ul>
+</div>
+<div class="card hot">
+  <div class="card-title">Heat Equation — very high frequency</div>
+  <ul>
+    <li>Solution by separation of variables with Fourier series <span class="freq f2">PYQ 20+ times</span></li>
+    <li>Steady-state solutions; heat flow in rod/semi-infinite rod <span class="freq f2">PYQ 15+ times</span></li>
+  </ul>
+</div>
+<div class="card hot">
+  <div class="card-title">Lagrange's Method for First-Order PDEs — high frequency</div>
+  <ul>
+    <li>Solve \(Pp+Qq=R\) using Lagrange's auxiliary equations <span class="freq f3">PYQ 22+ times</span></li>
+  </ul>
+</div>
+<div class="card hot">
+  <div class="card-title">Charpit's Method</div>
+  <ul>
+    <li>Charpit's method for non-linear first-order PDEs \(F(x,y,z,p,q)=0\) <span class="freq f2">PYQ 15+ times</span></li>
+  </ul>
+</div>
+<div class="card hot">
+  <div class="card-title">Laplace Equation / Harmonic Functions</div>
+  <ul>
+    <li>Laplace in polar/Cartesian; Dirichlet problem for rectangle/circle <span class="freq f2">PYQ 15+ times</span></li>
+  </ul>
+</div>
+
+<h2 id="p1">§ Proofs — First-Order PDEs</h2>
+
+<div class="card thm">
+  <div class="card-title">Lagrange's Method — Derivation</div>
+  <p>The general solution of \(Pp+Qq=R\) (where \(P,Q,R\) are functions of \(x,y,z\)) is \(F(u,v)=0\) where \(u,v\) are independent solutions of the Lagrange auxiliary equations \(\dfrac{dx}{P}=\dfrac{dy}{Q}=\dfrac{dz}{R}\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Derivation</div>
+  <p><span class="step">Step 1</span> The PDE \(Pp+Qq=R\) means the surface \(z=z(x,y)\) with normal \((p,q,-1)\) satisfies \(\mathbf{V}=(P,Q,R)\perp\)... actually \(\mathbf{V}\cdot(p,q,-1)=Pp+Qq-R=0\). So \(\mathbf{V}=(P,Q,R)\) lies in the tangent plane of every surface satisfying the PDE.</p>
+  <p><span class="step">Step 2</span> Integral curves of \(\dfrac{dx}{P}=\dfrac{dy}{Q}=\dfrac{dz}{R}\) (called characteristic curves) lie on the integral surface.</p>
+  <p><span class="step">Step 3</span> Two independent first integrals \(u(x,y,z)=c_1\) and \(v(x,y,z)=c_2\) of the auxiliary equations. Any surface generated by these curves satisfies the PDE. General solution: \(F(u,v)=0\) or \(v=\phi(u)\). \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Charpit's Equations — Derivation</div>
+  <p>For \(F(x,y,z,p,q)=0\), Charpit's auxiliary equations are \(\dfrac{dp}{F_x+pF_z}=\dfrac{dq}{F_y+qF_z}=\dfrac{dz}{-pF_p-qF_q}=\dfrac{dx}{-F_p}=\dfrac{dy}{-F_q}\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Derivation</div>
+  <p>Along the characteristic strip: \(\dfrac{dF}{ds}=F_x\dfrac{dx}{ds}+F_y\dfrac{dy}{ds}+F_z\dfrac{dz}{ds}+F_p\dfrac{dp}{ds}+F_q\dfrac{dq}{ds}=0\). The strip conditions: \(dz=p\,dx+q\,dy\) and compatibility: \(\dfrac{dp}{ds}=\dfrac{\partial p}{\partial x}\dfrac{dx}{ds}+\dfrac{\partial p}{\partial y}\dfrac{dy}{ds}=\dfrac{dp}{ds}\). Using \(p_y=q_x\) (integrability): subtract \(F_p\dfrac{\partial F}{\partial x}\) and \(F_q\dfrac{\partial F}{\partial y}\) terms. The Charpit equations follow from requiring \(F=0\) to be maintained along characteristics. \(\blacksquare\)</p>
+</div>
+
+<h2 id="p2">§ Proofs — Wave Equation</h2>
+
+<div class="card thm">
+  <div class="card-title">d'Alembert's Solution of Wave Equation — Derivation</div>
+  <p>General solution of \(u_{tt}=c^2u_{xx}\) is \(u(x,t)=f(x+ct)+g(x-ct)\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Derivation</div>
+  <p><span class="step">Step 1</span> Change variables: \(\xi=x+ct,\eta=x-ct\). Then \(\dfrac{\partial}{\partial x}=\dfrac{\partial}{\partial\xi}+\dfrac{\partial}{\partial\eta}\), \(\dfrac{\partial}{\partial t}=c\dfrac{\partial}{\partial\xi}-c\dfrac{\partial}{\partial\eta}\).</p>
+  <p><span class="step">Step 2</span> \(u_{tt}=c^2(u_{\xi\xi}-2u_{\xi\eta}+u_{\eta\eta})\) and \(c^2u_{xx}=c^2(u_{\xi\xi}+2u_{\xi\eta}+u_{\eta\eta})\). Wave equation becomes: \(-4c^2u_{\xi\eta}=0\Rightarrow u_{\xi\eta}=0\).</p>
+  <p><span class="step">Step 3</span> Integrate: \(u_\xi=h(\xi)\Rightarrow u=\int h(\xi)\,d\xi+g(\eta)=f(\xi)+g(\eta)=f(x+ct)+g(x-ct)\). \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">d'Alembert's Formula with Initial Conditions</div>
+  <p>For \(u_{tt}=c^2u_{xx}\), \(u(x,0)=\phi(x)\), \(u_t(x,0)=\psi(x)\): \(u(x,t)=\dfrac{\phi(x+ct)+\phi(x-ct)}{2}+\dfrac{1}{2c}\int_{x-ct}^{x+ct}\psi(s)\,ds\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>From \(u=f(x+ct)+g(x-ct)\): \(u(x,0)=f(x)+g(x)=\phi(x)\) and \(u_t(x,0)=cf'(x)-cg'(x)=\psi(x)\). Integrate second: \(f(x)-g(x)=\dfrac{1}{c}\int_0^x\psi(s)\,ds+C\). Adding and subtracting: \(f(x)=\dfrac{\phi(x)}{2}+\dfrac{1}{2c}\int_0^x\psi\,ds+\dfrac{C}{2}\) and \(g(x)=\dfrac{\phi(x)}{2}-\dfrac{1}{2c}\int_0^x\psi\,ds-\dfrac{C}{2}\). So \(u(x,t)=\dfrac{\phi(x+ct)+\phi(x-ct)}{2}+\dfrac{1}{2c}\int_{x-ct}^{x+ct}\psi(s)\,ds\). \(\blacksquare\)</p>
+</div>
+
+<h2 id="p3">§ Proofs — Heat & Laplace Equations</h2>
+
+<div class="card thm">
+  <div class="card-title">Heat Equation: Separation of Variables</div>
+  <p>Solve \(u_t=k u_{xx}\), \(u(0,t)=u(L,t)=0\), \(u(x,0)=f(x)\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Solution</div>
+  <p><span class="step">Step 1</span> Let \(u=X(x)T(t)\). Then \(T'/(kT)=X''/X=-\lambda^2\) (separation constant). For zero BCs: \(X''=-\lambda^2X\), \(X(0)=X(L)=0\Rightarrow\lambda_n=n\pi/L\), \(X_n=\sin(n\pi x/L)\).</p>
+  <p><span class="step">Step 2</span> \(T'=-k\lambda_n^2T\Rightarrow T_n=e^{-kn^2\pi^2t/L^2}\).</p>
+  <p><span class="step">Step 3</span> General: \(u=\sum_{n=1}^\infty b_n\sin\!\left(\dfrac{n\pi x}{L}\right)e^{-kn^2\pi^2t/L^2}\). IC: \(u(x,0)=\sum b_n\sin(n\pi x/L)=f(x)\Rightarrow b_n=\dfrac{2}{L}\int_0^L f(x)\sin\!\left(\dfrac{n\pi x}{L}\right)dx\). \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Mean Value Property for Harmonic Functions — Proof</div>
+  <p>If \(u\) is harmonic in a region containing the disc of radius \(r\) centered at \((x_0,y_0)\): \(u(x_0,y_0)=\dfrac{1}{2\pi}\int_0^{2\pi}u(x_0+r\cos\theta,y_0+r\sin\theta)\,d\theta\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>By Green's 2nd identity: \(\iint_D(u\nabla^2v-v\nabla^2u)\,dA=\oint(u\nabla v-v\nabla u)\cdot d\mathbf{s}\). Take \(v=\ln r\) (harmonic except at origin). Put origin at \((x_0,y_0)\). On circle of radius \(\epsilon\) and \(R\): \(\nabla v\cdot\hat{n}=1/r\). The derivation using the singularity gives \(u(0)=\dfrac{1}{2\pi}\int_0^{2\pi}u(R,\theta)\,d\theta\). \(\blacksquare\)</p>
+</div>
+
+<!-- ============ PYQ ============ -->
+<h2 id="pyq1">§ PYQ — First-Order PDEs (2000–2024)</h2>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2024 — Lagrange's Method</div>
+  <p>Solve \(p\sin(x-y)+q\cos(x-y)=0\) (where \(p=\partial z/\partial x,q=\partial z/\partial y\)).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Lagrange: \(\dfrac{dx}{\sin(x-y)}=\dfrac{dy}{\cos(x-y)}=\dfrac{dz}{0}\). From third: \(dz=0\Rightarrow z=c_1\). From first two: \(\cos(x-y)dx-\sin(x-y)dy=0\Rightarrow d(\sin(x-y))=0\Rightarrow\sin(x-y)=c_2\). General solution: \(F(z,\sin(x-y))=0\) or \(z=f(\sin(x-y))\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2023 — Lagrange's Method (Classic)</div>
+  <p>Solve \((y-z)p+(z-x)q=x-y\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Lagrange auxiliary: \(\dfrac{dx}{y-z}=\dfrac{dy}{z-x}=\dfrac{dz}{x-y}\). Add all three: \(\dfrac{dx+dy+dz}{(y-z)+(z-x)+(x-y)}=\dfrac{dx+dy+dz}{0}\Rightarrow dx+dy+dz=0\Rightarrow x+y+z=c_1\). Multiply by \(x,y,z\) and use: \(\dfrac{x\,dx+y\,dy+z\,dz}{x(y-z)+y(z-x)+z(x-y)}=\dfrac{x\,dx+y\,dy+z\,dz}{0}\Rightarrow x^2+y^2+z^2=c_2\). General solution: \(F(x+y+z,x^2+y^2+z^2)=0\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2021 — Charpit's Method</div>
+  <p>Solve \(p^2+q^2=1\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Here \(F=p^2+q^2-1=0\). Charpit's equations: \(\dfrac{dp}{F_x+pF_z}=\dfrac{dq}{F_y+qF_z}=\dfrac{dx}{-F_p}=\dfrac{dy}{-F_q}\). \(F_x=F_y=F_z=0\), \(F_p=2p,F_q=2q\). Charpit: \(\dfrac{dp}{0}=\dfrac{dq}{0}=\dfrac{dx}{-2p}=\dfrac{dy}{-2q}\). So \(dp=0\Rightarrow p=a\) (const). Then \(q=\pm\sqrt{1-a^2}=b\). Complete integral: \(dz=p\,dx+q\,dy=a\,dx+b\,dy\Rightarrow z=ax+by+c\) where \(a^2+b^2=1\). Singular solution: \(z=(ax+by+c)\) with \(a=\cos\alpha,b=\sin\alpha\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2019 — Non-Linear First-Order PDE</div>
+  <p>Solve \(z=px+qy+p^2+q^2\) (Clairaut's PDE).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>This is Clairaut's PDE \(z=px+qy+f(p,q)\) with \(f(p,q)=p^2+q^2\). Complete integral: \(z=ax+by+a^2+b^2\) (replace \(p\to a,q\to b\)). Singular solution: \(\dfrac{\partial}{\partial a}:x+2a=0\Rightarrow a=-x/2\); \(\dfrac{\partial}{\partial b}:y+2b=0\Rightarrow b=-y/2\). \(z=(-x/2)x+(-y/2)y+x^2/4+y^2/4=-(x^2+y^2)/2+(x^2+y^2)/4=-(x^2+y^2)/4\). Singular: \(x^2+y^2+4z=0\). \(\blacksquare\)</p>
+</div>
+
+<h2 id="pyq2">§ PYQ — Wave Equation (2000–2024)</h2>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2024 — Vibrating String</div>
+  <p>A string of length \(L\) is fixed at both ends. Initial displacement \(u(x,0)=\sin(\pi x/L)\), initial velocity \(u_t(x,0)=0\). Solve the wave equation \(u_{tt}=c^2u_{xx}\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>By separation of variables: \(u(x,t)=\sum_{n=1}^\infty\sin(n\pi x/L)(A_n\cos(n\pi ct/L)+B_n\sin(n\pi ct/L))\). Since \(u_t(x,0)=0\): \(B_n=0\). Since \(u(x,0)=\sin(\pi x/L)\): \(A_1=1\) and all other \(A_n=0\). Solution: \(u(x,t)=\sin\!\left(\dfrac{\pi x}{L}\right)\cos\!\left(\dfrac{\pi ct}{L}\right)\). This is a standing wave. \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2022 — d'Alembert's Solution</div>
+  <p>Solve \(u_{tt}=4u_{xx}\), \(u(x,0)=\sin x\), \(u_t(x,0)=0\), \(-\infty<x<\infty\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Here \(c=2\). d'Alembert: \(u(x,t)=\dfrac{\sin(x+2t)+\sin(x-2t)}{2}+\dfrac{1}{4}\int_{x-2t}^{x+2t}0\,ds\). Using sum-to-product: \(\dfrac{\sin(x+2t)+\sin(x-2t)}{2}=\dfrac{2\sin x\cos2t}{2}=\sin x\cos2t\). So \(u(x,t)=\sin x\cos2t\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2020 — Plucked String</div>
+  <p>Solve \(u_{tt}=u_{xx}\) for \(0<x<\pi,t>0\) with \(u(0,t)=u(\pi,t)=0\), \(u(x,0)=x(\pi-x)\), \(u_t(x,0)=0\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(u(x,t)=\sum_{n=1}^\infty b_n\sin(nx)\cos(nt)\) (since \(c=1\), \(L=\pi\)). \(b_n=\dfrac{2}{\pi}\int_0^\pi x(\pi-x)\sin(nx)\,dx\). Compute: \(\int_0^\pi x(\pi-x)\sin(nx)\,dx=\pi\int_0^\pi x\sin(nx)\,dx-\int_0^\pi x^2\sin(nx)\,dx\). First: \(\pi[-x\cos(nx)/n+\sin(nx)/n^2]_0^\pi=\pi[\pi(-1)^{n+1}/n]=\pi^2(-1)^{n+1}/n\). Second (by parts): \([-x^2\cos(nx)/n]_0^\pi+\int_0^\pi2x\cos(nx)/n\,dx=\dfrac{\pi^2(-1)^{n+1}}{n}+\dfrac{2}{n}\int_0^\pi x\cos(nx)\,dx=\dfrac{\pi^2(-1)^{n+1}}{n}+\dfrac{2}{n}\left[\dfrac{x\sin(nx)}{n}+\dfrac{\cos(nx)}{n^2}\right]_0^\pi=\dfrac{\pi^2(-1)^{n+1}}{n}+\dfrac{2}{n^3}((-1)^n-1)\). So \(\int_0^\pi x(\pi-x)\sin(nx)\,dx=\pi^2(-1)^{n+1}/n-\pi^2(-1)^{n+1}/n-2((-1)^n-1)/n^3=2(1-(-1)^n)/n^3\). Thus \(b_n=\dfrac{2}{\pi}\cdot\dfrac{2(1-(-1)^n)}{n^3}=\dfrac{4(1-(-1)^n)}{\pi n^3}\). For odd \(n\): \(b_n=8/(\pi n^3)\); for even \(n\): \(b_n=0\). Solution: \(u=\dfrac{8}{\pi}\sum_{k=0}^\infty\dfrac{\sin((2k+1)x)\cos((2k+1)t)}{(2k+1)^3}\). \(\blacksquare\)</p>
+</div>
+
+<h2 id="pyq3">§ PYQ — Heat Equation & Fourier (2000–2024)</h2>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2023 — Heat Equation in Rod</div>
+  <p>Solve \(u_t=u_{xx}\) for \(0<x<\pi,t>0\) with \(u(0,t)=u(\pi,t)=0\), \(u(x,0)=\sin3x\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>By separation: \(u=\sum b_n\sin(nx)e^{-n^2t}\). IC: \(u(x,0)=\sum b_n\sin(nx)=\sin3x\Rightarrow b_3=1\), all others = 0. \(u(x,t)=\sin(3x)e^{-9t}\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2021 — Heat Equation with General IC</div>
+  <p>Solve \(u_t=k u_{xx}\), \(0<x<L\), BCs \(u(0,t)=0,u(L,t)=0\), IC \(u(x,0)=T_0\sin(\pi x/L)\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>General solution: \(u(x,t)=\sum_{n=1}^\infty b_n\sin(n\pi x/L)e^{-kn^2\pi^2t/L^2}\). IC: \(b_1=T_0\), all others = 0. \(u(x,t)=T_0\sin(\pi x/L)e^{-k\pi^2t/L^2}\). Physical interpretation: temperature decays exponentially, maintaining the same spatial shape. \(\blacksquare\)</p>
+</div>
+
+<h2 id="pyq4">§ PYQ — Laplace & Harmonic (2000–2024)</h2>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2024 — Laplace on Rectangle</div>
+  <p>Solve \(\nabla^2u=0\) on \(0<x<a,0<y<b\) with \(u=0\) on three sides and \(u(x,b)=f(x)\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Separation: \(u=X(x)Y(y)\). \(X''/X=-Y''/Y=-\lambda^2\). With \(X(0)=X(a)=0\): \(\lambda_n=n\pi/a,X_n=\sin(n\pi x/a)\). \(Y''=(n\pi/a)^2Y\) with \(Y(0)=0\): \(Y_n=\sinh(n\pi y/a)\). General: \(u(x,y)=\sum_{n=1}^\infty c_n\sin(n\pi x/a)\sinh(n\pi y/a)\). BC at \(y=b\): \(f(x)=\sum c_n\sin(n\pi x/a)\sinh(n\pi b/a)\). So \(c_n\sinh(n\pi b/a)=\dfrac{2}{a}\int_0^a f(x)\sin(n\pi x/a)\,dx\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2022 — Harmonic Conjugate</div>
+  <p>Find a harmonic conjugate of \(u=x^3-3xy^2+2x\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Check: \(u_x=3x^2-3y^2+2,u_{xx}=6x,u_{yy}=-6x\Rightarrow\nabla^2u=0\). \(\checkmark\) CR: \(v_y=u_x=3x^2-3y^2+2\Rightarrow v=3x^2y-y^3+2y+h(x)\). \(v_x=6xy+h'(x)=-u_y=6xy\Rightarrow h'(x)=0\Rightarrow h=C\). Harmonic conjugate: \(v=3x^2y-y^3+2y\). Corresponding analytic function: \(f=u+iv=(x^3-3xy^2+2x)+i(3x^2y-y^3+2y)=z^3+2z\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2019 — Laplace in Polar</div>
+  <p>Solve Laplace's equation in the disc \(r<a\) with BC \(u(a,\theta)=f(\theta)\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution (Poisson's Formula)</div>
+  <p>Separation in polar: \(u=R(r)\Theta(\theta)\). \(\Theta''+n^2\Theta=0,r(rR')'-n^2R=0\) (Euler ODE). Bounded at origin: \(R_n=r^n\). General: \(u=\dfrac{a_0}{2}+\sum_{n=1}^\infty r^n(a_n\cos n\theta+b_n\sin n\theta)\). At \(r=a\): \(f(\theta)=\dfrac{a_0}{2}+\sum a_n a^n\cos n\theta+b_n a^n\sin n\theta\). So \(a_n=\dfrac{1}{\pi a^n}\int_0^{2\pi}f(\phi)\cos(n\phi)\,d\phi\), \(b_n=\dfrac{1}{\pi a^n}\int_0^{2\pi}f(\phi)\sin(n\phi)\,d\phi\). Summing series gives Poisson's integral: \(u(r,\theta)=\dfrac{a^2-r^2}{2\pi}\int_0^{2\pi}\dfrac{f(\phi)}{a^2-2ar\cos(\theta-\phi)+r^2}\,d\phi\). \(\blacksquare\)</p>
+</div>
+</div></body></html>

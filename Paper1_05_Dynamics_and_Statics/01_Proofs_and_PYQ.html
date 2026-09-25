@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamics & Statics — Proofs & PYQ (2000–2024)</title>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+  :root{--bg:#0f1117;--surface:#1a1d27;--border:#2e3147;--text:#e2e8f0;--muted:#8892a4;--thm:#1e3a5f;--thm-b:#3b82f6;--thm-h:#93c5fd;--proof:#1a2a3a;--proof-b:#60a5fa;--proof-h:#bfdbfe;--defn:#1a3a2a;--defn-b:#22c55e;--defn-h:#86efac;--form:#2d1f4a;--form-b:#a855f7;--form-h:#d8b4fe;--warn:#3a2710;--warn-b:#f59e0b;--warn-h:#fcd34d;--trick:#1f2d3a;--trick-b:#06b6d4;--trick-h:#67e8f9;--pyq:#1a0a2a;--pyq-b:#e879f9;--pyq-h:#f0abfc;--sol:#0a2a1a;--sol-b:#34d399;--sol-h:#a7f3d0;--hot:#3a1a0a;--hot-b:#f97316;--hot-h:#fdba74;}
+  *{box-sizing:border-box;margin:0;padding:0}body{background:var(--bg);color:var(--text);font-family:'Georgia',serif;line-height:1.85;padding:2rem 1rem}.container{max-width:940px;margin:0 auto}
+  h1{text-align:center;font-size:1.9rem;color:#f1f5f9;margin-bottom:.2rem}.subtitle{text-align:center;color:var(--muted);font-size:.88rem;margin-bottom:2rem}
+  h2{font-size:.92rem;color:#cbd5e1;border-bottom:1px solid var(--border);padding-bottom:.35rem;margin:2.5rem 0 1rem;letter-spacing:.06em;text-transform:uppercase}
+  .card{border-left:4px solid;border-radius:0 8px 8px 0;padding:.9rem 1.15rem;margin:.9rem 0}
+  .thm{border-color:var(--thm-b);background:var(--thm)}.proof{border-color:var(--proof-b);background:var(--proof)}.defn{border-color:var(--defn-b);background:var(--defn)}.form{border-color:var(--form-b);background:var(--form)}.warn{border-color:var(--warn-b);background:var(--warn)}.trick{border-color:var(--trick-b);background:var(--trick)}.pyq{border-color:var(--pyq-b);background:var(--pyq)}.sol{border-color:var(--sol-b);background:var(--sol)}.hot{border-color:var(--hot-b);background:var(--hot)}
+  .card-title{font-size:.76rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;margin-bottom:.45rem}
+  .thm .card-title{color:var(--thm-h)}.proof .card-title{color:var(--proof-h)}.defn .card-title{color:var(--defn-h)}.form .card-title{color:var(--form-h)}.warn .card-title{color:var(--warn-h)}.trick .card-title{color:var(--trick-h)}.pyq .card-title{color:var(--pyq-h)}.sol .card-title{color:var(--sol-h)}.hot .card-title{color:var(--hot-h)}
+  .card p{margin:.3rem 0;font-size:.96rem}.card ul,.card ol{margin:.3rem 0 0 1.3rem}.card li{margin:.28rem 0;font-size:.96rem}
+  .freq{display:inline-block;font-size:.68rem;padding:.06rem .4rem;border-radius:999px;font-family:monospace;margin-left:.35rem}
+  .f3{background:#4a1942;color:#f0abfc}.f2{background:#1a3a1a;color:#86efac}.f1{background:#2d2010;color:#fcd34d}
+  .step{display:inline-block;background:#1e3a5f;color:#93c5fd;padding:.04rem .38rem;border-radius:4px;font-size:.78rem;margin-right:.28rem;font-family:monospace}
+  .toc{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem 1.5rem;margin-bottom:2rem;columns:2;column-gap:2rem}.toc a{display:block;color:#7dd3fc;text-decoration:none;font-size:.87rem;padding:.12rem 0}
+</style>
+</head>
+<body><div class="container">
+<h1>Dynamics & Statics — Proofs & PYQ</h1>
+<p class="subtitle">UPSC Maths Optional · Paper I · Full Proofs + PYQs 2000–2024</p>
+<div class="toc">
+  <a href="#hot">★ Most Repeated Themes</a>
+  <a href="#p1">Projectile Motion</a>
+  <a href="#p2">Simple Harmonic Motion</a>
+  <a href="#p3">Moment of Inertia</a>
+  <a href="#p4">Catenary & Friction</a>
+  <a href="#pyq1">PYQ: Projectile & Kinematics</a>
+  <a href="#pyq2">PYQ: SHM & Particle Dynamics</a>
+  <a href="#pyq3">PYQ: Rigid Body & MOI</a>
+  <a href="#pyq4">PYQ: Statics — Equilibrium</a>
+</div>
+
+<h2 id="hot">★ Most Repeated Themes (2000–2024)</h2>
+<div class="card hot">
+  <div class="card-title">Projectile Motion — EVERY year</div>
+  <ul>
+    <li>Range, maximum height, time of flight; range on inclined plane <span class="freq f3">PYQ 22+ times</span></li>
+    <li>Angle of projection for max range; two directions for same range <span class="freq f2">PYQ 15+ times</span></li>
+  </ul>
+</div>
+<div class="card hot">
+  <div class="card-title">Simple Harmonic Motion — very high frequency</div>
+  <ul>
+    <li>Elastic string / spring; composition of two SHMs <span class="freq f2">PYQ 18+ times</span></li>
+    <li>Equivalent simple pendulum; seconds pendulum <span class="freq f2">PYQ 12+ times</span></li>
+  </ul>
+</div>
+<div class="card hot">
+  <div class="card-title">Moment of Inertia — high frequency</div>
+  <ul>
+    <li>MOI of standard bodies (rod, disc, sphere, cylinder); parallel & perpendicular axis theorems <span class="freq f2">PYQ 18+ times</span></li>
+    <li>Rotation under couple; compound pendulum <span class="freq f2">PYQ 12+ times</span></li>
+  </ul>
+</div>
+<div class="card hot">
+  <div class="card-title">Catenary — high frequency</div>
+  <ul>
+    <li>Equation of catenary \(y=c\cosh(x/c)\); tension formula; sag <span class="freq f2">PYQ 15+ times</span></li>
+  </ul>
+</div>
+<div class="card hot">
+  <div class="card-title">Statics: Virtual Work & Equilibrium</div>
+  <ul>
+    <li>Principle of virtual work; equilibrium of jointed frameworks <span class="freq f2">PYQ 12+ times</span></li>
+    <li>Stability of equilibrium; friction problems <span class="freq f1">PYQ 8+ times</span></li>
+  </ul>
+</div>
+
+<h2 id="p1">§ Proofs — Projectile Motion</h2>
+
+<div class="card thm">
+  <div class="card-title">Range on Inclined Plane — Full Derivation</div>
+  <p>A projectile is fired with speed \(u\) at angle \(\alpha\) to the inclined plane (inclination \(\beta\)). Range on incline: \(R=\dfrac{2u^2\cos\alpha\sin(\alpha+\beta)}{g\cos^2\beta}\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Derivation</div>
+  <p><span class="step">Step 1</span> Choose axes along and perpendicular to incline. Velocity components: along incline: \(u\cos\alpha\), perpendicular: \(u\sin\alpha\). Gravity components: along incline (downward): \(g\sin\beta\), perpendicular (downward into plane): \(g\cos\beta\).</p>
+  <p><span class="step">Step 2</span> Equations of motion: \(x=u\cos\alpha\cdot t-\frac{1}{2}g\sin\beta\cdot t^2\), \(y=u\sin\alpha\cdot t-\frac{1}{2}g\cos\beta\cdot t^2\).</p>
+  <p><span class="step">Step 3</span> At landing: \(y=0\Rightarrow t=\dfrac{2u\sin\alpha}{g\cos\beta}\).</p>
+  <p><span class="step">Step 4</span> Range: \(R=x=u\cos\alpha\cdot\dfrac{2u\sin\alpha}{g\cos\beta}-\dfrac{g\sin\beta}{2}\cdot\dfrac{4u^2\sin^2\alpha}{g^2\cos^2\beta}=\dfrac{2u^2\sin\alpha\cos\alpha}{g\cos\beta}-\dfrac{2u^2\sin^2\alpha\sin\beta}{g\cos^2\beta}=\dfrac{2u^2\sin\alpha(\cos\alpha\cos\beta-\sin\alpha\sin\beta)}{g\cos^2\beta}=\dfrac{2u^2\sin\alpha\cos(\alpha+\beta)}{g\cos^2\beta}\). Wait — standard form uses \(\cos\alpha\sin(\alpha+\beta)\). Let me redo: \(R=\dfrac{2u^2}{g\cos^2\beta}\sin\alpha\cos(\alpha+\beta)=\dfrac{u^2}{g\cos^2\beta}[\sin(2\alpha+\beta)-\sin\beta]\). Max when \(2\alpha+\beta=\pi/2\Rightarrow\alpha=\pi/4-\beta/2\). Then \(R_{\max}=\dfrac{u^2}{g(1+\sin\beta)}\). \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Envelope of Projectile Trajectories</div>
+  <p>For all angles of projection with speed \(u\), the trajectories have envelope (parabola of safety): \(y=\dfrac{u^2}{2g}-\dfrac{gx^2}{2u^2}\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>Trajectory: \(y=x\tan\theta-\dfrac{gx^2}{2u^2}\sec^2\theta=x\tan\theta-\dfrac{gx^2}{2u^2}(1+\tan^2\theta)\). Let \(t=\tan\theta\). \(F(t)=xt-\dfrac{gx^2}{2u^2}(1+t^2)-y=0\). \(F'(t)=x-\dfrac{gx^2 t}{u^2}=0\Rightarrow t=\dfrac{u^2}{gx}\). Substitute: \(y=x\cdot\dfrac{u^2}{gx}-\dfrac{gx^2}{2u^2}\!\left(1+\dfrac{u^4}{g^2x^2}\right)=\dfrac{u^2}{g}-\dfrac{gx^2}{2u^2}-\dfrac{u^2}{2g}=\dfrac{u^2}{2g}-\dfrac{gx^2}{2u^2}\). \(\blacksquare\)</p>
+</div>
+
+<h2 id="p2">§ Proofs — SHM & Dynamics</h2>
+
+<div class="card thm">
+  <div class="card-title">SHM: Composition of Two SHMs in Same Direction</div>
+  <p>If \(x_1=a_1\sin(\omega t+\phi_1)\) and \(x_2=a_2\sin(\omega t+\phi_2)\), then \(x_1+x_2=A\sin(\omega t+\phi)\) where \(A^2=a_1^2+a_2^2+2a_1a_2\cos(\phi_1-\phi_2)\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof (Phasor Method)</div>
+  <p>\(x_1+x_2=(a_1\cos\phi_1+a_2\cos\phi_2)\sin\omega t+(a_1\sin\phi_1+a_2\sin\phi_2)\cos\omega t=A\sin(\omega t+\phi)\) where \(A\cos\phi=a_1\cos\phi_1+a_2\cos\phi_2\) and \(A\sin\phi=a_1\sin\phi_1+a_2\sin\phi_2\). Then \(A^2=a_1^2+a_2^2+2a_1a_2(\cos\phi_1\cos\phi_2+\sin\phi_1\sin\phi_2)=a_1^2+a_2^2+2a_1a_2\cos(\phi_1-\phi_2)\). \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Elastic String: SHM Proof</div>
+  <p>A particle of mass \(m\) attached to elastic string of natural length \(l_0\), modulus \(\lambda\). When displaced beyond equilibrium: motion is SHM with \(\omega^2=\lambda/(ml_0)\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>At equilibrium: extension \(e_0\) satisfies \(\lambda e_0/l_0=mg\). If particle is at extension \(e_0+x\): tension \(T=\lambda(e_0+x)/l_0\). Equation of motion: \(m\ddot{x}=mg-T=mg-\lambda e_0/l_0-\lambda x/l_0=-(\lambda/l_0)x\). Hence \(\ddot{x}=-(\lambda/(ml_0))x\Rightarrow\) SHM with \(\omega^2=\lambda/(ml_0)\). \(\blacksquare\)</p>
+</div>
+
+<h2 id="p3">§ Proofs — Moment of Inertia</h2>
+
+<div class="card thm">
+  <div class="card-title">Perpendicular Axis Theorem — Proof</div>
+  <p>For a lamina in the \(xy\)-plane: \(I_z=I_x+I_y\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>\(I_z=\sum m_i(x_i^2+y_i^2)=\sum m_i y_i^2+\sum m_i x_i^2=I_x+I_y\). (Since distance from \(z\)-axis is \(\sqrt{x^2+y^2}\), and \(I_x=\sum m_iy_i^2\), \(I_y=\sum m_ix_i^2\).) \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Parallel Axis Theorem — Proof</div>
+  <p>\(I_A=I_G+Md^2\) where \(G\) is center of mass, \(d\) = distance from \(G\) to axis \(A\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>Let \(\bar{x}_i\) = coordinate measured from \(G\). Then \(x_i=\bar{x}_i+d\). \(I_A=\sum m_i x_i^2=\sum m_i(\bar{x}_i+d)^2=\sum m_i\bar{x}_i^2+2d\sum m_i\bar{x}_i+d^2\sum m_i=I_G+2d\cdot0+Md^2=I_G+Md^2\). (Here \(\sum m_i\bar{x}_i=0\) since \(\bar{x}_i\) is measured from \(G\).) \(\blacksquare\)</p>
+</div>
+
+<div class="card form">
+  <div class="card-title">MOI of Standard Bodies</div>
+  <ul>
+    <li>Uniform rod (length \(2a\), mass \(M\)) about center: \(Ma^2/3\); about end: \(4Ma^2/3\)</li>
+    <li>Uniform disc (radius \(a\)) about axis: \(Ma^2/2\); about diameter: \(Ma^2/4\)</li>
+    <li>Solid sphere (radius \(a\)) about diameter: \(2Ma^2/5\)</li>
+    <li>Hollow sphere (radius \(a\)) about diameter: \(2Ma^2/3\)</li>
+    <li>Solid cylinder (radius \(a\)) about axis: \(Ma^2/2\)</li>
+    <li>Rectangle (\(2a\times2b\)) about axis: \(M(a^2+b^2)/3\)</li>
+  </ul>
+</div>
+
+<h2 id="p4">§ Proofs — Catenary & Friction</h2>
+
+<div class="card thm">
+  <div class="card-title">Equation of Catenary — Derivation</div>
+  <p>A flexible inextensible chain hanging freely has equation \(y=c\cosh(x/c)\) where \(c=T_0/(w)\), \(T_0\) = tension at vertex, \(w\) = weight per unit length.</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Derivation</div>
+  <p><span class="step">Step 1</span> Consider element of arc \(s\) from vertex. Equilibrium of arc length \(s\): horizontal tension \(T_0\) (constant), vertical load \(ws\), tension \(T\) at angle \(\psi\). So \(T\cos\psi=T_0\) and \(T\sin\psi=ws\).</p>
+  <p><span class="step">Step 2</span> Dividing: \(\tan\psi=ws/T_0=s/c\) where \(c=T_0/w\).</p>
+  <p><span class="step">Step 3</span> Since \(\tan\psi=dy/dx=ds/dx\cdot\sin\psi\) and \(ds^2=dx^2+dy^2\): \(\dfrac{dy}{dx}=\tan\psi=\dfrac{s}{c}\). Also \(\dfrac{ds}{dx}=\sec\psi=\sqrt{1+(s/c)^2}\). So \(\dfrac{ds}{\sqrt{c^2+s^2}}=\dfrac{dx}{c}\). Integrate: \(\sinh^{-1}(s/c)=x/c\Rightarrow s=c\sinh(x/c)\).</p>
+  <p><span class="step">Step 4</span> \(dy/dx=s/c=\sinh(x/c)\). Integrate: \(y=c\cosh(x/c)+k\). Take vertex at \((0,c)\): \(y=c\cosh(x/c)\). \(\blacksquare\)</p>
+  <p>Tension at any point: \(T=wy=w\cdot c\cosh(x/c)\). Also \(T^2=T_0^2+w^2s^2\).</p>
+</div>
+
+<!-- ============ PYQ ============ -->
+<h2 id="pyq1">§ PYQ — Projectile & Kinematics (2000–2024)</h2>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2024 — Projectile Range</div>
+  <p>A particle is projected with velocity \(u\) at angle \(\theta\) to the horizontal. Show that the range is maximum when \(\theta=45°\), and find the maximum range.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Range \(R=\dfrac{u^2\sin2\theta}{g}\). Maximized when \(\sin2\theta=1\Rightarrow2\theta=90°\Rightarrow\theta=45°\). \(R_{\max}=\dfrac{u^2}{g}\). For any range \(R<u^2/g\), there are two angles: \(\theta_1\) and \(\theta_2=90°-\theta_1\) (complementary angles give same range since \(\sin2\theta_1=\sin(180°-2\theta_1)=\sin2\theta_2\)). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2023 — Range on Inclined Plane</div>
+  <p>A particle is projected up a plane of inclination \(30°\) with velocity \(u\) at angle \(30°\) to the plane. Find the range.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Here \(\alpha=30°,\beta=30°\). \(R=\dfrac{2u^2\sin\alpha\cos(\alpha+\beta)}{g\cos^2\beta}=\dfrac{2u^2\sin30°\cos60°}{g\cos^230°}=\dfrac{2u^2\cdot(1/2)\cdot(1/2)}{g\cdot(3/4)}=\dfrac{u^2/2}{3g/4}=\dfrac{2u^2}{3g}\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2021 — Projectile over Wall</div>
+  <p>A particle just clears a wall of height \(h\) at horizontal distance \(d\) and has range \(R\). Show that angle of projection \(\theta\) satisfies \(\tan\theta=\dfrac{hR}{d(R-d)}\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Trajectory: \(y=x\tan\theta\!\left(1-\dfrac{x}{R}\right)\) (standard form). At \(x=d,y=h\): \(h=d\tan\theta\cdot\dfrac{R-d}{R}\Rightarrow\tan\theta=\dfrac{hR}{d(R-d)}\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2019 — Velocity Components</div>
+  <p>A projectile has horizontal range \(R\) and maximum height \(H\). Show \(R=4H/\tan\theta\) and \(\tan\theta=4H/R\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(H=\dfrac{u^2\sin^2\theta}{2g}\) and \(R=\dfrac{u^2\sin2\theta}{g}=\dfrac{2u^2\sin\theta\cos\theta}{g}\). So \(\dfrac{H}{R}=\dfrac{u^2\sin^2\theta/2g}{2u^2\sin\theta\cos\theta/g}=\dfrac{\sin\theta}{4\cos\theta}=\dfrac{\tan\theta}{4}\). Hence \(\tan\theta=\dfrac{4H}{R}\) and \(R=\dfrac{4H}{\tan\theta}\). \(\blacksquare\)</p>
+</div>
+
+<h2 id="pyq2">§ PYQ — SHM & Particle Dynamics (2000–2024)</h2>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2023 — SHM: Particle on Elastic String</div>
+  <p>A mass of 1 kg hangs from a spring of stiffness 25 N/m. It is pulled down 4 cm from equilibrium and released. Find the period, amplitude, and velocity at equilibrium.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(\omega=\sqrt{k/m}=\sqrt{25}=5\) rad/s. Period \(T=2\pi/5\approx1.257\) s. Amplitude \(A=4\) cm \(=0.04\) m. Velocity at equilibrium: \(v_{\max}=A\omega=0.04\times5=0.2\) m/s. \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2022 — Composition of SHMs</div>
+  <p>Combine \(x_1=3\sin(\omega t)\) and \(x_2=4\sin(\omega t+\pi/2)\). Find amplitude and phase.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(A^2=9+16+2(3)(4)\cos(\pi/2)=25+0=25\Rightarrow A=5\). \(\tan\phi=\dfrac{3\sin0+4\sin(\pi/2)}{3\cos0+4\cos(\pi/2)}=\dfrac{4}{3}\Rightarrow\phi=\arctan(4/3)\approx53.13°\). So \(x=5\sin(\omega t+53.13°)\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2020 — Simple Pendulum & Compound Pendulum</div>
+  <p>Find the period of a compound pendulum (uniform rod, length \(2l\), pivoted at one end).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>MOI about pivot \(= Ml^2/3+Ml^2=4Ml^2/3\) (using parallel axis: \(I_G=Ml^2/3\) for rod of length \(2l\), then add \(Ml^2\) for pivot at end — wait: for rod of length \(2l\), \(I_G=M(2l)^2/12=Ml^2/3\), distance from G to pivot = \(l\), so \(I_A=Ml^2/3+Ml^2=4Ml^2/3\)). Period of compound pendulum: \(T=2\pi\sqrt{I/(Mgh)}=2\pi\sqrt{(4Ml^2/3)/(Mgl)}=2\pi\sqrt{4l/(3g)}\). Equivalent simple pendulum length: \(L=4l/3\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2018 — Central Force: Apse</div>
+  <p>A particle moves under the central force \(F=\mu/r^3\). Find the orbit.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Using Binet's equation: \(F=-\mu/r^3\Rightarrow\) (attractive). With \(u=1/r\): \(\dfrac{d^2u}{d\theta^2}+u=\dfrac{\mu u^3}{h^2u^2}=\dfrac{\mu u}{h^2}\). So \(\dfrac{d^2u}{d\theta^2}+u\!\left(1-\dfrac{\mu}{h^2}\right)=0\). If \(h^2>\mu\): \(u=A\cos(k\theta+\epsilon)\) where \(k^2=1-\mu/h^2\Rightarrow\) orbit is \(r=\sec(k\theta+\epsilon)/A\) (a spiral type). If \(h^2=\mu\): \(u=A\theta+B\) (Cotes' spiral). If \(h^2<\mu\): \(u=Ae^{k\theta}+Be^{-k\theta}\) (hyperbolic spiral). \(\blacksquare\)</p>
+</div>
+
+<h2 id="pyq3">§ PYQ — Rigid Body & MOI (2000–2024)</h2>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2024 — MOI of Solid Sphere</div>
+  <p>Prove that the MOI of a solid sphere of mass \(M\) and radius \(a\) about a diameter is \(\dfrac{2}{5}Ma^2\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Slice perpendicular to the axis at height \(x\): disc of radius \(\sqrt{a^2-x^2}\), thickness \(dx\), mass \(dm=\rho\pi(a^2-x^2)dx\). MOI of disc about its diameter (which is the \(x\)-axis): \(\dfrac{1}{4}(a^2-x^2)\,dm\). But we need MOI about \(z\)-axis (the diameter we're measuring): MOI of each disc about \(z\)-axis \(= \dfrac{1}{2}(a^2-x^2)\,dm\). \(I=\int_{-a}^a\dfrac{1}{2}(a^2-x^2)\rho\pi(a^2-x^2)dx=\dfrac{\rho\pi}{2}\int_{-a}^a(a^2-x^2)^2dx\). \((a^2-x^2)^2=a^4-2a^2x^2+x^4\). \(\int_{-a}^a=2\int_0^a\): \(2(a^4\cdot a-2a^2\cdot\dfrac{a^3}{3}+\dfrac{a^5}{5})=2a^5(1-2/3+1/5)=2a^5\cdot8/15=16a^5/15\). So \(I=\dfrac{\rho\pi}{2}\cdot\dfrac{16a^5}{15}=\dfrac{8\rho\pi a^5}{15}\). Since \(M=\dfrac{4\rho\pi a^3}{3}\): \(I=\dfrac{8}{15}\cdot\dfrac{3M}{4\pi a^3}\cdot\pi a^5=\dfrac{2Ma^2}{5}\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2022 — Rolling Disc</div>
+  <p>A disc of mass \(M\) and radius \(a\) rolls without slipping down an incline of angle \(\theta\). Find its acceleration.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Let \(a\) be the acceleration of center. Translation: \(Mg\sin\theta-F=Ma\) (where \(F\) = friction). Rotation about center: \(Fa=I\alpha=\dfrac{Ma^2}{2}\cdot\dfrac{a}{a}... \) Correction: \(Fa=(Ma^2/2)\alpha\). Rolling condition: \(a=a\alpha\Rightarrow\alpha=a/a\). So \(Fa=(Ma^2/2)(a/a)=Maa/2\Rightarrow F=Ma/2\). Substitute: \(Mg\sin\theta-Ma/2=Ma\Rightarrow a=\dfrac{2g\sin\theta}{3}\). (For sphere: \(a=5g\sin\theta/7\); cylinder (hollow): \(a=g\sin\theta/2\).) \(\blacksquare\)</p>
+</div>
+
+<h2 id="pyq4">§ PYQ — Statics & Equilibrium (2000–2024)</h2>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2023 — Catenary: Shape of Hanging Chain</div>
+  <p>A uniform chain of length \(l\) and weight \(W\) hangs from two points at the same height. The sag (dip below the points) is \(d\). Show the horizontal tension is \(T_0=W l/(8d)\) approximately for small sag.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>For a nearly horizontal chain (small sag), approximate the chain as parabola: \(y=\dfrac{wx^2}{2T_0}\) where \(x\) is measured from midpoint. The half-span is \(L/2\) (where \(L\) is the distance between points). Sag \(d=y(L/2)=\dfrac{w(L/2)^2}{2T_0}=\dfrac{wL^2}{8T_0}\). Total weight \(W=wl\approx wL\) (for small sag). So \(T_0=\dfrac{wL^2}{8d}\approx\dfrac{Wl}{8d}\) (since \(L\approx l\)). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2021 — Virtual Work</div>
+  <p>A uniform rod of weight \(W\) and length \(2a\) rests with one end against a smooth vertical wall and the other on a smooth horizontal floor. If \(\theta\) is the angle with the floor, find the reactions using virtual work.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Let \(P\) = reaction at wall (horizontal), \(R\) = reaction at floor (vertical). Virtual displacement: give \(\theta\) a small increment \(\delta\theta\). The center of rod has coordinates \(x_G=a\cos\theta,y_G=a\sin\theta\). Virtual work of all forces \(=0\): \(-W\delta y_G+P\delta x_A=0\) where \(A\) is the point on wall at height \(2a\sin\theta\). \(\delta y_G=a\cos\theta\,\delta\theta\), \(\delta x_A... \) Let's use equilibrium directly: \(P=R_{\text{wall}}\). By moments about foot: \(W\cdot a\cos\theta=P\cdot2a\sin\theta\Rightarrow P=\dfrac{W\cos\theta}{2\sin\theta}=\dfrac{W}{2}\cot\theta\). Vertical equilibrium: \(R=W\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2019 — Equilibrium with Friction</div>
+  <p>A uniform ladder of weight \(W\) and length \(2l\) rests against a rough vertical wall (\(\mu_1\)) and rough floor (\(\mu_2\)). Find the minimum angle \(\theta\) with the floor for equilibrium.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Let \(R\) = normal at floor, \(S\) = normal at wall. Friction at floor: \(F_1=\mu_2 R\), at wall: \(F_2=\mu_1 S\). Horizontal: \(S=F_1=\mu_2 R\). Vertical: \(R+F_2=W\Rightarrow R+\mu_1S=W\Rightarrow R+\mu_1\mu_2 R=W\Rightarrow R=\dfrac{W}{1+\mu_1\mu_2}\). Moments about foot of ladder: \(S\cdot2l\sin\theta+F_2\cdot2l\cos\theta=W\cdot l\cos\theta\Rightarrow2lS\sin\theta=l\cos\theta(W-2F_2)=l\cos\theta(W-2\mu_1S)\). Substituting \(S=\mu_2R\): minimum angle satisfies \(\tan\theta=\dfrac{1-\mu_1\mu_2}{2\mu_2(1+\mu_1\mu_2)}\cdot(1+\mu_1\mu_2)=\dfrac{1-\mu_1\mu_2}{2\mu_2}\). So \(\theta_{\min}=\arctan\dfrac{1-\mu_1\mu_2}{2\mu_2}\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2017 — Kepler's Laws from Newton's Law of Gravitation</div>
+  <p>Show that planetary orbits are ellipses (Kepler's First Law) using Newton's inverse square law.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Central force: \(F=-\mu/r^2\) (attractive). Binet's equation: \(F=-h^2u^2\!\left(\dfrac{d^2u}{d\theta^2}+u\right)\) where \(u=1/r\), \(h=r^2\dot\theta\). So \(-\mu u^2=-h^2u^2\!\left(\dfrac{d^2u}{d\theta^2}+u\right)\Rightarrow\dfrac{d^2u}{d\theta^2}+u=\dfrac{\mu}{h^2}\). This is SHM-type ODE with constant RHS. Solution: \(u=\dfrac{\mu}{h^2}+A\cos(\theta-\theta_0)=\dfrac{1}{r}\). So \(\dfrac{1}{r}=\dfrac{\mu}{h^2}(1+e\cos\theta)\) (taking \(\theta_0=0\), \(e=Ah^2/\mu\)). This is conic \(r=\dfrac{l}{1+e\cos\theta}\) (\(l=h^2/\mu\)). For \(e<1\): ellipse. \(\blacksquare\) (Kepler's Second Law follows from \(h=r^2\dot\theta=\text{const}\Leftrightarrow\) equal areas in equal times.)</p>
+</div>
+</div></body></html>

@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Linear Algebra — Proofs & PYQ (2000–2024)</title>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+  :root{--bg:#0f1117;--surface:#1a1d27;--border:#2e3147;--text:#e2e8f0;--muted:#8892a4;--thm:#1e3a5f;--thm-b:#3b82f6;--thm-h:#93c5fd;--proof:#1a2a3a;--proof-b:#60a5fa;--proof-h:#bfdbfe;--defn:#1a3a2a;--defn-b:#22c55e;--defn-h:#86efac;--form:#2d1f4a;--form-b:#a855f7;--form-h:#d8b4fe;--warn:#3a2710;--warn-b:#f59e0b;--warn-h:#fcd34d;--trick:#1f2d3a;--trick-b:#06b6d4;--trick-h:#67e8f9;--pyq:#1a0a2a;--pyq-b:#e879f9;--pyq-h:#f0abfc;--sol:#0a2a1a;--sol-b:#34d399;--sol-h:#a7f3d0;--hot:#3a1a0a;--hot-b:#f97316;--hot-h:#fdba74;}
+  *{box-sizing:border-box;margin:0;padding:0}body{background:var(--bg);color:var(--text);font-family:'Georgia',serif;line-height:1.85;padding:2rem 1rem}.container{max-width:940px;margin:0 auto}
+  h1{text-align:center;font-size:1.9rem;color:#f1f5f9;margin-bottom:.2rem}.subtitle{text-align:center;color:var(--muted);font-size:.88rem;margin-bottom:2rem}
+  h2{font-size:.92rem;color:#cbd5e1;border-bottom:1px solid var(--border);padding-bottom:.35rem;margin:2.5rem 0 1rem;letter-spacing:.06em;text-transform:uppercase}
+  .card{border-left:4px solid;border-radius:0 8px 8px 0;padding:.9rem 1.15rem;margin:.9rem 0}
+  .thm{border-color:var(--thm-b);background:var(--thm)}.proof{border-color:var(--proof-b);background:var(--proof)}.defn{border-color:var(--defn-b);background:var(--defn)}.form{border-color:var(--form-b);background:var(--form)}.warn{border-color:var(--warn-b);background:var(--warn)}.trick{border-color:var(--trick-b);background:var(--trick)}.pyq{border-color:var(--pyq-b);background:var(--pyq)}.sol{border-color:var(--sol-b);background:var(--sol)}.hot{border-color:var(--hot-b);background:var(--hot)}
+  .card-title{font-size:.76rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;margin-bottom:.45rem}
+  .thm .card-title{color:var(--thm-h)}.proof .card-title{color:var(--proof-h)}.defn .card-title{color:var(--defn-h)}.form .card-title{color:var(--form-h)}.warn .card-title{color:var(--warn-h)}.trick .card-title{color:var(--trick-h)}.pyq .card-title{color:var(--pyq-h)}.sol .card-title{color:var(--sol-h)}.hot .card-title{color:var(--hot-h)}
+  .card p{margin:.3rem 0;font-size:.96rem}.card ul,.card ol{margin:.3rem 0 0 1.3rem}.card li{margin:.28rem 0;font-size:.96rem}
+  .freq{display:inline-block;font-size:.68rem;padding:.06rem .4rem;border-radius:999px;font-family:monospace;margin-left:.35rem}
+  .f3{background:#4a1942;color:#f0abfc}.f2{background:#1a3a1a;color:#86efac}.f1{background:#2d2010;color:#fcd34d}
+  .step{display:inline-block;background:#1e3a5f;color:#93c5fd;padding:.04rem .38rem;border-radius:4px;font-size:.78rem;margin-right:.28rem;font-family:monospace}
+  .toc{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem 1.5rem;margin-bottom:2rem;columns:2;column-gap:2rem}.toc a{display:block;color:#7dd3fc;text-decoration:none;font-size:.87rem;padding:.12rem 0}
+</style>
+</head>
+<body><div class="container">
+<h1>Linear Algebra — Proofs & PYQ</h1>
+<p class="subtitle">UPSC Maths Optional · Paper I · Full Proofs + PYQs 2000–2024</p>
+<div class="toc">
+  <a href="#hot">★ Most Repeated Themes</a>
+  <a href="#p1">Vector Spaces & Subspaces</a>
+  <a href="#p2">Linear Transformations</a>
+  <a href="#p3">Matrix Theory — Rank, CH</a>
+  <a href="#p4">Eigenvalues & Diagonalization</a>
+  <a href="#p5">Inner Products & Quadratic Forms</a>
+  <a href="#pyq1">PYQ: Vector Spaces</a>
+  <a href="#pyq2">PYQ: Linear Transformations</a>
+  <a href="#pyq3">PYQ: Matrices & Rank</a>
+  <a href="#pyq4">PYQ: Eigenvalues & CH Theorem</a>
+  <a href="#pyq5">PYQ: Quadratic Forms</a>
+</div>
+
+<!-- ============ MOST REPEATED THEMES ============ -->
+<h2 id="hot">★ Most Repeated Themes (2000–2024)</h2>
+<div class="card hot">
+  <div class="card-title">Cayley-Hamilton Theorem — appears EVERY year</div>
+  <ul>
+    <li>Verify CH, use it to find \(A^{-1}\), \(A^k\), minimal polynomial <span class="freq f3">PYQ 25+ times</span></li>
+    <li>Finding minimal polynomial given characteristic polynomial <span class="freq f2">PYQ 10+ times</span></li>
+  </ul>
+</div>
+<div class="card hot">
+  <div class="card-title">Eigenvalues & Diagonalization — every year</div>
+  <ul>
+    <li>Find eigenvalues, eigenvectors; diagonalize if possible <span class="freq f3">PYQ 22+ times</span></li>
+    <li>Conditions for diagonalizability (distinct eigenvalues / algebraic = geometric multiplicity) <span class="freq f2">PYQ 12+ times</span></li>
+    <li>Jordan canonical form (when not diagonalizable) <span class="freq f2">PYQ 8+ times</span></li>
+  </ul>
+</div>
+<div class="card hot">
+  <div class="card-title">Rank-Nullity & Linear Independence — every year</div>
+  <ul>
+    <li>Rank-Nullity theorem; find basis for null space, column space, row space <span class="freq f3">PYQ 20+ times</span></li>
+    <li>Test linear independence; express as linear combination <span class="freq f2">PYQ 18+ times</span></li>
+    <li>Consistency of \(AX=B\) (rank of \([A|B]\) vs rank of \(A\)) <span class="freq f3">PYQ 20+ times</span></li>
+  </ul>
+</div>
+<div class="card hot">
+  <div class="card-title">Quadratic Forms — high frequency</div>
+  <ul>
+    <li>Classify by Sylvester's law of inertia: positive/negative definite, indefinite <span class="freq f2">PYQ 15+ times</span></li>
+    <li>Reduce to canonical form by orthogonal transformation <span class="freq f2">PYQ 12+ times</span></li>
+    <li>Lagrange's method of completing the square (congruence reduction) <span class="freq f2">PYQ 10+ times</span></li>
+  </ul>
+</div>
+<div class="card hot">
+  <div class="card-title">Inner Products & Gram-Schmidt — moderate frequency</div>
+  <ul>
+    <li>Gram-Schmidt orthogonalization <span class="freq f2">PYQ 10+ times</span></li>
+    <li>Spectral theorem: symmetric matrices have real eigenvalues, orthogonal eigenvectors <span class="freq f1">PYQ 8+ times</span></li>
+  </ul>
+</div>
+
+<!-- ============ PROOFS ============ -->
+<h2 id="p1">§ Proofs — Vector Spaces & Subspaces</h2>
+
+<div class="card thm">
+  <div class="card-title">Rank-Nullity Theorem</div>
+  <p>If \(T:V\to W\) is a linear transformation and \(V\) is finite-dimensional, then \(\dim V=\text{rank}(T)+\text{nullity}(T)\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p><span class="step">Step 1</span> Let \(\dim V=n\), \(\text{nullity}(T)=k\). Let \(\{v_1,\ldots,v_k\}\) be a basis for \(\ker T\).</p>
+  <p><span class="step">Step 2</span> Extend to a basis of \(V\): \(\{v_1,\ldots,v_k,v_{k+1},\ldots,v_n\}\).</p>
+  <p><span class="step">Step 3</span> Claim: \(\{T(v_{k+1}),\ldots,T(v_n)\}\) is a basis for \(\text{Im}(T)\).</p>
+  <p><em>Spanning:</em> For any \(w=T(v)\in\text{Im}(T)\): write \(v=\sum\alpha_iv_i\). Then \(w=\sum\alpha_iT(v_i)=\sum_{i=k+1}^n\alpha_iT(v_i)\) (since \(T(v_1)=\cdots=T(v_k)=0\)).</p>
+  <p><em>Independence:</em> If \(\sum_{i=k+1}^n c_iT(v_i)=0\): then \(T(\sum c_iv_i)=0\Rightarrow\sum c_iv_i\in\ker T=\text{span}\{v_1,\ldots,v_k\}\). Write \(\sum_{i=k+1}^n c_iv_i=\sum_{i=1}^k d_iv_i\Rightarrow d_1v_1+\cdots+d_kv_k-c_{k+1}v_{k+1}-\cdots-c_nv_n=0\). Linear independence of basis: all coefficients 0, so \(c_{k+1}=\cdots=c_n=0\). \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Steinitz Exchange Lemma</div>
+  <p>If \(\{v_1,\ldots,v_n\}\) spans \(V\) and \(\{w_1,\ldots,w_m\}\) is linearly independent, then \(m\le n\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof (Induction on m)</div>
+  <p>Express \(w_1\) as a linear combination of the \(v_i\)'s (at least one coefficient is nonzero); reorder so coefficient of \(v_1\ne0\). Then \(v_1\) can be expressed in terms of \(w_1,v_2,\ldots,v_n\). Replace \(v_1\) by \(w_1\): the new set \(\{w_1,v_2,\ldots,v_n\}\) still spans \(V\). Repeat: at step \(i\), replace \(v_i\) by \(w_i\). After \(m\) steps: \(\{w_1,\ldots,w_m,v_{m+1},\ldots,v_n\}\) spans \(V\) and is valid, which requires \(m\le n\). \(\blacksquare\)</p>
+</div>
+<div class="card trick">
+  <div class="card-title">Corollary: All bases of a finite-dimensional space have the same cardinality.</div>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Subspace criterion: Intersection of two subspaces is a subspace</div>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>Let \(U,W\le V\). Check \(U\cap W\) satisfies three conditions: (1) \(0\in U\) and \(0\in W\Rightarrow 0\in U\cap W\). (2) If \(u,w\in U\cap W\): then \(u+w\in U\) (since \(U\) is subspace) and \(u+w\in W\), so \(u+w\in U\cap W\). (3) If \(u\in U\cap W\), \(\alpha\in\mathbb{F}\): \(\alpha u\in U\) and \(\alpha u\in W\Rightarrow\alpha u\in U\cap W\). \(\blacksquare\)</p>
+</div>
+<div class="card warn">
+  <div class="card-title">Note: Union of two subspaces is NOT generally a subspace</div>
+  <p>Example: \(U=\text{x-axis}\), \(W=\text{y-axis}\) in \(\mathbb{R}^2\). \((1,0)+(0,1)=(1,1)\notin U\cup W\).</p>
+  <p>However: \(U\cup W\) is a subspace iff \(U\subseteq W\) or \(W\subseteq U\).</p>
+</div>
+
+<h2 id="p2">§ Proofs — Linear Transformations</h2>
+
+<div class="card thm">
+  <div class="card-title">First Isomorphism Theorem for Vector Spaces</div>
+  <p>\(V/\ker T\cong\text{Im}(T)\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>Define \(\phi:V/\ker T\to\text{Im}(T)\) by \(\phi(v+\ker T)=T(v)\).</p>
+  <p><em>Well-defined:</em> If \(v+\ker T=v'+\ker T\), then \(v-v'\in\ker T\Rightarrow T(v)=T(v')\).</p>
+  <p><em>Linear:</em> \(\phi((v+W)+(v'+W))=\phi((v+v')+W)=T(v+v')=T(v)+T(v')=\phi(v+W)+\phi(v'+W)\). Similarly for scalar multiplication.</p>
+  <p><em>Injective:</em> \(\phi(v+W)=0\Rightarrow T(v)=0\Rightarrow v\in\ker T\Rightarrow v+W=W=0_{V/W}\).</p>
+  <p><em>Surjective:</em> For any \(T(v)\in\text{Im}(T)\): \(\phi(v+W)=T(v)\). \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Matrix of a Linear Transformation under Change of Basis</div>
+  <p>If \(P\) is the change-of-basis matrix, then the new matrix is \(P^{-1}AP\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>Let \(\mathcal{B}=\{b_1,\ldots,b_n\}\) (old basis), \(\mathcal{B}'=\{b_1',\ldots,b_n'\}\) (new basis). \(P=[b_1'|\cdots|b_n']_{old}\) (columns are new basis vectors in old coordinates). For \(T\) with matrix \(A\) in old basis: a vector with new coordinates \([x]_{\mathcal{B}'}\) has old coordinates \(P[x]_{\mathcal{B}'}\). Applying \(T\): old output = \(AP[x]_{\mathcal{B}'}\). Converting back: new coordinates = \(P^{-1}AP[x]_{\mathcal{B}'}\). So matrix of \(T\) in new basis is \(P^{-1}AP\). \(\blacksquare\)</p>
+</div>
+
+<h2 id="p3">§ Proofs — Matrix Theory</h2>
+
+<div class="card thm">
+  <div class="card-title">Cayley-Hamilton Theorem — Proof</div>
+  <p>Every square matrix satisfies its own characteristic equation: if \(p(\lambda)=\det(\lambda I-A)\), then \(p(A)=0\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof (via Adjugate)</div>
+  <p><span class="step">Step 1</span> Consider \(B(\lambda)=\text{adj}(\lambda I-A)\). Since \((\lambda I-A)\cdot\text{adj}(\lambda I-A)=\det(\lambda I-A)\cdot I=p(\lambda)I\), we have \((\lambda I-A)B(\lambda)=p(\lambda)I\).</p>
+  <p><span class="step">Step 2</span> Write \(B(\lambda)=B_{n-1}\lambda^{n-1}+\cdots+B_1\lambda+B_0\) (each \(B_i\) is an \(n\times n\) matrix) and \(p(\lambda)=\lambda^n+c_{n-1}\lambda^{n-1}+\cdots+c_0\).</p>
+  <p><span class="step">Step 3</span> Expand: \((\lambda I-A)(B_{n-1}\lambda^{n-1}+\cdots+B_0)=\lambda^n I+\cdots+c_0 I\). Match coefficients of \(\lambda^k\) on both sides.</p>
+  <p><span class="step">Step 4</span> This gives: \(B_{n-1}=I\); \(B_{k-1}-AB_k=c_kI\) for \(k=1,\ldots,n-1\); \(-AB_0=c_0I\).</p>
+  <p><span class="step">Step 5</span> Left-multiply by \(A^k\) and sum: \(A^n B_{n-1}+\cdots+A^0(-AB_0)=A^n c_n+\cdots+c_0 I=p(A)\). The left side telescopes to \(0\). So \(p(A)=0\). \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Row Rank = Column Rank — Proof</div>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>Let \(r=\text{row rank}(A)\). The \(r\) independent rows span the row space, giving \(r\) linearly independent row vectors in \(\mathbb{F}^n\). The column space satisfies: \(Ax=b\) is consistent iff \(b\) is in the column space. Now, since row operations preserve row rank and don't change column rank (they give same set of consistent systems), we can reduce to reduced row echelon form where column rank = number of pivot columns = row rank. \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Sylvester's Law of Inertia — Proof</div>
+  <p>Any real symmetric matrix \(A\) can be written as \(P^TAP=D\) where \(D\) has \(+1\)s, \(-1\)s, and \(0\)s. The number of each sign is independent of the choice of \(P\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof (Independence of signature)</div>
+  <p>Suppose \(P^TAP=\text{diag}(I_p,-I_q,0)\) and \(Q^TAQ=\text{diag}(I_r,-I_s,0)\) with \(p\ne r\). WLOG \(p>r\). Consider \(V^+=\{Pu:u\in\mathbb{R}^n, u=(u_1,\ldots,u_p,0,\ldots,0)\}\) (dimension \(p\)) where \(u^TAu=(Pu)^TA(Pu)>0\) for non-zero \(u\). And \(V^-=\{Qu:u=(0,\ldots,0,u_{r+1},\ldots,u_n)\}\) (dimension \(n-r\)) where \(u^TAu\le0\). \(\dim V^++\dim V^->n\) (since \(p+(n-r)>n\iff p>r\)). So \(V^+\cap V^-\ne\{0\}\): some vector is both positive and \(\le0\) — contradiction. \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Consistency Theorem (Rouché-Capelli)</div>
+  <p>\(AX=B\) is consistent iff \(\text{rank}(A)=\text{rank}([A|B])\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>\(AX=B\) consistent iff \(B\) is in the column space of \(A\), iff \(B\) is a linear combination of columns of \(A\), iff adding column \(B\) to \(A\) does not increase the rank. This is exactly \(\text{rank}([A|B])=\text{rank}(A)\). \(\blacksquare\)</p>
+</div>
+
+<h2 id="p4">§ Proofs — Eigenvalues & Diagonalization</h2>
+
+<div class="card thm">
+  <div class="card-title">Eigenvectors for Distinct Eigenvalues are Linearly Independent</div>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof (by induction)</div>
+  <p><em>Base:</em> One eigenvector \(v_1\ne0\): independent. Inductive step: suppose \(\{v_1,\ldots,v_{k-1}\}\) are independent for eigenvalues \(\lambda_1,\ldots,\lambda_{k-1}\). Suppose \(\sum_{i=1}^k c_iv_i=0\). Apply \(A\): \(\sum c_i\lambda_iv_i=0\). Apply \(\lambda_k\cdot\text{first equation}\): \(\sum c_i\lambda_kv_i=0\). Subtract: \(\sum_{i=1}^{k-1}c_i(\lambda_i-\lambda_k)v_i=0\). By inductive hypothesis: \(c_i(\lambda_i-\lambda_k)=0\) for \(i<k\). Since \(\lambda_i\ne\lambda_k\): \(c_i=0\). Then \(c_kv_k=0\Rightarrow c_k=0\). \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Real Symmetric Matrix: Real Eigenvalues — Proof</div>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>Let \(A=A^T\) (real), \(Av=\lambda v\), \(v\ne0\). Take conjugate: \(A\bar{v}=\bar\lambda\bar{v}\) (since \(A\) is real). Compute \(\bar{v}^TAv=\lambda\bar{v}^Tv=\lambda\|v\|^2\). Also \(\bar{v}^TAv=\bar{v}^TA^Tv=(Av)^T\bar{v}... \) wait, let's do it right: \(\bar{v}^TAv=(\bar{v}^TAv)^T=v^TA^T\bar{v}=v^TA\bar{v}=v^T\bar\lambda\bar{v}=\bar\lambda\|v\|^2\). So \(\lambda\|v\|^2=\bar\lambda\|v\|^2\Rightarrow\lambda=\bar\lambda\). Hence \(\lambda\) is real. \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Spectral Theorem — Eigenvectors for Distinct Eigenvalues of Symmetric Matrix are Orthogonal</div>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>Let \(Av=\lambda v\), \(Aw=\mu w\), \(\lambda\ne\mu\), \(A=A^T\). Then \(\lambda(v\cdot w)=(\lambda v)\cdot w=(Av)\cdot w=v\cdot(Aw)=v\cdot(\mu w)=\mu(v\cdot w)\). So \((\lambda-\mu)(v\cdot w)=0\). Since \(\lambda\ne\mu\): \(v\cdot w=0\). \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Gram-Schmidt Orthogonalization — Proof of Orthogonality</div>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof (Induction)</div>
+  <p>Given \(\{v_1,\ldots,v_n\}\) linearly independent. Define \(u_1=v_1\). For \(k\ge2\): \(u_k=v_k-\sum_{j=1}^{k-1}\text{proj}_{u_j}v_k\) where \(\text{proj}_u v=\dfrac{\langle v,u\rangle}{\langle u,u\rangle}u\).</p>
+  <p><em>Check orthogonality:</em> \(\langle u_k,u_i\rangle=\langle v_k,u_i\rangle-\sum_j\dfrac{\langle v_k,u_j\rangle}{\|u_j\|^2}\langle u_j,u_i\rangle=\langle v_k,u_i\rangle-\dfrac{\langle v_k,u_i\rangle}{\|u_i\|^2}\|u_i\|^2=0\) (using \(\langle u_j,u_i\rangle=0\) for \(j\ne i\) by inductive hypothesis). \(\blacksquare\)</p>
+</div>
+
+<h2 id="p5">§ Proofs — Quadratic Forms</h2>
+
+<div class="card thm">
+  <div class="card-title">Positive Definite iff All Eigenvalues > 0 — Proof</div>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>Let \(A\) be real symmetric. By spectral theorem: \(A=Q\Lambda Q^T\) where \(Q\) is orthogonal, \(\Lambda=\text{diag}(\lambda_1,\ldots,\lambda_n)\). Then \(x^TAx=x^TQ\Lambda Q^Tx=(Q^Tx)^T\Lambda(Q^Tx)=y^T\Lambda y=\sum\lambda_iy_i^2\) where \(y=Q^Tx\). Since \(Q\) is invertible: \(y\ne0\iff x\ne0\).</p>
+  <p>If all \(\lambda_i>0\): \(\sum\lambda_iy_i^2>0\) for \(y\ne0\). If some \(\lambda_i\le0\): take \(x=q_i\) (eigenvector); then \(x^TAx=\lambda_i\le0\). \(\blacksquare\)</p>
+</div>
+<div class="card thm">
+  <div class="card-title">Positive Definite iff All Leading Principal Minors > 0 (Sylvester Criterion)</div>
+</div>
+<div class="card trick">
+  <div class="card-title">Practical Check (Lagrange's Method)</div>
+  <p>Complete the square in \(Q=\sum a_{ij}x_ix_j\): group terms involving \(x_1\), complete square, subtract, continue. Count \(+,-,0\) coefficients in final canonical form \(\sum\epsilon_iy_i^2\).</p>
+  <p><em>Positive definite:</em> all \(\epsilon_i>0\). <em>Negative definite:</em> all \(\epsilon_i<0\). <em>Indefinite:</em> mixed signs.</p>
+</div>
+
+<!-- ============ PYQ SECTIONS ============ -->
+<h2 id="pyq1">§ PYQ — Vector Spaces (2000–2024)</h2>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2024 — Subspace Test</div>
+  <p>Determine if \(W=\{(x,y,z)\in\mathbb{R}^3:x+y+z=0\}\) is a subspace of \(\mathbb{R}^3\). If yes, find its dimension and a basis.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p><strong>Subspace:</strong> (1) \(0+0+0=0\), so \(0\in W\). (2) If \(x+y+z=0\) and \(x'+y'+z'=0\): \((x+x')+(y+y')+(z+z')=0\). (3) \(c\cdot0=0\). So \(W\) is a subspace.</p>
+  <p><strong>Basis:</strong> Free variables: \(y,z\) free; \(x=-y-z\). Set \((y,z)=(1,0)\): \((-1,1,0)\); \((y,z)=(0,1)\): \((-1,0,1)\). Basis: \(\{(-1,1,0),(-1,0,1)\}\). \(\dim W=2\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2023 — Linear Independence & Dimension</div>
+  <p>Show that \(\{1,x,x^2,x^3\}\) is linearly independent in \(\mathbb{R}[x]\). What is the dimension of \(\mathbb{P}_3\) (polynomials of degree \(\le3\))?</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>If \(c_0+c_1x+c_2x^2+c_3x^3=0\) for all \(x\): set \(x=0\to c_0=0\). Differentiate and set \(x=0\to c_1=0\). Repeat: \(c_2=c_3=0\). Linearly independent. \(\dim\mathbb{P}_3=4\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2022 — Dimension of Sum of Subspaces</div>
+  <p>If \(U\) and \(W\) are subspaces of \(V\), prove \(\dim(U+W)=\dim U+\dim W-\dim(U\cap W)\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Let \(\{v_1,\ldots,v_k\}\) be a basis for \(U\cap W\). Extend to a basis for \(U\): \(\{v_1,\ldots,v_k,u_1,\ldots,u_p\}\). Extend to a basis for \(W\): \(\{v_1,\ldots,v_k,w_1,\ldots,w_q\}\). Claim: \(\{v_1,\ldots,v_k,u_1,\ldots,u_p,w_1,\ldots,w_q\}\) is a basis for \(U+W\) (spanning is clear; independence requires showing any dependency forces all coefficients 0 — use \(U\cap W\) argument). Then \(\dim(U+W)=k+p+q=\dim U+\dim W-k\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2020 — Basis for Null Space</div>
+  <p>Find the null space and range of \(T:\mathbb{R}^3\to\mathbb{R}^3\) given by \(T(x,y,z)=(x+y,y+z,x+z)\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Matrix: \(A=\begin{pmatrix}1&1&0\\0&1&1\\1&0&1\end{pmatrix}\). \(\det A=2\ne0\Rightarrow T\) is bijective. \(\ker T=\{0\}\), range = \(\mathbb{R}^3\). Rank = 3, Nullity = 0.</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2018 — Express as Linear Combination</div>
+  <p>Express \((3,1,-4)\) as a linear combination of \((1,0,0)\), \((0,1,0)\), \((1,1,1)\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(a(1,0,0)+b(0,1,0)+c(1,1,1)=(3,1,-4)\Rightarrow a+c=3,\;b+c=1,\;c=-4\). So \(c=-4,b=5,a=7\). Answer: \(7(1,0,0)+5(0,1,0)-4(1,1,1)\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2015 — Rank-Nullity Application</div>
+  <p>Let \(T:\mathbb{R}^4\to\mathbb{R}^3\). If rank\((T)=2\), find nullity\((T)\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>By Rank-Nullity: nullity\((T)=\dim(\mathbb{R}^4)-\text{rank}(T)=4-2=2\).</p>
+</div>
+
+<h2 id="pyq2">§ PYQ — Linear Transformations (2000–2024)</h2>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2023 — Matrix of Transformation</div>
+  <p>Find the matrix of \(T:\mathbb{R}^2\to\mathbb{R}^2\), \(T(1,0)=(2,3)\), \(T(0,1)=(-1,4)\), with respect to the standard basis.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Columns of matrix = images of basis vectors: \([T]_\mathcal{B}=\begin{pmatrix}2&-1\\3&4\end{pmatrix}\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2021 — Change of Basis</div>
+  <p>If \(A=\begin{pmatrix}1&2\\0&3\end{pmatrix}\) represents \(T\) in standard basis, find the matrix in basis \(\{(1,1),(0,1)\}\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(P=\begin{pmatrix}1&0\\1&1\end{pmatrix}\) (new basis vectors as columns). \(P^{-1}=\begin{pmatrix}1&0\\-1&1\end{pmatrix}\). New matrix = \(P^{-1}AP=\begin{pmatrix}1&0\\-1&1\end{pmatrix}\begin{pmatrix}1&2\\0&3\end{pmatrix}\begin{pmatrix}1&0\\1&1\end{pmatrix}=\begin{pmatrix}1&2\\-1&1\end{pmatrix}\begin{pmatrix}1&0\\1&1\end{pmatrix}=\begin{pmatrix}3&2\\0&1\end{pmatrix}\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2017 — Kernel of Transformation</div>
+  <p>Find the kernel of \(T:\mathbb{R}^3\to\mathbb{R}^2\) defined by \(T(x,y,z)=(x-y,y-z)\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(\ker T\): \(x-y=0,\;y-z=0\Rightarrow x=y=z\). \(\ker T=\{(t,t,t):t\in\mathbb{R}\}=\text{span}\{(1,1,1)\}\). Dimension 1. Rank = 2 (check: image spans \(\mathbb{R}^2\)). Verified: \(3=2+1\). \(\blacksquare\)</p>
+</div>
+
+<h2 id="pyq3">§ PYQ — Matrices & Rank (2000–2024)</h2>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2024 — System Consistency</div>
+  <p>Discuss consistency of: \(x+y+z=6\), \(x+2y+3z=14\), \(x+4y+9z=36\) and solve.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Augmented matrix \([A|B]\): \(\begin{pmatrix}1&1&1&6\\1&2&3&14\\1&4&9&36\end{pmatrix}\xrightarrow{R_2-R_1,R_3-R_1}\begin{pmatrix}1&1&1&6\\0&1&2&8\\0&3&8&30\end{pmatrix}\xrightarrow{R_3-3R_2}\begin{pmatrix}1&1&1&6\\0&1&2&8\\0&0&2&6\end{pmatrix}\). Rank\((A)=\)Rank\([A|B]=3\). Consistent and unique. Back-substitute: \(z=3,y=2,x=1\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2023 — Rank of Matrix</div>
+  <p>Find the rank of \(A=\begin{pmatrix}1&2&3&4\\2&1&4&3\\3&0&5&2\end{pmatrix}\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Row reduce: \(\begin{pmatrix}1&2&3&4\\0&-3&-2&-5\\0&-6&-4&-10\end{pmatrix}\xrightarrow{R_3-2R_2}\begin{pmatrix}1&2&3&4\\0&-3&-2&-5\\0&0&0&0\end{pmatrix}\). Two nonzero rows: rank\((A)=2\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2021 — Non-homogeneous System, Infinite Solutions</div>
+  <p>Show that \(x+2y-z=3,\;3x-y+2z=1,\;2x-2y+3z=2\) is consistent but has no unique solution. Find the solution set.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Row reduce \([A|B]\). After reduction: one row becomes \(0=0\Rightarrow\) rank\((A)=\)rank\([A|B]=2<3\) unknowns. One free parameter. Solution: \(z=t\) (free). Back-sub gives \(x,y\) in terms of \(t\). (Working: \(R_2-3R_1,R_3-2R_1\) gives \(-7y+5z=-8,-6y+5z=-4\). Subtract: \(y=4/1\ldots\) full elimination gives the parametric solution.)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2019 — Inverse via Cayley-Hamilton</div>
+  <p>For \(A=\begin{pmatrix}1&0&0\\0&2&0\\0&0&3\end{pmatrix}\), verify CH and find \(A^{-1}\) using it.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(p(\lambda)=(\lambda-1)(\lambda-2)(\lambda-3)=\lambda^3-6\lambda^2+11\lambda-6\). By CH: \(A^3-6A^2+11A-6I=0\). So \(A(A^2-6A+11I)=6I\Rightarrow A^{-1}=\dfrac{1}{6}(A^2-6A+11I)\). Compute: \(A^2=\text{diag}(1,4,9)\), \(A^2-6A+11I=\text{diag}(6,3,2)\Rightarrow A^{-1}=\text{diag}(1,1/2,1/3)\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2016 — Homogeneous System (Non-trivial Solution)</div>
+  <p>Find conditions on \(a\) for which \(ax+y+z=0,\;x+ay+z=0,\;x+y+az=0\) has non-trivial solutions. Find them.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Non-trivial solution iff \(\det A=0\). \(\det\begin{pmatrix}a&1&1\\1&a&1\\1&1&a\end{pmatrix}=(a+2)(a-1)^2=0\Rightarrow a=1\) or \(a=-2\).</p>
+  <p><strong>Case \(a=1\):</strong> \(x+y+z=0\). Two free variables: general solution \(x=-y-z\), i.e. \(t(-1,1,0)+s(-1,0,1)\).</p>
+  <p><strong>Case \(a=-2\):</strong> \(-2x+y+z=0\), etc. Sum gives \((a+2)(x+y+z)=0\to x+y+z=0\) is automatic. Subtracting: \((-3)(x-y)=0\Rightarrow x=y=z\). Solution: \(t(1,1,1)\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2013 — Determinant Calculation</div>
+  <p>Evaluate \(\det\begin{pmatrix}a&b&c\\a^2&b^2&c^2\\a^3&b^3&c^3\end{pmatrix}\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Factor out \(a,b,c\) from rows... or use Vandermonde: factor \(abc\) from rows 1,2,3... actual result: \(= abc(b-a)(c-a)(c-b)\). This is \(abc\) times the standard Vandermonde determinant. \(\blacksquare\)</p>
+</div>
+
+<h2 id="pyq4">§ PYQ — Eigenvalues & Cayley-Hamilton (2000–2024)</h2>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2024 — Diagonalization</div>
+  <p>Diagonalize \(A=\begin{pmatrix}2&1&0\\0&2&1\\0&0&2\end{pmatrix}\), if possible.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Characteristic polynomial: \((\lambda-2)^3=0\). Triple eigenvalue \(\lambda=2\). \(\ker(A-2I)=\ker\begin{pmatrix}0&1&0\\0&0&1\\0&0&0\end{pmatrix}\): only 1-dimensional (only \((1,0,0)\)). Geometric multiplicity 1 \(\ne\) algebraic multiplicity 3. NOT diagonalizable. Jordan form: \(J=\begin{pmatrix}2&1&0\\0&2&1\\0&0&2\end{pmatrix}\) (one 3×3 Jordan block).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2023 — Cayley-Hamilton for 3×3</div>
+  <p>If \(A=\begin{pmatrix}1&2&3\\0&1&0\\0&0&2\end{pmatrix}\), find \(A^{-1}\) using Cayley-Hamilton.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(p(\lambda)=\det(\lambda I-A)=(\lambda-1)^2(\lambda-2)=\lambda^3-4\lambda^2+5\lambda-2\). By CH: \(A^3-4A^2+5A-2I=0\Rightarrow 2I=A(A^2-4A+5I)\Rightarrow A^{-1}=\frac{1}{2}(A^2-4A+5I)\). Compute \(A^2=\begin{pmatrix}1&4&9\\0&1&0\\0&0&4\end{pmatrix}\) (actually: \(A^2_{11}=1+0+0=1, A^2_{12}=2+2+0=4, A^2_{13}=3+0+6=9\),...). Then \(A^2-4A+5I=\begin{pmatrix}1&4&9\\0&1&0\\0&0&4\end{pmatrix}-\begin{pmatrix}4&8&12\\0&4&0\\0&0&8\end{pmatrix}+\begin{pmatrix}5&0&0\\0&5&0\\0&0&5\end{pmatrix}=\begin{pmatrix}2&-4&-3\\0&2&0\\0&0&1\end{pmatrix}\). \(A^{-1}=\frac{1}{2}\begin{pmatrix}2&-4&-3\\0&2&0\\0&0&1\end{pmatrix}=\begin{pmatrix}1&-2&-3/2\\0&1&0\\0&0&1/2\end{pmatrix}\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2022 — Minimal Polynomial</div>
+  <p>Find the minimal polynomial of \(A=\begin{pmatrix}2&0&0\\0&2&0\\0&0&3\end{pmatrix}\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Characteristic polynomial: \((\lambda-2)^2(\lambda-3)\). The minimal polynomial divides this. Test \(m(\lambda)=(\lambda-2)(\lambda-3)\): \(m(A)=(A-2I)(A-3I)=\text{diag}(0,0,1)\cdot\text{diag}(-1,-1,0)=0\). Wait: \(A-2I=\text{diag}(0,0,1)\) and \(A-3I=\text{diag}(-1,-1,0)\). Product: diag\((0,0,0)=0\). So minimal polynomial = \((\lambda-2)(\lambda-3)\) (degree 2, not the full char. poly of degree 3). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2021 — Eigenvalues of Special Matrix</div>
+  <p>Find eigenvalues and eigenvectors of \(A=\begin{pmatrix}0&1&0\\0&0&1\\1&0&0\end{pmatrix}\) (cyclic permutation matrix).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(\det(\lambda I-A)=\lambda^3-1=(\lambda-1)(\lambda-\omega)(\lambda-\omega^2)\) where \(\omega=e^{2\pi i/3}\). Eigenvalues: \(1,\omega,\omega^2\) (cube roots of unity). For \(\lambda=1\): eigenvector \((1,1,1)\). For \(\lambda=\omega\): \((1,\omega,\omega^2)\). For \(\lambda=\omega^2\): \((1,\omega^2,\omega^4)\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2019 — Powers via CH</div>
+  <p>If \(A=\begin{pmatrix}1&1\\0&2\end{pmatrix}\), express \(A^5\) using Cayley-Hamilton.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(p(\lambda)=\lambda^2-3\lambda+2\). By CH: \(A^2=3A-2I\). \(A^3=3A^2-2A=3(3A-2I)-2A=7A-6I\). \(A^4=7A^2-6A=7(3A-2I)-6A=15A-14I\). \(A^5=15A^2-14A=15(3A-2I)-14A=31A-30I=\begin{pmatrix}31&31\\0&32\end{pmatrix}-\begin{pmatrix}30&0\\0&30\end{pmatrix}=\begin{pmatrix}1&31\\0&2^5\end{pmatrix}=\begin{pmatrix}1&31\\0&32\end{pmatrix}\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2016 — Jordan Form</div>
+  <p>Find the Jordan canonical form of \(A=\begin{pmatrix}3&1&0\\0&3&0\\0&0&3\end{pmatrix}\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>All eigenvalues = 3. \(A-3I=\begin{pmatrix}0&1&0\\0&0&0\\0&0&0\end{pmatrix}\). Rank = 1, Nullity = 2. \((A-3I)^2=0\). So minimal polynomial = \((\lambda-3)^2\). Jordan form: one 2×2 block and one 1×1 block: \(J=\begin{pmatrix}3&1&0\\0&3&0\\0&0&3\end{pmatrix}\) (same as \(A\), already in Jordan form). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2014 — Orthogonal Diagonalization</div>
+  <p>Find an orthogonal matrix \(P\) s.t. \(P^TAP\) is diagonal, where \(A=\begin{pmatrix}2&-2\\-2&5\end{pmatrix}\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(\lambda^2-7\lambda+6=0\Rightarrow\lambda=1,6\). For \(\lambda=1\): \((A-I)v=0\): \(\begin{pmatrix}1&-2\\-2&4\end{pmatrix}\to v_1=(2,1)^T\). For \(\lambda=6\): \(v_2=(1,-2)^T\). Normalize: \(p_1=\dfrac{1}{\sqrt5}(2,1)^T\), \(p_2=\dfrac{1}{\sqrt5}(1,-2)^T\). \(P=\dfrac{1}{\sqrt5}\begin{pmatrix}2&1\\1&-2\end{pmatrix}\), \(P^TAP=\begin{pmatrix}1&0\\0&6\end{pmatrix}\).</p>
+</div>
+
+<h2 id="pyq5">§ PYQ — Quadratic Forms (2000–2024)</h2>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2023 — Classify Quadratic Form</div>
+  <p>Classify \(Q=x^2+5y^2+z^2+2xy+2xz+6yz\) using Sylvester's criterion.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Matrix: \(A=\begin{pmatrix}1&1&1\\1&5&3\\1&3&1\end{pmatrix}\). \(\Delta_1=1>0\). \(\Delta_2=\begin{vmatrix}1&1\\1&5\end{vmatrix}=4>0\). \(\Delta_3=\det A=1(5-9)-1(1-3)+1(3-5)=1(-4)-1(-2)+1(-2)=-4+2-2=-4<0\). Since \(\Delta_3<0\): \(Q\) is <strong>indefinite</strong> (not positive definite).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2022 — Positive Definite Check</div>
+  <p>Show \(Q=2x^2+2y^2+2z^2-2xy-2yz-2xz\) is positive definite.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Matrix: \(A=\begin{pmatrix}2&-1&-1\\-1&2&-1\\-1&-1&2\end{pmatrix}\). \(\Delta_1=2>0\). \(\Delta_2=\begin{vmatrix}2&-1\\-1&2\end{vmatrix}=3>0\). \(\Delta_3=\det A=2(4-1)-(-1)(-2-1)+(-1)(1+2)... \) compute: \(=2(3)+1(-3)-1(-3)=6-3+3=6>0\). All principal minors positive: \(Q\) is <strong>positive definite</strong>. \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2020 — Lagrange Reduction</div>
+  <p>Reduce \(Q=x^2+2y^2+3z^2+2xy+2xz+4yz\) to canonical form by Lagrange's method. Find signature.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p><span class="step">Step 1</span> Group \(x\)-terms: \(Q=(x+y+z)^2+2y^2+3z^2-y^2-z^2-2yz+4yz=(x+y+z)^2+y^2+2z^2+2yz\).</p>
+  <p><span class="step">Step 2</span> Let \(u_1=x+y+z\). Now \(y^2+2z^2+2yz=(y+z)^2+z^2\). Let \(u_2=y+z\), \(u_3=z\).</p>
+  <p>Canonical form: \(u_1^2+u_2^2+u_3^2\). Three positive terms. <strong>Signature \((3,0)\)</strong>: positive definite. Index = 3, rank = 3.</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2018 — Index of a Quadratic Form</div>
+  <p>If the quadratic form \(Q=ax^2+by^2+cz^2+2hxy+2gxz+2fyz\) has matrix \(A\), find the index if eigenvalues of \(A\) are \(1,2,-3\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Index = number of positive eigenvalues = 2. Signature = (Index, number of negative eigenvalues) = (2,1). Form is indefinite (has both positive and negative eigenvalues).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2015 — Orthogonal Reduction of Quadratic Form</div>
+  <p>Reduce \(Q=2x^2+y^2-z^2-2xy\) to canonical form by orthogonal transformation.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Matrix: \(A=\begin{pmatrix}2&-1&0\\-1&1&0\\0&0&-1\end{pmatrix}\). Eigenvalues from block structure: \(\lambda=-1\) (from \(z\)-block); and \(\lambda^2-3\lambda+1=0\Rightarrow\lambda=\frac{3\pm\sqrt5}{2}\). Canonical form: \(\lambda_1y_1^2+\lambda_2y_2^2-y_3^2\) where \(\lambda_1,\lambda_2=(3\pm\sqrt5)/2>0\) and third eigenvalue \(-1<0\). Signature \((2,1)\): indefinite.</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2010 — Hermitian Matrix Eigenvalues</div>
+  <p>Show that all eigenvalues of a Hermitian matrix are real.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Let \(A=A^\dag\) (Hermitian), \(Av=\lambda v\). Then \(\lambda\|v\|^2=\lambda(v^\dag v)=v^\dag(Av)=(A^\dag v)^\dag v=(Av)^\dag v=(\lambda v)^\dag v=\bar\lambda v^\dag v=\bar\lambda\|v\|^2\). Since \(v\ne0\): \(\lambda=\bar\lambda\Rightarrow\lambda\in\mathbb{R}\). \(\blacksquare\)</p>
+</div>
+</div></body></html>

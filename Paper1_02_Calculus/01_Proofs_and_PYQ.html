@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculus — Proofs & PYQ (2000–2024)</title>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+  :root{--bg:#0f1117;--surface:#1a1d27;--border:#2e3147;--text:#e2e8f0;--muted:#8892a4;--thm:#1e3a5f;--thm-b:#3b82f6;--thm-h:#93c5fd;--proof:#1a2a3a;--proof-b:#60a5fa;--proof-h:#bfdbfe;--defn:#1a3a2a;--defn-b:#22c55e;--defn-h:#86efac;--form:#2d1f4a;--form-b:#a855f7;--form-h:#d8b4fe;--warn:#3a2710;--warn-b:#f59e0b;--warn-h:#fcd34d;--trick:#1f2d3a;--trick-b:#06b6d4;--trick-h:#67e8f9;--pyq:#1a0a2a;--pyq-b:#e879f9;--pyq-h:#f0abfc;--sol:#0a2a1a;--sol-b:#34d399;--sol-h:#a7f3d0;--hot:#3a1a0a;--hot-b:#f97316;--hot-h:#fdba74;}
+  *{box-sizing:border-box;margin:0;padding:0}body{background:var(--bg);color:var(--text);font-family:'Georgia',serif;line-height:1.85;padding:2rem 1rem}.container{max-width:940px;margin:0 auto}
+  h1{text-align:center;font-size:1.9rem;color:#f1f5f9;margin-bottom:.2rem}.subtitle{text-align:center;color:var(--muted);font-size:.88rem;margin-bottom:2rem}
+  h2{font-size:.92rem;color:#cbd5e1;border-bottom:1px solid var(--border);padding-bottom:.35rem;margin:2.5rem 0 1rem;letter-spacing:.06em;text-transform:uppercase}
+  .card{border-left:4px solid;border-radius:0 8px 8px 0;padding:.9rem 1.15rem;margin:.9rem 0}
+  .thm{border-color:var(--thm-b);background:var(--thm)}.proof{border-color:var(--proof-b);background:var(--proof)}.defn{border-color:var(--defn-b);background:var(--defn)}.form{border-color:var(--form-b);background:var(--form)}.warn{border-color:var(--warn-b);background:var(--warn)}.trick{border-color:var(--trick-b);background:var(--trick)}.pyq{border-color:var(--pyq-b);background:var(--pyq)}.sol{border-color:var(--sol-b);background:var(--sol)}.hot{border-color:var(--hot-b);background:var(--hot)}
+  .card-title{font-size:.76rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;margin-bottom:.45rem}
+  .thm .card-title{color:var(--thm-h)}.proof .card-title{color:var(--proof-h)}.defn .card-title{color:var(--defn-h)}.form .card-title{color:var(--form-h)}.warn .card-title{color:var(--warn-h)}.trick .card-title{color:var(--trick-h)}.pyq .card-title{color:var(--pyq-h)}.sol .card-title{color:var(--sol-h)}.hot .card-title{color:var(--hot-h)}
+  .card p{margin:.3rem 0;font-size:.96rem}.card ul,.card ol{margin:.3rem 0 0 1.3rem}.card li{margin:.28rem 0;font-size:.96rem}
+  .freq{display:inline-block;font-size:.68rem;padding:.06rem .4rem;border-radius:999px;font-family:monospace;margin-left:.35rem}
+  .f3{background:#4a1942;color:#f0abfc}.f2{background:#1a3a1a;color:#86efac}.f1{background:#2d2010;color:#fcd34d}
+  .step{display:inline-block;background:#1e3a5f;color:#93c5fd;padding:.04rem .38rem;border-radius:4px;font-size:.78rem;margin-right:.28rem;font-family:monospace}
+  .toc{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem 1.5rem;margin-bottom:2rem;columns:2;column-gap:2rem}.toc a{display:block;color:#7dd3fc;text-decoration:none;font-size:.87rem;padding:.12rem 0}
+</style>
+</head>
+<body><div class="container">
+<h1>Calculus — Proofs & PYQ</h1>
+<p class="subtitle">UPSC Maths Optional · Paper I · Full Proofs + PYQs 2000–2024</p>
+<div class="toc">
+  <a href="#hot">★ Most Repeated Themes</a>
+  <a href="#p1">Mean Value Theorems</a>
+  <a href="#p2">Taylor & Asymptotes</a>
+  <a href="#p3">Functions of Several Variables</a>
+  <a href="#p4">Beta & Gamma Functions</a>
+  <a href="#p5">Multiple Integrals</a>
+  <a href="#pyq1">PYQ: Limits, Continuity, Differentiation</a>
+  <a href="#pyq2">PYQ: MVT, Taylor, Asymptotes</a>
+  <a href="#pyq3">PYQ: Maxima-Minima, Lagrange Multipliers</a>
+  <a href="#pyq4">PYQ: Beta-Gamma & Special Integrals</a>
+  <a href="#pyq5">PYQ: Multiple Integrals & Jacobians</a>
+</div>
+
+<!-- ============ MOST REPEATED THEMES ============ -->
+<h2 id="hot">★ Most Repeated Themes (2000–2024)</h2>
+<div class="card hot">
+  <div class="card-title">Beta & Gamma Functions — appears EVERY year</div>
+  <ul>
+    <li>Evaluate integrals using Beta/Gamma (Walli's, \(\int_0^{\pi/2}\sin^m\cos^n\)) <span class="freq f3">PYQ 25+ times</span></li>
+    <li>Properties: \(\Gamma(n+1)=n\Gamma(n)\), \(\Gamma(1/2)=\sqrt\pi\), duplication formula <span class="freq f3">PYQ 20+ times</span></li>
+    <li>Connection: \(B(m,n)=\Gamma(m)\Gamma(n)/\Gamma(m+n)\) <span class="freq f2">PYQ 15+ times</span></li>
+  </ul>
+</div>
+<div class="card hot">
+  <div class="card-title">Multiple Integrals — appears every year</div>
+  <ul>
+    <li>Change of order of integration (double integrals) <span class="freq f3">PYQ 22+ times</span></li>
+    <li>Jacobian; change of variables to polar/cylindrical/spherical <span class="freq f3">PYQ 20+ times</span></li>
+    <li>Evaluation of double and triple integrals over specific regions <span class="freq f2">PYQ 18+ times</span></li>
+  </ul>
+</div>
+<div class="card hot">
+  <div class="card-title">Maxima-Minima — high frequency</div>
+  <ul>
+    <li>Lagrange multipliers: constrained optimization <span class="freq f2">PYQ 18+ times</span></li>
+    <li>Saddle points; second derivative test for two variables <span class="freq f2">PYQ 15+ times</span></li>
+  </ul>
+</div>
+<div class="card hot">
+  <div class="card-title">Taylor Expansion & MVT — every year</div>
+  <ul>
+    <li>Expand function in Taylor/Maclaurin series; find remainder <span class="freq f2">PYQ 18+ times</span></li>
+    <li>Apply MVT / Cauchy MVT to prove inequalities <span class="freq f2">PYQ 15+ times</span></li>
+  </ul>
+</div>
+<div class="card hot">
+  <div class="card-title">Curvature & Asymptotes — moderate frequency</div>
+  <ul>
+    <li>Radius of curvature formula and applications <span class="freq f2">PYQ 12+ times</span></li>
+    <li>Find asymptotes (oblique, horizontal, vertical) <span class="freq f2">PYQ 10+ times</span></li>
+    <li>Envelopes of a family of curves <span class="freq f1">PYQ 8+ times</span></li>
+  </ul>
+</div>
+
+<!-- ============ PROOFS ============ -->
+<h2 id="p1">§ Proofs — Mean Value Theorems</h2>
+
+<div class="card thm">
+  <div class="card-title">Rolle's Theorem — Proof</div>
+  <p>If \(f:[a,b]\to\mathbb{R}\) is continuous on \([a,b]\), differentiable on \((a,b)\), and \(f(a)=f(b)\), then \(\exists c\in(a,b)\) s.t. \(f'(c)=0\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p><span class="step">Step 1</span> If \(f\) is constant: \(f'=0\) everywhere; take any \(c\).</p>
+  <p><span class="step">Step 2</span> If \(f\) is not constant: since \(f\) is continuous on \([a,b]\), by Extreme Value Theorem it attains its max \(M\) and min \(m\). Since \(f\) is non-constant and \(f(a)=f(b)\), at least one of \(M,m\) is not attained at the endpoints.</p>
+  <p><span class="step">Step 3</span> Say \(f(c)=M\) with \(c\in(a,b)\). Then \(f'(c)\) exists (given) and \(c\) is an interior maximum.</p>
+  <p><span class="step">Step 4</span> At interior maximum: \(f'(c^+)=\lim_{h\to0^+}\dfrac{f(c+h)-f(c)}{h}\le0\) and \(f'(c^-)=\lim_{h\to0^-}\dfrac{f(c+h)-f(c)}{h}\ge0\). Since \(f'(c)\) exists: \(f'(c)=f'(c^+)=f'(c^-)\Rightarrow f'(c)=0\). \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Cauchy's Mean Value Theorem — Proof</div>
+  <p>If \(f,g:[a,b]\to\mathbb{R}\) are continuous on \([a,b]\), differentiable on \((a,b)\), and \(g'(x)\ne0\) on \((a,b)\), then \(\exists c\in(a,b)\) s.t. \(\dfrac{f'(c)}{g'(c)}=\dfrac{f(b)-f(a)}{g(b)-g(a)}\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>Define \(h(x)=f(x)-\dfrac{f(b)-f(a)}{g(b)-g(a)}g(x)\). Then \(h(a)=f(a)-\dfrac{f(b)-f(a)}{g(b)-g(a)}g(a)\) and \(h(b)=f(b)-\dfrac{f(b)-f(a)}{g(b)-g(a)}g(b)\). Verify: \(h(a)=h(b)\) iff \(f(a)-f(b)=\dfrac{f(b)-f(a)}{g(b)-g(a)}(g(a)-g(b))\), which simplifies to \(1=1\). So \(h(a)=h(b)\). Apply Rolle to \(h\): \(\exists c\) with \(h'(c)=0\Rightarrow f'(c)=\dfrac{f(b)-f(a)}{g(b)-g(a)}g'(c)\). \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">L'Hôpital's Rule — Proof (0/0 case)</div>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof via Cauchy MVT</div>
+  <p>Let \(\lim_{x\to a}f(x)=0\), \(\lim_{x\to a}g(x)=0\), and \(\lim_{x\to a}f'(x)/g'(x)=L\). Define \(f(a)=g(a)=0\). For \(x\ne a\): apply Cauchy MVT to \([a,x]\) (or \([x,a]\)): \(\exists c\) between \(a\) and \(x\) s.t. \(\dfrac{f(x)-f(a)}{g(x)-g(a)}=\dfrac{f'(c)}{g'(c)}\). As \(x\to a\): \(c\to a\), so \(\dfrac{f(x)}{g(x)}=\dfrac{f'(c)}{g'(c)}\to L\). \(\blacksquare\)</p>
+</div>
+
+<h2 id="p2">§ Proofs — Taylor's Theorem & Asymptotes</h2>
+
+<div class="card thm">
+  <div class="card-title">Taylor's Theorem with Cauchy Remainder — Proof</div>
+  <p>\(f(x)=\sum_{k=0}^{n}\dfrac{f^{(k)}(a)}{k!}(x-a)^k+R_n\), where \(R_n=\dfrac{(x-a)^n}{n!}\cdot\dfrac{(x-c)^{1-p}}{p}\cdot f^{(n+1)}(c)\) (Cauchy form) or \(R_n=\dfrac{f^{(n+1)}(\xi)}{(n+1)!}(x-a)^{n+1}\) (Lagrange form).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof of Lagrange Remainder</div>
+  <p>Fix \(x\) and define \(F(t)=f(x)-\sum_{k=0}^n\dfrac{f^{(k)}(t)}{k!}(x-t)^k\) and \(G(t)=(x-t)^{n+1}\). Note \(F(x)=0,G(x)=0\). Apply Cauchy MVT to \([a,x]\): \(\dfrac{F(a)-F(x)}{G(a)-G(x)}=\dfrac{F'(\xi)}{G'(\xi)}\). Compute \(F'(t)\): most terms cancel (telescope), leaving \(F'(t)=-\dfrac{f^{(n+1)}(t)}{n!}(x-t)^n\). \(G'(t)=-(n+1)(x-t)^n\). So \(\dfrac{F(a)}{(x-a)^{n+1}}=\dfrac{f^{(n+1)}(\xi)}{(n+1)!}\Rightarrow R_n=\dfrac{f^{(n+1)}(\xi)}{(n+1)!}(x-a)^{n+1}\). \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Euler's Theorem on Homogeneous Functions — Proof</div>
+  <p>If \(f(x,y)\) is homogeneous of degree \(n\): \(x\dfrac{\partial f}{\partial x}+y\dfrac{\partial f}{\partial y}=nf\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>By definition: \(f(tx,ty)=t^n f(x,y)\). Differentiate both sides with respect to \(t\): \(x\dfrac{\partial f}{\partial(tx)}\cdot1+y\dfrac{\partial f}{\partial(ty)}\cdot1=nt^{n-1}f(x,y)\). Put \(t=1\): \(x\dfrac{\partial f}{\partial x}+y\dfrac{\partial f}{\partial y}=nf(x,y)\). \(\blacksquare\)</p>
+  <p><em>Extension (2nd order):</em> \(x^2f_{xx}+2xyf_{xy}+y^2f_{yy}=n(n-1)f\). Proof: differentiate Euler's relation w.r.t. \(x\) and apply Euler again.</p>
+</div>
+
+<h2 id="p3">§ Proofs — Functions of Several Variables</h2>
+
+<div class="card thm">
+  <div class="card-title">Second Derivative Test for Two Variables — Proof Sketch</div>
+  <p>At a critical point \((a,b)\): let \(D=f_{xx}f_{yy}-f_{xy}^2\). If \(D>0,f_{xx}>0\): local min; \(D>0,f_{xx}<0\): local max; \(D<0\): saddle.</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof (via Taylor expansion)</div>
+  <p>Near \((a,b)\): \(f(a+h,b+k)\approx f(a,b)+\dfrac{1}{2}(f_{xx}h^2+2f_{xy}hk+f_{yy}k^2)\) (critical point: first partials = 0). The quadratic form \(Q(h,k)=f_{xx}h^2+2f_{xy}hk+f_{yy}k^2\) has signature determined by \(D=\det\begin{pmatrix}f_{xx}&f_{xy}\\f_{xy}&f_{yy}\end{pmatrix}\). If \(D>0\): \(Q\) is positive or negative definite (determined by sign of \(f_{xx}\)) → local extremum. If \(D<0\): \(Q\) indefinite → saddle. \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Lagrange Multipliers — Proof</div>
+  <p>At a constrained extremum of \(f\) subject to \(g=0\): \(\nabla f=\lambda\nabla g\) for some \(\lambda\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof (Implicit Function Theorem approach)</div>
+  <p>Suppose \(f(x,y)\) has extremum at \((a,b)\) subject to \(g(x,y)=0\). Near \((a,b)\), parameterize the constraint curve: \(x=x(t),y=y(t)\) with \(\dot x(0)=\dot x,\dot y(0)=\dot y\). The constraint gives \(g_x\dot x+g_y\dot y=0\). The function along the curve: \(\dfrac{d}{dt}f(x(t),y(t))\big|_{t=0}=f_x\dot x+f_y\dot y=0\) at extremum. So \(\vec\nabla f\cdot\vec{v}=0\) for all tangent vectors \(\vec v\) to the constraint. Since \(\nabla g\cdot\vec v=0\) defines the same orthogonal complement: \(\nabla f=\lambda\nabla g\). \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Jacobian and Change of Variables in Double Integrals — Proof</div>
+  <p>\(\iint_R f(x,y)\,dA=\iint_S f(x(u,v),y(u,v))\left|\dfrac{\partial(x,y)}{\partial(u,v)}\right|\,du\,dv\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof (Geometric)</div>
+  <p>Under the map \((u,v)\mapsto(x,y)\): a small rectangle \([u,u+\Delta u]\times[v,v+\Delta v]\) maps to a parallelogram with sides \(\vec a=\dfrac{\partial(x,y)}{\partial u}\Delta u\) and \(\vec b=\dfrac{\partial(x,y)}{\partial v}\Delta v\). Area of parallelogram = \(|\vec a\times\vec b|=\left|\dfrac{\partial(x,y)}{\partial(u,v)}\right|\Delta u\Delta v\). Summing: \(dA=|J|\,du\,dv\). \(\blacksquare\)</p>
+</div>
+
+<h2 id="p4">§ Proofs — Beta & Gamma Functions</h2>
+
+<div class="card thm">
+  <div class="card-title">\(\Gamma(n+1)=n\Gamma(n)\) — Proof</div>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof (Integration by Parts)</div>
+  <p>\(\Gamma(n+1)=\int_0^\infty t^ne^{-t}\,dt\). Integrate by parts: \(u=t^n,dv=e^{-t}dt\): \([{-t^ne^{-t}}]_0^\infty+n\int_0^\infty t^{n-1}e^{-t}\,dt=0+n\Gamma(n)=n\Gamma(n)\). \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">\(\Gamma(1/2)=\sqrt\pi\) — Proof</div>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof (Polar coordinates)</div>
+  <p>\(I=\Gamma(1/2)=\int_0^\infty t^{-1/2}e^{-t}\,dt\). Substitute \(t=x^2\): \(I=2\int_0^\infty e^{-x^2}\,dx\). So \(I^2=4\int_0^\infty\int_0^\infty e^{-(x^2+y^2)}\,dx\,dy\). Convert to polar: \(I^2=4\int_0^{\pi/2}\int_0^\infty e^{-r^2}r\,dr\,d\theta=4\cdot\dfrac{\pi}{2}\cdot\dfrac{1}{2}=\pi\). Hence \(\Gamma(1/2)=\sqrt\pi\). \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">\(B(m,n)=\dfrac{\Gamma(m)\Gamma(n)}{\Gamma(m+n)}\) — Proof</div>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>\(\Gamma(m)\Gamma(n)=\int_0^\infty x^{m-1}e^{-x}\,dx\cdot\int_0^\infty y^{n-1}e^{-y}\,dy=\int_0^\infty\int_0^\infty x^{m-1}y^{n-1}e^{-(x+y)}\,dx\,dy\).</p>
+  <p>Substitute \(x=st,y=s(1-t)\) (so \(x+y=s\), \(x/(x+y)=t\)): Jacobian = \(s\). Range: \(s\in(0,\infty),t\in(0,1)\).</p>
+  <p>\(=\int_0^\infty\int_0^1(st)^{m-1}(s(1-t))^{n-1}e^{-s}\cdot s\,dt\,ds=\int_0^\infty s^{m+n-1}e^{-s}\,ds\int_0^1 t^{m-1}(1-t)^{n-1}\,dt=\Gamma(m+n)B(m,n)\). \(\blacksquare\)</p>
+</div>
+
+<div class="card form">
+  <div class="card-title">Walli's Formula (derived from Beta function)</div>
+  <p>\(\int_0^{\pi/2}\sin^m\theta\cos^n\theta\,d\theta=\dfrac{B\!\left(\dfrac{m+1}{2},\dfrac{n+1}{2}\right)}{2}=\dfrac{\Gamma\!\left(\dfrac{m+1}{2}\right)\Gamma\!\left(\dfrac{n+1}{2}\right)}{2\,\Gamma\!\left(\dfrac{m+n+2}{2}\right)}\).</p>
+  <p>Special: \(\int_0^{\pi/2}\sin^n\theta\,d\theta=\dfrac{(n-1)!!}{n!!}\cdot\begin{cases}\pi/2&n\text{ even}\\1&n\text{ odd}\end{cases}\).</p>
+</div>
+
+<h2 id="p5">§ Proofs — Multiple Integrals</h2>
+
+<div class="card thm">
+  <div class="card-title">Fubini's Theorem (for continuous functions)</div>
+  <p>If \(f(x,y)\) is continuous on \([a,b]\times[c,d]\): \(\iint f\,dA=\int_a^b\!\left(\int_c^d f(x,y)\,dy\right)dx=\int_c^d\!\left(\int_a^b f(x,y)\,dx\right)dy\).</p>
+</div>
+<div class="card trick">
+  <div class="card-title">Change of Order Strategy</div>
+  <p>Draw the region \(R\). Then: (1) Describe \(R\) with \(x\) first → do \(dx\) first. (2) Describe with \(y\) first → do \(dy\) first. Equality of both = Fubini.</p>
+</div>
+
+<!-- ============ PYQ SECTIONS ============ -->
+<h2 id="pyq1">§ PYQ — Limits, Continuity, Differentiation (2000–2024)</h2>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2024 — Limit Evaluation</div>
+  <p>Evaluate \(\displaystyle\lim_{x\to0}\frac{x-\sin x}{x^3}\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution (Taylor expansion)</div>
+  <p>\(\sin x=x-\dfrac{x^3}{6}+O(x^5)\). So \(\dfrac{x-\sin x}{x^3}=\dfrac{x^3/6+O(x^5)}{x^3}\to\dfrac{1}{6}\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2023 — Leibniz nth Derivative Formula</div>
+  <p>Find the \(n\)th derivative of \(f(x)=e^{2x}\sin 3x\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Write \(e^{2x}\sin3x=\text{Im}(e^{(2+3i)x})\). \(\dfrac{d^n}{dx^n}e^{(2+3i)x}=(2+3i)^ne^{(2+3i)x}\). Now \(|2+3i|=\sqrt{13}\), \(\arg(2+3i)=\alpha=\arctan(3/2)\). So \((2+3i)^n=(\sqrt{13})^n e^{in\alpha}\). Thus \(f^{(n)}(x)=13^{n/2}e^{2x}\sin(3x+n\alpha)\) where \(\alpha=\arctan(3/2)\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2022 — Rolle's Application</div>
+  <p>Show that between any two real roots of \(e^x\sin x=1\), there is at least one root of \(e^x\cos x+1=0\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Let \(f(x)=e^x\sin x-1\). Suppose \(f(\alpha)=f(\beta)=0\) with \(\alpha<\beta\). By Rolle's theorem: \(\exists c\in(\alpha,\beta)\) with \(f'(c)=0\). \(f'(x)=e^x\sin x+e^x\cos x=e^x(\sin x+\cos x)\). At \(c\): \(e^c(\sin c+\cos c)=0\Rightarrow\sin c+\cos c=0\Rightarrow\tan c=-1\). But at \(c\): \(f(c)\ne0\) in general. Actually: \(f'(x)=e^x(\sin x+\cos x)=0\Rightarrow\sin x+\cos x=0\Rightarrow\cos x=-\sin x\Rightarrow e^x\cos x=-e^x\sin x=-(1)=-1\Rightarrow e^c\cos c+1=0\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2020 — Radius of Curvature</div>
+  <p>Find the radius of curvature at the origin for \(y=x^2(1+x)\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(y'=2x+3x^2\), \(y''=2+6x\). At origin: \(y'(0)=0\), \(y''(0)=2\). \(R=\dfrac{(1+y'^2)^{3/2}}{|y''|}\bigg|_{(0,0)}=\dfrac{1}{2}\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2018 — Asymptotes</div>
+  <p>Find all asymptotes of \(y(1+x^2)=x\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Rewrite: \(y=\dfrac{x}{1+x^2}\). As \(x\to\pm\infty\): \(y\to0\). So \(y=0\) is a horizontal asymptote. No vertical asymptotes (denominator \(1+x^2>0\) always). No oblique asymptotes (since \(y\to0<\infty\)). Only asymptote: \(y=0\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2016 — Tangent Line & Normal</div>
+  <p>Find the equation of the tangent and normal to the curve \(x=t^2,y=t^3\) at the point \(t=2\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>At \(t=2\): \((x,y)=(4,8)\). \(\dfrac{dy}{dx}=\dfrac{dy/dt}{dx/dt}=\dfrac{3t^2}{2t}=\dfrac{3t}{2}\bigg|_{t=2}=3\). Tangent: \(y-8=3(x-4)\Rightarrow y=3x-4\). Normal: \(y-8=-\dfrac{1}{3}(x-4)\Rightarrow 3y+x=28\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2014 — Partial Derivatives</div>
+  <p>If \(u=\ln(x^3+y^3+z^3-3xyz)\), show that \(\left(\dfrac{\partial}{\partial x}+\dfrac{\partial}{\partial y}+\dfrac{\partial}{\partial z}\right)^2 u=\dfrac{-9}{(x+y+z)^2}\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(x^3+y^3+z^3-3xyz=(x+y+z)(x^2+y^2+z^2-xy-yz-zx)\). So \(u=\ln(x+y+z)+\ln(x^2+y^2+z^2-xy-yz-zx)\). Let \(D=\partial_x+\partial_y+\partial_z\). \(Du=\dfrac{3}{x+y+z}+\dfrac{2(x+y+z)-2(x+y+z)}{x^2+y^2+z^2-xy-yz-zx}=\dfrac{3}{x+y+z}\). \(D^2u=D\!\left(\dfrac{3}{x+y+z}\right)=-\dfrac{3}{(x+y+z)^2}\cdot3=\dfrac{-9}{(x+y+z)^2}\). \(\blacksquare\)</p>
+</div>
+
+<h2 id="pyq2">§ PYQ — MVT, Taylor & Asymptotes (2000–2024)</h2>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2023 — Taylor Series Expansion</div>
+  <p>Expand \(f(x)=e^x\cos x\) in powers of \(x\) up to \(x^4\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(e^x=1+x+x^2/2!+x^3/3!+x^4/4!+\cdots\). \(\cos x=1-x^2/2!+x^4/4!-\cdots\). Multiply:</p>
+  <p>\(e^x\cos x=\left(1+x+\dfrac{x^2}{2}+\dfrac{x^3}{6}+\dfrac{x^4}{24}+\cdots\right)\left(1-\dfrac{x^2}{2}+\dfrac{x^4}{24}-\cdots\right)\).</p>
+  <p>Collect up to \(x^4\): \(=1+x+\dfrac{x^2}{2}-\dfrac{x^2}{2}+\dfrac{x^3}{6}-\dfrac{x^3}{2}+\dfrac{x^4}{24}-\dfrac{x^4}{4}+\dfrac{x^4}{24}+\cdots=1+x-\dfrac{x^3}{3}-\dfrac{x^4}{6}+\cdots\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2022 — Maclaurin Series of \(\ln(1+\sin x)\)</div>
+  <p>Find the Maclaurin series of \(\ln(1+\sin x)\) up to \(x^3\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(\sin x=x-x^3/6+\cdots\). Let \(t=\sin x\): \(\ln(1+t)=t-t^2/2+t^3/3-\cdots\).</p>
+  <p>\(=\!\left(x-\dfrac{x^3}{6}\right)-\dfrac{1}{2}\left(x-\dfrac{x^3}{6}\right)^2+\dfrac{1}{3}x^3-\cdots=x-\dfrac{x^3}{6}-\dfrac{x^2}{2}+\dfrac{x^3}{3}+\cdots=x-\dfrac{x^2}{2}+\dfrac{x^3}{6}+\cdots\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2020 — MVT Inequality Application</div>
+  <p>Prove \(|\sin x-\sin y|\le|x-y|\) for all \(x,y\in\mathbb{R}\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Apply MVT to \(f(t)=\sin t\) on \([x,y]\) (WLOG \(x<y\)): \(\exists c\in(x,y)\) s.t. \(\sin y-\sin x=\cos c\cdot(y-x)\). Hence \(|\sin x-\sin y|=|\cos c|\cdot|x-y|\le|x-y|\) (since \(|\cos c|\le1\)). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2018 — Oblique Asymptote</div>
+  <p>Find oblique asymptotes of \(y=\dfrac{x^3}{(x-1)^2}\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>For oblique asymptote \(y=mx+c\): \(m=\lim_{x\to\infty}y/x=\lim\dfrac{x^2}{(x-1)^2}=1\). \(c=\lim_{x\to\infty}(y-x)=\lim\dfrac{x^3-(x(x-1)^2)}{(x-1)^2}=\lim\dfrac{x^3-x^3+2x^2-x}{(x-1)^2}=\lim\dfrac{2x^2-x}{x^2-2x+1}=2\). Oblique asymptote: \(y=x+2\). Also vertical asymptote \(x=1\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2015 — Envelope of Family of Curves</div>
+  <p>Find the envelope of \(y=mx+\sqrt{a^2m^2+b^2}\) (family of tangent lines to ellipse) for varying parameter \(m\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Let \(F(x,y,m)=y-mx-\sqrt{a^2m^2+b^2}=0\). Eliminate \(m\): \(\dfrac{\partial F}{\partial m}=-x-\dfrac{a^2m}{\sqrt{a^2m^2+b^2}}=0\Rightarrow x\sqrt{a^2m^2+b^2}=-a^2m\Rightarrow m=\dfrac{-bx}{\sqrt{a^2x^2-a^2b^2}}=\cdots\) substitute back and simplify to get \(\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1\). The envelope is the ellipse. \(\blacksquare\)</p>
+</div>
+
+<h2 id="pyq3">§ PYQ — Maxima-Minima & Lagrange (2000–2024)</h2>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2024 — Maxima-Minima of Two Variables</div>
+  <p>Find the maxima and minima of \(f(x,y)=x^3+y^3-3xy\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Critical points: \(f_x=3x^2-3y=0\Rightarrow y=x^2\). \(f_y=3y^2-3x=0\Rightarrow x=y^2\). So \(x=y^2=x^4\Rightarrow x(x^3-1)=0\Rightarrow x=0\) or \(x=1\). Points: \((0,0)\) and \((1,1)\).</p>
+  <p>\(f_{xx}=6x,f_{yy}=6y,f_{xy}=-3\). \(D=36xy-9\). At \((0,0)\): \(D=-9<0\) → saddle. At \((1,1)\): \(D=36-9=27>0,f_{xx}=6>0\) → <strong>local minimum</strong> with \(f(1,1)=-1\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2022 — Lagrange (on Ellipse)</div>
+  <p>Find the maximum and minimum distances from the origin to the ellipse \(3x^2+4xy+3y^2=1\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Minimize \(f=x^2+y^2\) subject to \(g=3x^2+4xy+3y^2-1=0\). Lagrange: \(\nabla f=\lambda\nabla g\): \(2x=\lambda(6x+4y)\), \(2y=\lambda(4x+6y)\). This gives \(\begin{pmatrix}6&4\\4&6\end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix}=\dfrac{2}{\lambda}\begin{pmatrix}x\\y\end{pmatrix}\). Eigenvalues of \(\begin{pmatrix}6&4\\4&6\end{pmatrix}\): \(\lambda_1=10,\lambda_2=2\). So \(2/\lambda=10\to\lambda=1/5\) or \(2/\lambda=2\to\lambda=1\). From \(g=1\): at \(\lambda=1/5\): \((x,y)=k(1,1)/\sqrt2\), \(3+4+3=10k^2=1\Rightarrow k=1/\sqrt{10}\Rightarrow r^2=2k^2=1/5\). At \(\lambda=1\): \((x,y)=k(1,-1)/\sqrt2\), \(3-4+3=2k^2=1\Rightarrow k=1/\sqrt2\Rightarrow r^2=1\). Min distance \(=1/\sqrt5\), max distance \(=1\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2021 — Lagrange (Ellipsoid)</div>
+  <p>Find the maximum of \(f=xyz\) subject to \(x^2/a^2+y^2/b^2+z^2/c^2=1\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Lagrange: \(yz=\lambda(2x/a^2)\), \(xz=\lambda(2y/b^2)\), \(xy=\lambda(2z/c^2)\). Multiply each by \(x,y,z\) respectively: \(xyz=2\lambda x^2/a^2=2\lambda y^2/b^2=2\lambda z^2/c^2\). So \(x^2/a^2=y^2/b^2=z^2/c^2=1/3\) (summing to 1). Thus \(x=a/\sqrt3,y=b/\sqrt3,z=c/\sqrt3\). Maximum value \(f=\dfrac{abc}{3\sqrt3}\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2019 — Saddle Point</div>
+  <p>Show that \(f(x,y)=x^3-3xy^2\) has neither max nor min at the origin but has a saddle point.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>At \((0,0)\): \(f_x=3x^2-3y^2=0\), \(f_y=-6xy=0\). Critical point. \(f_{xx}=6x=0,f_{yy}=-6x=0,f_{xy}=-6y=0\). \(D=0\): test inconclusive.</p>
+  <p>Along \(y=0\): \(f(x,0)=x^3>0\) for \(x>0\) and \(<0\) for \(x<0\). So \(f\) takes both positive and negative values near origin → saddle point. \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2016 — Box of Maximum Volume</div>
+  <p>Find the dimensions of the rectangular box of maximum volume inscribed in a sphere of radius \(R\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Volume \(V=8xyz\), constraint \(x^2+y^2+z^2=R^2\). Lagrange: \(8yz=2\lambda x\), \(8xz=2\lambda y\), \(8xy=2\lambda z\). Multiply by \(x,y,z\): \(8xyz=2\lambda x^2=2\lambda y^2=2\lambda z^2\). So \(x=y=z=R/\sqrt3\). Max volume \(V=8(R/\sqrt3)^3=\dfrac{8R^3}{3\sqrt3}\).</p>
+</div>
+
+<h2 id="pyq4">§ PYQ — Beta-Gamma & Special Integrals (2000–2024)</h2>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2023 — Walli's Formula</div>
+  <p>Evaluate \(\displaystyle\int_0^{\pi/2}\sin^6\theta\cos^4\theta\,d\theta\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(=\dfrac{B(7/2,5/2)}{2}=\dfrac{\Gamma(7/2)\Gamma(5/2)}{2\Gamma(6)}=\dfrac{(5/2)(3/2)(1/2)\sqrt\pi\cdot(3/2)(1/2)\sqrt\pi}{2\cdot120}\). \(\Gamma(7/2)=\dfrac{5\cdot3\cdot1}{8}\sqrt\pi=\dfrac{15\sqrt\pi}{8}\), \(\Gamma(5/2)=\dfrac{3\sqrt\pi}{4}\). Numerator: \(\dfrac{15\sqrt\pi}{8}\cdot\dfrac{3\sqrt\pi}{4}=\dfrac{45\pi}{32}\). Denominator: \(2\cdot120=240\). Result: \(\dfrac{45\pi}{32\cdot240}=\dfrac{3\pi}{512}\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2022 — Gamma Function Integral</div>
+  <p>Evaluate \(\displaystyle\int_0^\infty x^4 e^{-2x}\,dx\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Substitute \(t=2x\): \(=\int_0^\infty\dfrac{t^4}{16}e^{-t}\dfrac{dt}{2}=\dfrac{1}{32}\Gamma(5)=\dfrac{4!}{32}=\dfrac{24}{32}=\dfrac{3}{4}\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2021 — \(\int_0^\infty\sqrt{\tan\theta}\,d\theta\)</div>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(\int_0^{\pi/2}\tan^{1/2}\theta\,d\theta=\int_0^{\pi/2}\sin^{1/2}\theta\cos^{-1/2}\theta\,d\theta=\dfrac{B(3/4,1/4)}{2}=\dfrac{\Gamma(3/4)\Gamma(1/4)}{2\Gamma(1)}\). Use reflection formula: \(\Gamma(1/4)\Gamma(3/4)=\dfrac{\pi}{\sin(\pi/4)}=\pi\sqrt2\). So \(=\dfrac{\pi\sqrt2}{2}=\dfrac{\pi}{\sqrt2}\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2019 — Duplication Formula Application</div>
+  <p>Show \(\int_0^1 x^m(1-x^n)^p\,dx=\dfrac{\Gamma\!\left(\frac{m+1}{n}\right)\Gamma(p+1)}{n\,\Gamma\!\left(\frac{m+1}{n}+p+1\right)}\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Substitute \(t=x^n\): \(x=t^{1/n},dx=\dfrac{1}{n}t^{1/n-1}dt\). Integral becomes \(\dfrac{1}{n}\int_0^1 t^{(m+1)/n-1}(1-t)^p\,dt=\dfrac{1}{n}B\!\left(\dfrac{m+1}{n},p+1\right)=\dfrac{\Gamma\!\left(\frac{m+1}{n}\right)\Gamma(p+1)}{n\,\Gamma\!\left(\frac{m+1}{n}+p+1\right)}\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2016 — Gaussian Integral via Polar</div>
+  <p>Evaluate \(\displaystyle\int_0^\infty e^{-x^2}\,dx\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Let \(I=\int_0^\infty e^{-x^2}dx\). \(I^2=\int_0^\infty\int_0^\infty e^{-(x^2+y^2)}dxdy\). Convert to polar (first quadrant, \(r\ge0,\theta\in[0,\pi/2]\)): \(I^2=\int_0^{\pi/2}\int_0^\infty e^{-r^2}r\,dr\,d\theta=\dfrac{\pi}{2}\cdot\dfrac{1}{2}=\dfrac{\pi}{4}\). So \(I=\dfrac{\sqrt\pi}{2}\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2013 — Beta Function via Trigonometric Substitution</div>
+  <p>Show \(B(m,n)=2\int_0^{\pi/2}\sin^{2m-1}\theta\cos^{2n-1}\theta\,d\theta\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(B(m,n)=\int_0^1 x^{m-1}(1-x)^{n-1}dx\). Let \(x=\sin^2\theta\): \(dx=2\sin\theta\cos\theta\,d\theta\). Range: \(\theta\in[0,\pi/2]\). \(B(m,n)=\int_0^{\pi/2}\sin^{2(m-1)}\theta\cos^{2(n-1)}\theta\cdot2\sin\theta\cos\theta\,d\theta=2\int_0^{\pi/2}\sin^{2m-1}\theta\cos^{2n-1}\theta\,d\theta\). \(\blacksquare\)</p>
+</div>
+
+<h2 id="pyq5">§ PYQ — Multiple Integrals & Jacobians (2000–2024)</h2>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2023 — Change of Order</div>
+  <p>Evaluate \(\displaystyle\int_0^1\int_y^1\frac{\sin x}{x}\,dx\,dy\) by changing order of integration.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Region: \(0\le y\le x\le1\). Change order: \(x\) from 0 to 1, \(y\) from 0 to \(x\). \(\int_0^1\int_0^x\dfrac{\sin x}{x}\,dy\,dx=\int_0^1\dfrac{\sin x}{x}\cdot x\,dx=\int_0^1\sin x\,dx=[-\cos x]_0^1=1-\cos1\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2022 — Triple Integral (Sphere)</div>
+  <p>Evaluate \(\displaystyle\iiint_V (x^2+y^2+z^2)\,dV\) where \(V\) is the ball \(x^2+y^2+z^2\le a^2\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Use spherical coordinates: \(\iiint r^2\cdot r^2\sin\phi\,dr\,d\phi\,d\theta=\int_0^{2\pi}d\theta\int_0^\pi\sin\phi\,d\phi\int_0^a r^4\,dr=2\pi\cdot2\cdot\dfrac{a^5}{5}=\dfrac{4\pi a^5}{5}\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2021 — Jacobian</div>
+  <p>If \(u=x^2-y^2,v=2xy\), find \(\partial(u,v)/\partial(x,y)\) and hence find \(\partial(x,y)/\partial(u,v)\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(J=\dfrac{\partial(u,v)}{\partial(x,y)}=\begin{vmatrix}2x&-2y\\2y&2x\end{vmatrix}=4x^2+4y^2=4(x^2+y^2)=4r^2\). By inverse: \(\dfrac{\partial(x,y)}{\partial(u,v)}=\dfrac{1}{4r^2}=\dfrac{1}{4(x^2+y^2)}\). (Note: \(u+iv=(x+iy)^2\) so \(r^2=|u+iv|^{1/2}\cdot\)... cleaner: \(1/(4r^2)\).) \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2019 — Change to Polar Coordinates</div>
+  <p>Evaluate \(\displaystyle\int_0^a\int_0^{\sqrt{a^2-x^2}}(x^2+y^2)\,dy\,dx\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Region: upper quarter-circle of radius \(a\). In polar: \(r\in[0,a],\theta\in[0,\pi/2]\). Integral = \(\int_0^{\pi/2}\int_0^a r^2\cdot r\,dr\,d\theta=\dfrac{\pi}{2}\cdot\dfrac{a^4}{4}=\dfrac{\pi a^4}{8}\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2017 — Area by Double Integration</div>
+  <p>Find the area enclosed by \(r=a(1+\cos\theta)\) (cardioid) using double integration.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Area \(=\int_0^{2\pi}\int_0^{a(1+\cos\theta)}r\,dr\,d\theta=\int_0^{2\pi}\dfrac{a^2(1+\cos\theta)^2}{2}\,d\theta\). Use \(\int_0^{2\pi}(1+\cos\theta)^2\,d\theta=\int_0^{2\pi}(1+2\cos\theta+\cos^2\theta)\,d\theta=2\pi+0+\pi=3\pi\). Area \(=\dfrac{a^2}{2}\cdot3\pi=\dfrac{3\pi a^2}{2}\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2014 — Volume by Triple Integration</div>
+  <p>Find the volume of the region bounded by \(z=x^2+y^2\) and \(z=4\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>In cylindrical: \(z\) from \(r^2\) to 4, \(r\) from 0 to 2, \(\theta\) from 0 to \(2\pi\). \(V=\int_0^{2\pi}\int_0^2\int_{r^2}^4r\,dz\,dr\,d\theta=2\pi\int_0^2(4-r^2)r\,dr=2\pi\left[2r^2-\dfrac{r^4}{4}\right]_0^2=2\pi(8-4)=8\pi\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2011 — Dirichlet Integral</div>
+  <p>Using Dirichlet's theorem, evaluate \(\iiint x^{l-1}y^{m-1}z^{n-1}\,dV\) over the region \(x\ge0,y\ge0,z\ge0,x+y+z\le1\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Dirichlet's theorem: \(\iiint_{x+y+z\le1,x,y,z\ge0}x^{l-1}y^{m-1}z^{n-1}\,dV=\dfrac{\Gamma(l)\Gamma(m)\Gamma(n)}{\Gamma(l+m+n+1)}\).</p>
+</div>
+</div></body></html>

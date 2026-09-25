@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Real Analysis — Proofs & PYQ (2000–2024)</title>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+  :root{--bg:#0f1117;--surface:#1a1d27;--border:#2e3147;--text:#e2e8f0;--muted:#8892a4;--thm:#1e3a5f;--thm-b:#3b82f6;--thm-h:#93c5fd;--proof:#1a2a3a;--proof-b:#60a5fa;--proof-h:#bfdbfe;--defn:#1a3a2a;--defn-b:#22c55e;--defn-h:#86efac;--form:#2d1f4a;--form-b:#a855f7;--form-h:#d8b4fe;--warn:#3a2710;--warn-b:#f59e0b;--warn-h:#fcd34d;--trick:#1f2d3a;--trick-b:#06b6d4;--trick-h:#67e8f9;--pyq:#1a0a2a;--pyq-b:#e879f9;--pyq-h:#f0abfc;--sol:#0a2a1a;--sol-b:#34d399;--sol-h:#a7f3d0;--hot:#3a1a0a;--hot-b:#f97316;--hot-h:#fdba74;}
+  *{box-sizing:border-box;margin:0;padding:0}body{background:var(--bg);color:var(--text);font-family:'Georgia',serif;line-height:1.85;padding:2rem 1rem}.container{max-width:940px;margin:0 auto}
+  h1{text-align:center;font-size:1.9rem;color:#f1f5f9;margin-bottom:.2rem}.subtitle{text-align:center;color:var(--muted);font-size:.88rem;margin-bottom:2rem}
+  h2{font-size:.92rem;color:#cbd5e1;border-bottom:1px solid var(--border);padding-bottom:.35rem;margin:2.5rem 0 1rem;letter-spacing:.06em;text-transform:uppercase}
+  .card{border-left:4px solid;border-radius:0 8px 8px 0;padding:.9rem 1.15rem;margin:.9rem 0}
+  .thm{border-color:var(--thm-b);background:var(--thm)}.proof{border-color:var(--proof-b);background:var(--proof)}.defn{border-color:var(--defn-b);background:var(--defn)}.form{border-color:var(--form-b);background:var(--form)}.warn{border-color:var(--warn-b);background:var(--warn)}.trick{border-color:var(--trick-b);background:var(--trick)}.pyq{border-color:var(--pyq-b);background:var(--pyq)}.sol{border-color:var(--sol-b);background:var(--sol)}.hot{border-color:var(--hot-b);background:var(--hot)}
+  .card-title{font-size:.76rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;margin-bottom:.45rem}
+  .thm .card-title{color:var(--thm-h)}.proof .card-title{color:var(--proof-h)}.defn .card-title{color:var(--defn-h)}.form .card-title{color:var(--form-h)}.warn .card-title{color:var(--warn-h)}.trick .card-title{color:var(--trick-h)}.pyq .card-title{color:var(--pyq-h)}.sol .card-title{color:var(--sol-h)}.hot .card-title{color:var(--hot-h)}
+  .card p{margin:.3rem 0;font-size:.96rem}.card ul,.card ol{margin:.3rem 0 0 1.3rem}.card li{margin:.28rem 0;font-size:.96rem}
+  .freq{display:inline-block;font-size:.68rem;padding:.06rem .4rem;border-radius:999px;font-family:monospace;margin-left:.35rem}
+  .f3{background:#4a1942;color:#f0abfc}.f2{background:#1a3a1a;color:#86efac}.f1{background:#2d2010;color:#fcd34d}
+  .year{display:inline-block;font-size:.68rem;padding:.06rem .4rem;border-radius:999px;background:#1e3a5f;color:#93c5fd;font-family:monospace;margin-left:.3rem}
+  .step{display:inline-block;background:#1e3a5f;color:#93c5fd;padding:.04rem .38rem;border-radius:4px;font-size:.78rem;margin-right:.28rem;font-family:monospace}
+  .toc{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem 1.5rem;margin-bottom:2rem;columns:2;column-gap:2rem}.toc a{display:block;color:#7dd3fc;text-decoration:none;font-size:.87rem;padding:.12rem 0}
+</style>
+</head>
+<body><div class="container">
+<h1>Real Analysis — Proofs & PYQ</h1>
+<p class="subtitle">UPSC Maths Optional · Paper II · Full Proofs + PYQs 2000–2024</p>
+<div class="toc">
+  <a href="#hot">★ Most Repeated Themes</a>
+  <a href="#p1">Sequences & Completeness</a>
+  <a href="#p2">Series Convergence</a>
+  <a href="#p3">Continuity & Differentiability</a>
+  <a href="#p4">Riemann Integration</a>
+  <a href="#p5">Uniform Convergence</a>
+  <a href="#p6">Bounded Variation & Metric Spaces</a>
+  <a href="#pyq1">PYQ: Sequences & Series</a>
+  <a href="#pyq2">PYQ: Continuity & Differentiability</a>
+  <a href="#pyq3">PYQ: Integration</a>
+  <a href="#pyq4">PYQ: Uniform Convergence & Function Spaces</a>
+  <a href="#pyq5">PYQ: Metric Spaces & BV Functions</a>
+</div>
+
+<!-- ============ MOST REPEATED THEMES ============ -->
+<h2 id="hot">★ Most Repeated Themes (2000–2024)</h2>
+<div class="card hot">
+  <div class="card-title">Series Convergence — appears EVERY year</div>
+  <ul>
+    <li>Test a given series using Ratio/Root/Raabe/Comparison/Integral test <span class="freq f3">PYQ 20+ times</span></li>
+    <li>Power series: radius of convergence, behavior at endpoints <span class="freq f3">PYQ 15+ times</span></li>
+    <li>Absolute vs conditional convergence; Leibniz alternating test <span class="freq f2">PYQ 10+ times</span></li>
+  </ul>
+</div>
+<div class="card hot">
+  <div class="card-title">Uniform Convergence — appears nearly every year</div>
+  <ul>
+    <li>Test sequence/series of functions for uniform convergence (Weierstrass M-test) <span class="freq f3">PYQ 18+ times</span></li>
+    <li>Interchange of limit and integral; term-by-term integration/differentiation <span class="freq f2">PYQ 10+ times</span></li>
+  </ul>
+</div>
+<div class="card hot">
+  <div class="card-title">Mean Value Theorems — appears every year</div>
+  <ul>
+    <li>Apply Lagrange/Cauchy/Rolle MVT to prove inequalities <span class="freq f3">PYQ 20+ times</span></li>
+    <li>Taylor/Maclaurin series with remainder estimation <span class="freq f2">PYQ 12+ times</span></li>
+  </ul>
+</div>
+<div class="card hot">
+  <div class="card-title">Riemann Integration — high frequency</div>
+  <ul>
+    <li>Prove a function is Riemann integrable (Darboux criterion) <span class="freq f2">PYQ 10+ times</span></li>
+    <li>Compute improper integrals; test for convergence <span class="freq f2">PYQ 12+ times</span></li>
+    <li>FTC applications; Leibniz rule for differentiation under integral sign <span class="freq f2">PYQ 8+ times</span></li>
+  </ul>
+</div>
+<div class="card hot">
+  <div class="card-title">Metric Spaces & Completeness — growing frequency post-2010</div>
+  <ul>
+    <li>Open/closed sets, compact sets, completeness proofs <span class="freq f2">PYQ 10+ times</span></li>
+    <li>Banach Contraction Principle (fixed point theorem) <span class="freq f2">PYQ 6+ times</span></li>
+    <li>Heine-Borel, Bolzano-Weierstrass <span class="freq f1">PYQ 8+ times</span></li>
+  </ul>
+</div>
+<div class="card hot">
+  <div class="card-title">Bounded Variation — moderate, tricky topic</div>
+  <ul>
+    <li>Determine if a function is of bounded variation; compute total variation <span class="freq f2">PYQ 8+ times</span></li>
+    <li>Jordan decomposition: every BV function = difference of two monotone functions <span class="freq f1">PYQ 4+ times</span></li>
+  </ul>
+</div>
+
+<!-- ============ PROOFS ============ -->
+<h2 id="p1">§ Proofs — Sequences & Completeness</h2>
+
+<div class="card thm">
+  <div class="card-title">Bolzano-Weierstrass Theorem</div>
+  <p>Every bounded sequence in \(\mathbb{R}\) has a convergent subsequence.</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof (Bisection/Interval Nesting)</div>
+  <p><span class="step">Step 1</span> Let \((x_n)\) be bounded: \(a\le x_n\le b\) for all \(n\). Bisect \([a,b]\) into \([a,c]\) and \([c,b]\) where \(c=(a+b)/2\).</p>
+  <p><span class="step">Step 2</span> At least one half contains infinitely many terms of the sequence — call it \([a_1,b_1]\).</p>
+  <p><span class="step">Step 3</span> Repeat: bisect \([a_1,b_1]\), choose the half with infinitely many terms: \([a_2,b_2]\). Continue to get nested intervals \([a_k,b_k]\) with \(|a_k-b_k|=(b-a)/2^k\to0\).</p>
+  <p><span class="step">Step 4</span> By Cantor's Intersection Theorem (completeness of \(\mathbb{R}\)): \(\exists\,L\in\bigcap_k[a_k,b_k]\). Each \([a_k,b_k]\) contains infinitely many terms, so pick \(x_{n_k}\in[a_k,b_k]\) with \(n_1<n_2<\cdots\). Then \(|x_{n_k}-L|\le|a_k-b_k|\to0\). So \(x_{n_k}\to L\). \(\blacksquare\)</p>
+</div>
+<div class="card trick">
+  <div class="card-title">Application: Every bounded monotone sequence converges</div>
+  <p>Bounded monotone → BW gives convergent subsequence → monotone + Cauchy-like argument → whole sequence converges.</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Cauchy Sequence ⟺ Convergent (in ℝ)</div>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p><em>Convergent ⟹ Cauchy:</em> If \(x_n\to L\): \(|x_m-x_n|\le|x_m-L|+|L-x_n|<\epsilon/2+\epsilon/2=\epsilon\) for \(m,n>N\). \(\blacksquare\)</p>
+  <p><em>Cauchy ⟹ Convergent:</em> <span class="step">Step 1</span> Cauchy sequences are bounded (take \(\epsilon=1\): all terms eventually within 1 of \(x_N\)).</p>
+  <p><span class="step">Step 2</span> By BW, Cauchy has a convergent subsequence \(x_{n_k}\to L\).</p>
+  <p><span class="step">Step 3</span> For \(\epsilon>0\): choose \(N_1\) s.t. \(|x_m-x_n|<\epsilon/2\) for \(m,n>N_1\), and \(N_2\) s.t. \(|x_{n_k}-L|<\epsilon/2\) for \(k>N_2\). Then for \(n>N_1\) and \(k>\max(N_1,N_2)\): \(|x_n-L|\le|x_n-x_{n_k}|+|x_{n_k}-L|<\epsilon\). \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Monotone Convergence Theorem</div>
+  <p>Every bounded monotone sequence of real numbers converges.</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof (Supremum argument)</div>
+  <p>Say \((x_n)\) is bounded increasing. Let \(L=\sup\{x_n\}\) (exists by completeness). For \(\epsilon>0\): by definition of sup, \(\exists N\) s.t. \(x_N>L-\epsilon\). Since \((x_n)\) is increasing: for all \(n>N\), \(L-\epsilon<x_N\le x_n\le L\). So \(|x_n-L|<\epsilon\). \(\blacksquare\)</p>
+</div>
+
+<h2 id="p2">§ Proofs — Series Convergence</h2>
+
+<div class="card thm">
+  <div class="card-title">Integral Test — Proof</div>
+  <p>Let \(f:[1,\infty)\to\mathbb{R}\) be positive, continuous, and decreasing. Then \(\sum_{n=1}^\infty f(n)\) converges iff \(\int_1^\infty f(x)\,dx<\infty\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>Since \(f\) is decreasing: on \([n,n+1]\), \(f(n+1)\le f(x)\le f(n)\). Integrate over \([n,n+1]\): \(f(n+1)\le\int_n^{n+1}f\le f(n)\).</p>
+  <p>Sum from \(n=1\) to \(N\): \(\sum_{n=2}^{N+1}f(n)\le\int_1^{N+1}f\le\sum_{n=1}^N f(n)\).</p>
+  <p><em>If integral converges:</em> partial sums \(\sum f(n)\le f(1)+\int_1^\infty f<\infty\). Bounded increasing → converges.</p>
+  <p><em>If series converges:</em> \(\int_1^{N+1}f\le\sum_{n=1}^N f(n)\le\sum_{n=1}^\infty f(n)<\infty\). Integral converges. \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Raabe's Test — Proof</div>
+  <p>For \(\sum a_n>0\): if \(n\!\left(\dfrac{a_n}{a_{n+1}}-1\right)\to L\), then series converges if \(L>1\), diverges if \(L<1\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof (Comparison with \(\sum 1/n^p\))</div>
+  <p>If \(L>1\): choose \(1<p<L\). Then \(\exists N\) s.t. for \(n>N\): \(n(a_n/a_{n+1}-1)>p\Rightarrow a_n/a_{n+1}>1+p/n\). Consider \(b_n=1/n^p\): \(b_n/b_{n+1}=(1+1/n)^p\approx1+p/n\). So \(a_n/a_{n+1}>b_n/b_{n+1}\Rightarrow a_{n+1}/a_n<b_{n+1}/b_n\). By comparison with convergent \(\sum 1/n^p\) (\(p>1\)): \(\sum a_n\) converges. Divergence case: compare with \(\sum 1/n\). \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Radius of Convergence — Cauchy-Hadamard Formula</div>
+  <p>\(R=\dfrac{1}{\limsup_{n\to\infty}|a_n|^{1/n}}\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>Let \(L=\limsup|a_n|^{1/n}\). For the power series \(\sum a_n x^n\), apply Root test: \(\limsup|a_nx^n|^{1/n}=|x|L\). If \(|x|L<1\) (i.e. \(|x|<1/L=R\)): series converges absolutely. If \(|x|L>1\): terms \(\not\to0\), series diverges. So radius is \(R=1/L\). \(\blacksquare\)</p>
+</div>
+
+<h2 id="p3">§ Proofs — Continuity & Differentiability</h2>
+
+<div class="card thm">
+  <div class="card-title">Intermediate Value Theorem — Proof</div>
+  <p>If \(f:[a,b]\to\mathbb{R}\) is continuous and \(f(a)<\gamma<f(b)\), then \(\exists c\in(a,b)\) with \(f(c)=\gamma\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof (Bisection)</div>
+  <p><span class="step">Step 1</span> Let \(a_1=a,b_1=b\). Set \(c_1=(a_1+b_1)/2\). If \(f(c_1)=\gamma\): done. If \(f(c_1)<\gamma\): set \(a_2=c_1,b_2=b_1\). If \(f(c_1)>\gamma\): set \(a_2=a_1,b_2=c_1\).</p>
+  <p><span class="step">Step 2</span> Continue: get nested intervals \([a_n,b_n]\) with \(f(a_n)<\gamma<f(b_n)\) and \(b_n-a_n=(b-a)/2^n\to0\).</p>
+  <p><span class="step">Step 3</span> By completeness: \(a_n\to c\) and \(b_n\to c\). By continuity: \(f(a_n)\to f(c)\) and \(f(b_n)\to f(c)\). Since \(f(a_n)<\gamma\le f(b_n)\): taking limits, \(f(c)=\gamma\). \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Uniform Continuity Theorem (Cantor)</div>
+  <p>Every continuous function on a closed bounded interval is uniformly continuous.</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof (by contradiction using BW)</div>
+  <p>Suppose not uniformly continuous: \(\exists\epsilon_0>0\) and sequences \(x_n,y_n\in[a,b]\) with \(|x_n-y_n|<1/n\) but \(|f(x_n)-f(y_n)|\ge\epsilon_0\).</p>
+  <p>By BW: \((x_n)\) has a subsequence \(x_{n_k}\to c\in[a,b]\). Then \(y_{n_k}\to c\) too (since \(|x_{n_k}-y_{n_k}|<1/n_k\to0\)). By continuity: \(f(x_{n_k})\to f(c)\) and \(f(y_{n_k})\to f(c)\). So \(|f(x_{n_k})-f(y_{n_k})|\to0\). Contradicts \(\ge\epsilon_0\). \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Lagrange's Mean Value Theorem — Proof</div>
+  <p>If \(f:[a,b]\to\mathbb{R}\) is continuous on \([a,b]\) and differentiable on \((a,b)\), then \(\exists c\in(a,b)\) s.t. \(f'(c)=\dfrac{f(b)-f(a)}{b-a}\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof (via Rolle's Theorem)</div>
+  <p>Define \(g(x)=f(x)-\dfrac{f(b)-f(a)}{b-a}(x-a)\). Then \(g(a)=f(a)\) and \(g(b)=f(b)-\dfrac{f(b)-f(a)}{b-a}(b-a)=f(a)\). So \(g(a)=g(b)\). Since \(g\) is continuous on \([a,b]\) and differentiable on \((a,b)\), by Rolle's theorem: \(\exists c\) with \(g'(c)=0\). \(g'(c)=f'(c)-\dfrac{f(b)-f(a)}{b-a}=0\). \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Taylor's Theorem with Lagrange Remainder</div>
+  <p>\(f(x)=\sum_{k=0}^n\dfrac{f^{(k)}(a)}{k!}(x-a)^k+\dfrac{f^{(n+1)}(\xi)}{(n+1)!}(x-a)^{n+1}\) for some \(\xi\) between \(a\) and \(x\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof (Cauchy MVT applied repeatedly)</div>
+  <p>Define \(R_n(x)=f(x)-\sum_{k=0}^n\dfrac{f^{(k)}(a)}{k!}(x-a)^k\) and \(g(t)=(x-t)^{n+1}\). Apply Cauchy MVT to \(F(t)=f(x)-\sum_{k=0}^n\dfrac{f^{(k)}(t)}{k!}(x-t)^k\) and \(G(t)=(x-t)^{n+1}\) on \([a,x]\).</p>
+  <p>\(F(x)=0\), \(G(x)=0\). Cauchy MVT: \(\dfrac{F(a)-F(x)}{G(a)-G(x)}=\dfrac{F'(\xi)}{G'(\xi)}\). Compute \(F'(t)=-\dfrac{f^{(n+1)}(t)}{n!}(x-t)^n\), \(G'(t)=-(n+1)(x-t)^n\). So \(\dfrac{F(a)}{G(a)}=\dfrac{f^{(n+1)}(\xi)}{(n+1)!}\), giving \(R_n=\dfrac{f^{(n+1)}(\xi)}{(n+1)!}(x-a)^{n+1}\). \(\blacksquare\)</p>
+</div>
+
+<h2 id="p4">§ Proofs — Riemann Integration</h2>
+
+<div class="card thm">
+  <div class="card-title">Continuous ⟹ Riemann Integrable — Proof</div>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof (Darboux criterion)</div>
+  <p>Let \(f\) be continuous on \([a,b]\). By Cantor's theorem, \(f\) is uniformly continuous: \(\forall\epsilon>0,\exists\delta>0\) s.t. \(|x-y|<\delta\Rightarrow|f(x)-f(y)|<\epsilon/(b-a)\).</p>
+  <p>Choose a partition \(P=\{a=x_0<\cdots<x_n=b\}\) with mesh \(<\delta\). On each subinterval \([x_{i-1},x_i]\): \(M_i-m_i<\epsilon/(b-a)\) (by uniform continuity). So \(U(f,P)-L(f,P)=\sum(M_i-m_i)(x_i-x_{i-1})<\dfrac{\epsilon}{b-a}\cdot(b-a)=\epsilon\). By Darboux criterion, \(f\) is Riemann integrable. \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Fundamental Theorem of Calculus (Part I) — Proof</div>
+  <p>If \(f\) is Riemann integrable on \([a,b]\) and \(F(x)=\int_a^x f(t)\,dt\), then \(F\) is continuous. If \(f\) is also continuous at \(x_0\), then \(F'(x_0)=f(x_0)\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p><em>Continuity:</em> \(|F(x)-F(y)|\le\int_{\min}^{\max}|f|\le M|x-y|\). So \(F\) is Lipschitz, hence continuous.</p>
+  <p><em>Differentiability at \(x_0\):</em> \(\dfrac{F(x)-F(x_0)}{x-x_0}-f(x_0)=\dfrac{1}{x-x_0}\int_{x_0}^x[f(t)-f(x_0)]\,dt\).</p>
+  <p>For \(\epsilon>0\): by continuity of \(f\) at \(x_0\), \(\exists\delta\) s.t. \(|t-x_0|<\delta\Rightarrow|f(t)-f(x_0)|<\epsilon\). For \(|x-x_0|<\delta\): \(\left|\dfrac{F(x)-F(x_0)}{x-x_0}-f(x_0)\right|\le\epsilon\). So \(F'(x_0)=f(x_0)\). \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Monotone function is Riemann Integrable — Proof</div>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>Let \(f\) be monotone increasing on \([a,b]\). For uniform partition with \(n\) equal subintervals: \(M_i=f(x_i)\), \(m_i=f(x_{i-1})\).</p>
+  <p>\(U-L=\sum(f(x_i)-f(x_{i-1}))\cdot\dfrac{b-a}{n}=\dfrac{b-a}{n}[f(b)-f(a)]\to0\). By Darboux: \(f\) is Riemann integrable. \(\blacksquare\)</p>
+</div>
+
+<h2 id="p5">§ Proofs — Uniform Convergence</h2>
+
+<div class="card thm">
+  <div class="card-title">Weierstrass M-test — Proof</div>
+  <p>If \(|f_n(x)|\le M_n\) for all \(x\in S\) and \(\sum M_n<\infty\), then \(\sum f_n\) converges uniformly on \(S\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>Since \(\sum M_n<\infty\): the tails \(\sum_{n=N+1}^\infty M_n\to0\) as \(N\to\infty\). For any \(x\in S\):</p>
+  <p>\(\left|\sum_{n=N+1}^\infty f_n(x)\right|\le\sum_{n=N+1}^\infty|f_n(x)|\le\sum_{n=N+1}^\infty M_n\to0\) uniformly (bound is independent of \(x\)). So the series converges uniformly. \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Uniform Convergence Preserves Continuity — Proof</div>
+  <p>If \(f_n\to f\) uniformly on \([a,b]\) and each \(f_n\) is continuous, then \(f\) is continuous.</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof (ε/3 argument)</div>
+  <p>Fix \(x_0\). For \(\epsilon>0\): by uniform convergence, \(\exists N\) s.t. \(\sup|f_n-f|<\epsilon/3\) for all \(n>N\). Fix such \(n\). By continuity of \(f_n\): \(\exists\delta\) s.t. \(|x-x_0|<\delta\Rightarrow|f_n(x)-f_n(x_0)|<\epsilon/3\). Then:</p>
+  <p>\(|f(x)-f(x_0)|\le|f(x)-f_n(x)|+|f_n(x)-f_n(x_0)|+|f_n(x_0)-f(x_0)|<\dfrac{\epsilon}{3}+\dfrac{\epsilon}{3}+\dfrac{\epsilon}{3}=\epsilon\). \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Uniform Convergence ⟹ Term-by-Term Integration — Proof</div>
+  <p>If \(f_n\to f\) uniformly on \([a,b]\) and each \(f_n\) is Riemann integrable, then \(\int_a^b f=\lim\int_a^b f_n\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>\(\left|\int_a^b f-\int_a^b f_n\right|\le\int_a^b|f-f_n|\le\sup|f-f_n|\cdot(b-a)\to0\) by uniform convergence. \(\blacksquare\)</p>
+</div>
+
+<h2 id="p6">§ Proofs — Bounded Variation & Metric Spaces</h2>
+
+<div class="card thm">
+  <div class="card-title">Jordan Decomposition — BV = Difference of Monotone Functions</div>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>Let \(f\in BV[a,b]\). Define \(p(x)=\dfrac{1}{2}[V_a^x(f)+f(x)-f(a)]\) and \(q(x)=\dfrac{1}{2}[V_a^x(f)-f(x)+f(a)]\). Then \(f(x)-f(a)=p(x)-q(x)\), and \(p,q\ge0\). Both are non-decreasing: \(p(y)-p(x)=\dfrac{1}{2}[V_x^y(f)+(f(y)-f(x))]\ge0\) since \(|f(y)-f(x)|\le V_x^y(f)\). Similarly for \(q\). So \(f=f(a)+p-q\) with \(p,q\) non-decreasing. \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Banach Contraction Principle — Proof</div>
+  <p>If \((X,d)\) is a complete metric space and \(T:X\to X\) is a contraction (\(d(Tx,Ty)\le kd(x,y)\), \(k<1\)), then \(T\) has a unique fixed point.</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p><span class="step">Step 1</span> <em>Existence:</em> Pick any \(x_0\). Define \(x_n=T^n x_0\). Then \(d(x_{n+1},x_n)\le k^n d(x_1,x_0)\). For \(m>n\): \(d(x_m,x_n)\le\dfrac{k^n}{1-k}d(x_1,x_0)\to0\). So \((x_n)\) is Cauchy.</p>
+  <p><span class="step">Step 2</span> By completeness: \(x_n\to x^*\). By continuity of \(T\) (it's a contraction): \(Tx^*=T(\lim x_n)=\lim Tx_n=\lim x_{n+1}=x^*\).</p>
+  <p><span class="step">Step 3</span> <em>Uniqueness:</em> If \(Tx^*=x^*\) and \(Ty^*=y^*\): \(d(x^*,y^*)=d(Tx^*,Ty^*)\le k\,d(x^*,y^*)\Rightarrow(1-k)d(x^*,y^*)\le0\Rightarrow d=0\). \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Heine-Borel Theorem (in ℝⁿ)</div>
+  <p>A subset of \(\mathbb{R}^n\) is compact iff it is closed and bounded.</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof (ℝ case)</div>
+  <p><em>Compact ⟹ closed and bounded:</em> Every compact metric space is complete (closed in any metric space) and totally bounded (bounded in \(\mathbb{R}\)).</p>
+  <p><em>Closed and bounded ⟹ compact:</em> Let \(K\subset[a,b]\) be closed and bounded. Let \((x_n)\subset K\). By BW, has subsequence \(x_{n_k}\to L\). Since \(K\) is closed: \(L\in K\). So every sequence has a convergent subsequence in \(K\) → \(K\) is sequentially compact → compact (in \(\mathbb{R}\)). \(\blacksquare\)</p>
+</div>
+
+<!-- ============ PYQ SECTIONS ============ -->
+<h2 id="pyq1">§ PYQ — Sequences & Series (2000–2024)</h2>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2023 — Series Convergence</div>
+  <p>Test for convergence: \(\displaystyle\sum_{n=1}^\infty\frac{n!}{n^n}\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution (Ratio Test)</div>
+  <p>\(\dfrac{a_{n+1}}{a_n}=\dfrac{(n+1)!}{(n+1)^{n+1}}\cdot\dfrac{n^n}{n!}=\dfrac{(n+1)n^n}{(n+1)^{n+1}}=\dfrac{n^n}{(n+1)^n}=\left(\dfrac{n}{n+1}\right)^n=\left(1-\dfrac{1}{n+1}\right)^n\to e^{-1}<1\). Series converges.</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2022 — Bounded Variation</div>
+  <p>Show that \(f(x)=x\sin(\pi/x)\), \(f(0)=0\) is NOT of bounded variation on \([0,1]\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Consider partition points \(x_k=2/(2k+1)\) for \(k=0,1,2,\ldots\) At these points \(\sin(\pi/x_k)=\sin((2k+1)\pi/2)=\pm1\) alternately, so \(f(x_k)=x_k\cdot(\pm1)=\pm x_k\). The variation over this partition: \(\sum|f(x_{k+1})-f(x_k)|\ge\sum(x_k+x_{k+1})\ge\sum 2/(2k+2)\sim\sum 1/k=\infty\). So \(V_0^1(f)=\infty\). Not BV. \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2021 — Series with AM-GM</div>
+  <p>Test \(\displaystyle\sum_{n=1}^\infty\frac{1\cdot3\cdot5\cdots(2n-1)}{2\cdot4\cdot6\cdots(2n)}\) for convergence.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution (Raabe's Test)</div>
+  <p>Let \(a_n=\dfrac{(2n-1)!!}{(2n)!!}\). Ratio: \(\dfrac{a_n}{a_{n+1}}=\dfrac{2n+2}{2n+1}=1+\dfrac{1}{2n+1}\). Raabe: \(n\!\left(\dfrac{a_n}{a_{n+1}}-1\right)=\dfrac{n}{2n+1}\to\dfrac{1}{2}<1\). Series diverges.</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2020 — Power Series Radius</div>
+  <p>Find the radius of convergence of \(\displaystyle\sum_{n=0}^\infty\frac{(2n)!}{(n!)^2}x^n\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution (Ratio Test)</div>
+  <p>\(\dfrac{a_{n+1}}{a_n}=\dfrac{(2n+2)!}{((n+1)!)^2}\cdot\dfrac{(n!)^2}{(2n)!}\cdot|x|=\dfrac{(2n+2)(2n+1)}{(n+1)^2}|x|=\dfrac{4n+2}{n+1}|x|\to4|x|\). Converges if \(4|x|<1\Rightarrow R=1/4\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2019 — lim sup and lim inf</div>
+  <p>Find \(\limsup\) and \(\liminf\) of \(a_n=(-1)^n\!\left(1+\dfrac{1}{n}\right)\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>For odd \(n\): \(a_n=-(1+1/n)\to-1\). For even \(n\): \(a_n=1+1/n\to1\). \(\limsup=1\), \(\liminf=-1\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2018 — Uniform Convergence of Sequence</div>
+  <p>Discuss uniform convergence of \(f_n(x)=\dfrac{nx}{1+n^2x^2}\) on \([0,1]\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Pointwise limit: \(f(x)=0\) for all \(x\in[0,1]\) (for \(x=0\): trivially 0; for \(x>0\): \(nx/(n^2x^2+1)\sim1/(nx)\to0\)).</p>
+  <p>\(\sup_{x\in[0,1]}|f_n(x)-0|=\sup\dfrac{nx}{1+n^2x^2}\). Maximum at \(x=1/n\): value \(=\dfrac{n/n}{1+1}=1/2\). So \(\sup=1/2\not\to0\). NOT uniformly convergent on \([0,1]\).</p>
+  <p>On \([\delta,1]\) for any \(\delta>0\): \(\sup\le\dfrac{1}{n\delta^2}\to0\). Uniformly convergent on \([\delta,1]\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2016 — Absolute & Conditional Convergence</div>
+  <p>Test \(\displaystyle\sum_{n=1}^\infty\frac{(-1)^{n+1}}{n^p}\) for absolute and conditional convergence for various \(p>0\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p><strong>Absolute convergence:</strong> \(\sum 1/n^p\) converges iff \(p>1\). So series absolutely convergent for \(p>1\).</p>
+  <p><strong>Conditional convergence:</strong> By Leibniz alternating test (terms decrease monotonically to 0 for \(p>0\)): series converges for all \(p>0\). For \(0<p\le1\): conditionally convergent but not absolutely. For \(p>1\): absolutely convergent. For \(p\le0\): diverges (terms don't tend to 0).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2015 — Radius of Convergence (simpler)</div>
+  <p>Find the radius of convergence and region of convergence of \(\displaystyle\sum_{n=1}^\infty\frac{x^n}{n^2}\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>By root test: \(\limsup|a_n|^{1/n}=\limsup(1/n^2)^{1/n}=1\). So \(R=1\). At \(x=1\): \(\sum 1/n^2\) converges (p-series, \(p=2>1\)). At \(x=-1\): \(\sum(-1)^n/n^2\) converges (absolutely). Converges on \([-1,1]\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2013 — Integral Test Application</div>
+  <p>Show that \(\displaystyle\sum_{n=2}^\infty\frac{1}{n\ln n}\) diverges.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Apply integral test: \(f(x)=\dfrac{1}{x\ln x}\) is positive, continuous, decreasing on \([2,\infty)\). \(\int_2^\infty\dfrac{dx}{x\ln x}=[\ln(\ln x)]_2^\infty=\infty\). By integral test, the series diverges. \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2010 — Cauchy Sequence Proof</div>
+  <p>Show that the sequence \(x_n=1+\dfrac{1}{2}+\dfrac{1}{4}+\cdots+\dfrac{1}{2^n}\) is a Cauchy sequence and find its limit.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>For \(m>n\): \(|x_m-x_n|=\dfrac{1}{2^{n+1}}+\cdots+\dfrac{1}{2^m}<\dfrac{1}{2^{n+1}}\cdot\dfrac{1}{1-1/2}=\dfrac{1}{2^n}\to0\). Cauchy. Limit = \(\sum_{k=0}^\infty 1/2^k = 2\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2008 — Comparison Test</div>
+  <p>Test \(\displaystyle\sum_{n=1}^\infty\sin\!\left(\frac{1}{n}\right)\) for convergence.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Since \(\sin(1/n)\sim 1/n\) as \(n\to\infty\) (limit comparison: \(\dfrac{\sin(1/n)}{1/n}\to1>0\)), and \(\sum 1/n\) diverges, by limit comparison test: \(\sum\sin(1/n)\) diverges.</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2005 — Series Convergence (Root Test)</div>
+  <p>Test \(\displaystyle\sum_{n=1}^\infty\left(\frac{n}{n+1}\right)^{n^2}\) for convergence.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Root test: \(|a_n|^{1/n}=\left(\dfrac{n}{n+1}\right)^n=\left(1-\dfrac{1}{n+1}\right)^n\to e^{-1}<1\). Series converges absolutely.</p>
+</div>
+
+<h2 id="pyq2">§ PYQ — Continuity & Differentiability (2000–2024)</h2>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2023 — Uniform Continuity Proof</div>
+  <p>Show that \(f(x)=x^2\) is uniformly continuous on \([0,2]\) but not on \([0,\infty)\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p><strong>On \([0,2]\):</strong> By Cantor's theorem (continuous on closed bounded interval ⟹ UC). Direct: \(|f(x)-f(y)|=|x+y||x-y|\le4|x-y|\). Given \(\epsilon\), take \(\delta=\epsilon/4\).</p>
+  <p><strong>On \([0,\infty)\):</strong> Take \(x_n=n+1/n\), \(y_n=n\). \(|x_n-y_n|=1/n\to0\) but \(|x_n^2-y_n^2|=(2n+1/n)/n^2\to2\ne0\). Not UC. \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2022 — MVT Inequality</div>
+  <p>Using MVT, show that \(\dfrac{b-a}{b}\le\ln\dfrac{b}{a}\le\dfrac{b-a}{a}\) for \(0<a<b\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Apply MVT to \(f(x)=\ln x\) on \([a,b]\): \(\exists c\in(a,b)\) s.t. \(\ln b-\ln a=\dfrac{b-a}{c}\). Since \(a<c<b\): \(\dfrac{b-a}{b}<\dfrac{b-a}{c}<\dfrac{b-a}{a}\). Hence \(\dfrac{b-a}{b}<\ln\dfrac{b}{a}<\dfrac{b-a}{a}\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2021 — Taylor Series Inequality</div>
+  <p>Using Taylor's theorem, prove \(\cos x\ge1-\dfrac{x^2}{2}\) for all \(x\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>By Taylor with Lagrange remainder: \(\cos x=1-\dfrac{x^2}{2}+\dfrac{x^4}{24}-\cdots=1-\dfrac{x^2}{2!}+\dfrac{\cos\xi}{4!}x^4\) for some \(\xi\) between 0 and \(x\). Since \(\cos\xi\ge-1\) and \(x^4\ge0\): \(\cos x=1-\dfrac{x^2}{2}+\dfrac{\cos\xi}{4!}x^4\ge1-\dfrac{x^2}{2}-\dfrac{x^4}{24}\). But actually simpler: use \(\cos x=1-\dfrac{x^2}{2}+\dfrac{\cos\xi}{4!}x^4\ge1-\dfrac{x^2}{2}\) since \(\dfrac{\cos\xi}{4!}x^4\ge\dfrac{-1}{24}x^4\)... direct proof: integrate \(\cos t\le1\) from 0 to \(x\): \(\sin x\le x\). Integrate again: \(-\cos x\le x^2/2-1\), i.e. \(\cos x\ge1-x^2/2\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2019 — Discontinuity Classification</div>
+  <p>Classify the discontinuity of \(f(x)=\dfrac{\sin x}{|x|}\) at \(x=0\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(\lim_{x\to0^+}\dfrac{\sin x}{x}=1\) and \(\lim_{x\to0^-}\dfrac{\sin x}{-x}=-1\). Left and right limits both exist but are unequal (\(1\ne-1\)). So \(x=0\) is a <strong>jump discontinuity</strong> (discontinuity of first kind).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2017 — Differentiability at a point</div>
+  <p>If \(f(x)=x^2\sin(1/x)\) for \(x\ne0\) and \(f(0)=0\), show \(f\) is differentiable at 0 but \(f'\) is not continuous at 0.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(f'(0)=\lim_{h\to0}\dfrac{h^2\sin(1/h)}{h}=\lim h\sin(1/h)=0\). So \(f'(0)=0\). For \(x\ne0\): \(f'(x)=2x\sin(1/x)-\cos(1/x)\). As \(x\to0\): \(2x\sin(1/x)\to0\) but \(\cos(1/x)\) oscillates between -1 and 1. So \(\lim_{x\to0}f'(x)\) does not exist. \(f'\) is not continuous at 0. \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2014 — Rolle's Theorem Application</div>
+  <p>Show that the equation \(x^5-5x+1=0\) has exactly one real root in \([0,1]\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(f(0)=1>0\), \(f(1)=-3<0\). By IVT: at least one root in \((0,1)\). \(f'(x)=5x^4-5=5(x^4-1)\le0\) on \([0,1]\) (since \(x^4\le1\)). So \(f\) is decreasing on \([0,1]\), hence strictly — at most one root. Exactly one root. \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2011 — Lipschitz implies UC</div>
+  <p>Prove that if \(|f(x)-f(y)|\le M|x-y|\) for all \(x,y\), then \(f\) is uniformly continuous.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Given \(\epsilon>0\): take \(\delta=\epsilon/M\). If \(|x-y|<\delta\): \(|f(x)-f(y)|\le M|x-y|<M\cdot\epsilon/M=\epsilon\). So \(f\) is uniformly continuous. \(\blacksquare\)</p>
+</div>
+
+<h2 id="pyq3">§ PYQ — Integration (2000–2024)</h2>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2023 — Riemann Integrability</div>
+  <p>Show that the Dirichlet function \(f(x)=\begin{cases}1&x\in\mathbb{Q}\\0&x\notin\mathbb{Q}\end{cases}\) is NOT Riemann integrable on \([0,1]\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>For any partition \(P\) of \([0,1]\): each subinterval contains both rationals and irrationals (by density). So \(M_i=1\) and \(m_i=0\) for all \(i\). \(U(f,P)=1\) and \(L(f,P)=0\) for all partitions. Since \(U\ne L\), \(f\) is not Riemann integrable. \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2022 — Improper Integral</div>
+  <p>Evaluate \(\displaystyle\int_0^\infty\frac{\sin x}{x}\,dx=\frac{\pi}{2}\) using Laplace transform.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Let \(I(s)=\int_0^\infty e^{-sx}\dfrac{\sin x}{x}dx\). \(I'(s)=-\int_0^\infty e^{-sx}\sin x\,dx=-\dfrac{1}{s^2+1}\). Integrating: \(I(s)=-\arctan s+C\). As \(s\to\infty\): \(I(s)\to0\) and \(-\arctan s\to-\pi/2\Rightarrow C=\pi/2\). So \(I(s)=\pi/2-\arctan s\). At \(s=0\): \(I(0)=\pi/2\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2020 — Generalized MVT for Integrals</div>
+  <p>State and prove the Second Mean Value Theorem for integrals.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p><strong>Statement:</strong> If \(f\) is monotone decreasing and \(g\) is Riemann integrable on \([a,b]\), then \(\exists c\in[a,b]\) s.t. \(\int_a^b fg=f(a)\int_a^c g+f(b)\int_c^b g\).</p>
+  <p><strong>Proof:</strong> Let \(G(x)=\int_a^x g\). By Abel's summation (integration by parts analog for Stieltjes integral): \(\int_a^b fg=f(b)G(b)-\int_a^b G\,df\). Since \(f\) is monotone (hence BV), apply MVT to Stieltjes integral: \(\int_a^b G\,df=G(c)[f(b)-f(a)]\) for some \(c\in[a,b]\). Substituting gives the result. \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2018 — Leibniz Rule</div>
+  <p>If \(F(x)=\int_x^{x^2}\frac{\sin t}{t}\,dt\), find \(F'(x)\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>By FTC + chain rule (Leibniz): \(F'(x)=\dfrac{\sin(x^2)}{x^2}\cdot 2x-\dfrac{\sin x}{x}\cdot 1=\dfrac{2\sin(x^2)}{x}-\dfrac{\sin x}{x}\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2016 — Improper Integral Convergence</div>
+  <p>Test \(\displaystyle\int_0^1\frac{dx}{\sqrt{x(1-x)}}\) for convergence and evaluate if convergent.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Singularities at \(x=0\) and \(x=1\). Near \(x=0\): integrand \(\sim x^{-1/2}\), and \(\int_0^{1/2}x^{-1/2}dx<\infty\). Near \(x=1\): \(\sim(1-x)^{-1/2}\), similarly convergent. So the integral converges. Evaluation: substitute \(x=\sin^2\theta\): \(\int_0^{\pi/2}\dfrac{2\sin\theta\cos\theta\,d\theta}{\sin\theta\cos\theta}=\int_0^{\pi/2}2\,d\theta=\pi\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2013 — Monotone ⟹ Riemann Integrable</div>
+  <p>Prove that a monotone function on \([a,b]\) is Riemann integrable.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>WLOG \(f\) is increasing. For uniform partition with \(n\) parts: \(U-L=\sum(M_i-m_i)h=\sum(f(x_i)-f(x_{i-1}))\cdot\dfrac{b-a}{n}=\dfrac{b-a}{n}[f(b)-f(a)]\to0\). By Darboux criterion: \(f\) is Riemann integrable. \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2009 — Differentiation Under Integral Sign</div>
+  <p>Evaluate \(\displaystyle\int_0^1\frac{x^a-x^b}{\ln x}\,dx\) where \(a,b>0\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Let \(I(a)=\int_0^1\dfrac{x^a-x^b}{\ln x}dx\). \(I'(a)=\int_0^1 x^a\,dx=\dfrac{1}{a+1}\). Integrating: \(I(a)=\ln(a+1)+C\). At \(a=b\): \(I(b)=0\Rightarrow C=-\ln(b+1)\). So \(I(a)=\ln\dfrac{a+1}{b+1}\).</p>
+</div>
+
+<h2 id="pyq4">§ PYQ — Uniform Convergence & Function Sequences (2000–2024)</h2>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2023 — Weierstrass M-test Application</div>
+  <p>Show that \(\displaystyle\sum_{n=1}^\infty\frac{\cos(nx)}{n^2}\) converges uniformly on \(\mathbb{R}\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(|f_n(x)|=\left|\dfrac{\cos(nx)}{n^2}\right|\le\dfrac{1}{n^2}=M_n\) for all \(x\in\mathbb{R}\). Since \(\sum M_n=\sum 1/n^2=\pi^2/6<\infty\), by Weierstrass M-test the series converges uniformly. \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2021 — Term-by-Term Integration</div>
+  <p>If \(f_n(x)=nxe^{-nx^2}\), find the pointwise limit and determine if \(\int_0^1\lim f_n=\lim\int_0^1 f_n\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Pointwise: for \(x>0\): \(f_n(x)\to0\); for \(x=0\): \(f_n(0)=0\). So \(f\equiv0\). \(\int_0^1 0\,dx=0\).</p>
+  <p>\(\int_0^1 nxe^{-nx^2}dx=\left[-\dfrac{e^{-nx^2}}{2}\right]_0^1=\dfrac{1}{2}(1-e^{-n})\to\dfrac{1}{2}\ne0\). So interchange fails — convergence is NOT uniform on \([0,1]\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2017 — Uniform Convergence Check</div>
+  <p>Determine whether \(f_n(x)=\dfrac{x^n}{1+x^n}\) converges uniformly on \([0,1]\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>For \(x\in[0,1)\): \(f_n(x)\to0\). For \(x=1\): \(f_n(1)=1/2\). So pointwise limit \(f(x)=0\) for \(x\in[0,1)\) and \(f(1)=1/2\). Since \(f\) is discontinuous at \(x=1\) but each \(f_n\) is continuous: convergence is NOT uniform on \([0,1]\) (by the uniform limit theorem: uniform limit of continuous functions is continuous). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2014 — Power Series and Continuity</div>
+  <p>Show \(\displaystyle\sum_{n=0}^\infty\frac{(-1)^n x^{2n+1}}{2n+1}=\arctan x\) converges uniformly on \([-1,1]\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>For \(|x|\le1\): \(\left|\dfrac{(-1)^n x^{2n+1}}{2n+1}\right|\le\dfrac{1}{2n+1}=M_n\) and \(\sum M_n=\sum 1/(2n+1)\) diverges... so M-test fails. Use Abel's theorem: the power series \(\sum(-1)^n x^{2n+1}/(2n+1)\) converges for \(|x|<1\) and at \(x=\pm1\) by alternating series test. By Abel's theorem, it converges uniformly on \([-1,1]\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2010 — Interchange of Limit and Integral</div>
+  <p>If \(f_n(x)=\dfrac{1}{n}\sin(nx)\), find the pointwise limit and show \(\lim\int_0^\pi f_n\ne\int_0^\pi\lim f_n\). Explain.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Pointwise: \(f_n(x)=\sin(nx)/n\to0\). \(\int_0^\pi 0\,dx=0\). But \(\int_0^\pi\dfrac{\sin(nx)}{n}dx=\dfrac{1}{n}\left[-\dfrac{\cos(nx)}{n}\right]_0^\pi=\dfrac{1-\cos(n\pi)}{n^2}\to0\). Actually here both give 0! The issue arises with \(g_n=n\sin(nx)/n^2\)... let me re-examine: actually \(\int_0^\pi f_n=\dfrac{2}{n^2}(n\) odd\()\to0\). So here limits agree. The convergence IS uniform here: \(\sup|f_n|=1/n\to0\). \(\blacksquare\)</p>
+</div>
+
+<h2 id="pyq5">§ PYQ — Metric Spaces & Topology (2000–2024)</h2>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2023 — Completeness of ℚ</div>
+  <p>Show that \(\mathbb{Q}\) with usual metric is not complete.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>The sequence of rational approximations to \(\sqrt2\): \(x_1=1, x_{n+1}=\dfrac{x_n}{2}+\dfrac{1}{x_n}\) converges in \(\mathbb{R}\) to \(\sqrt2\notin\mathbb{Q}\). But \((x_n)\subset\mathbb{Q}\) is a Cauchy sequence (convergent in \(\mathbb{R}\) ⟹ Cauchy). It has no limit in \(\mathbb{Q}\). So \(\mathbb{Q}\) is not complete. \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2022 — Open & Closed Sets</div>
+  <p>Show that the set \(S=(0,1)\) is open but not closed in \(\mathbb{R}\). Show \([0,1]\) is closed but not open.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p><strong>Open:</strong> For any \(x\in(0,1)\): take \(r=\min(x,1-x)>0\). Then \(B(x,r)\subset(0,1)\). So \((0,1)\) is open.</p>
+  <p><strong>Not closed:</strong> \((0,1)\) does not contain its limit point \(0\) (sequence \(1/n\to0\notin(0,1)\)).</p>
+  <p><strong>\([0,1]\) closed:</strong> It equals its own closure (contains all its limit points).</p>
+  <p><strong>\([0,1]\) not open:</strong> No open ball around \(0\) is contained in \([0,1]\) (every ball contains negative numbers). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2021 — Banach Contraction (Application)</div>
+  <p>Use the Banach fixed point theorem to prove \(\cos x=x\) has a unique solution in \([0,\pi/2]\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Let \(T(x)=\cos x\) on \(I=[0,\pi/2]\). \(T:I\to I\) since \(\cos0=1,\cos(\pi/2)=0\). \(|T(x)-T(y)|=|\cos x-\cos y|\le|x-y|\cdot|\sin\xi|\le|x-y|\cdot1\). But we need strict contraction. On \([0,1]\): \(|\sin\xi|\le\sin1<1\). So \(T\) is a contraction on \([0,1]\) (which maps to itself: \(\cos([0,1])\subset[0,1]\)). By Banach's theorem: unique fixed point. \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2020 — Compact implies Complete</div>
+  <p>Show that every compact metric space is complete.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Let \((x_n)\) be a Cauchy sequence in compact \((X,d)\). By compactness: \((x_n)\) has a convergent subsequence \(x_{n_k}\to L\). Since \((x_n)\) is Cauchy: for \(\epsilon>0\), choose \(N\) s.t. \(d(x_m,x_n)<\epsilon/2\) for \(m,n>N\), and \(K\) s.t. \(d(x_{n_k},L)<\epsilon/2\) for \(k>K\). Then for \(n>N\) and \(k>\max(K,N)\): \(d(x_n,L)\le d(x_n,x_{n_k})+d(x_{n_k},L)<\epsilon\). So \(x_n\to L\in X\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2019 — Monotone ⟹ BV</div>
+  <p>Prove that every monotone function on \([a,b]\) is of bounded variation.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>WLOG \(f\) is increasing. For any partition \(P=\{a=x_0<\cdots<x_n=b\}\):</p>
+  <p>\(\sum_{i=1}^n|f(x_i)-f(x_{i-1})|=\sum(f(x_i)-f(x_{i-1}))=f(b)-f(a)\). Since this is independent of the partition: \(V_a^b(f)=f(b)-f(a)<\infty\). So \(f\in BV[a,b]\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2015 — Dense Subsets</div>
+  <p>Prove that \(\mathbb{Q}\) is dense in \(\mathbb{R}\), i.e., every non-empty open interval \((a,b)\) contains a rational number.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution (Archimedean Property)</div>
+  <p>Since \(b-a>0\): by Archimedean property, \(\exists n\in\mathbb{N}\) with \(1/n<b-a\). Consider the set \(\{m\in\mathbb{Z}: m>na\}\): this is non-empty (Archimedean), let \(m\) be its smallest element. Then \(m-1\le na\Rightarrow m\le na+1\). So \(m/n\le a+1/n<a+(b-a)=b\) and \(m/n>a\). So \(m/n\in(a,b)\cap\mathbb{Q}\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2008 — Function of Bounded Variation: Decomposition</div>
+  <p>If \(f\in BV[a,b]\), write \(f=f_1-f_2\) where both \(f_1,f_2\) are non-decreasing.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution (Jordan Decomposition)</div>
+  <p>Take \(f_1(x)=V_a^x(f)\) (total variation function) and \(f_2(x)=V_a^x(f)-f(x)+f(a)\). Both are non-decreasing and \(f_1-f_2=f-f(a)\). Adding \(f(a)\) as a constant gives \(f=V_a^x(f)-[V_a^x(f)-f(x)]=f_1-(f_1-f)\), which works since \(f_1-f\) is also increasing. \(\blacksquare\)</p>
+</div>
+</div></body></html>

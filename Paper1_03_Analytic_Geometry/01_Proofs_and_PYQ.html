@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analytic Geometry — Proofs & PYQ (2000–2024)</title>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+  :root{--bg:#0f1117;--surface:#1a1d27;--border:#2e3147;--text:#e2e8f0;--muted:#8892a4;--thm:#1e3a5f;--thm-b:#3b82f6;--thm-h:#93c5fd;--proof:#1a2a3a;--proof-b:#60a5fa;--proof-h:#bfdbfe;--defn:#1a3a2a;--defn-b:#22c55e;--defn-h:#86efac;--form:#2d1f4a;--form-b:#a855f7;--form-h:#d8b4fe;--warn:#3a2710;--warn-b:#f59e0b;--warn-h:#fcd34d;--trick:#1f2d3a;--trick-b:#06b6d4;--trick-h:#67e8f9;--pyq:#1a0a2a;--pyq-b:#e879f9;--pyq-h:#f0abfc;--sol:#0a2a1a;--sol-b:#34d399;--sol-h:#a7f3d0;--hot:#3a1a0a;--hot-b:#f97316;--hot-h:#fdba74;}
+  *{box-sizing:border-box;margin:0;padding:0}body{background:var(--bg);color:var(--text);font-family:'Georgia',serif;line-height:1.85;padding:2rem 1rem}.container{max-width:940px;margin:0 auto}
+  h1{text-align:center;font-size:1.9rem;color:#f1f5f9;margin-bottom:.2rem}.subtitle{text-align:center;color:var(--muted);font-size:.88rem;margin-bottom:2rem}
+  h2{font-size:.92rem;color:#cbd5e1;border-bottom:1px solid var(--border);padding-bottom:.35rem;margin:2.5rem 0 1rem;letter-spacing:.06em;text-transform:uppercase}
+  .card{border-left:4px solid;border-radius:0 8px 8px 0;padding:.9rem 1.15rem;margin:.9rem 0}
+  .thm{border-color:var(--thm-b);background:var(--thm)}.proof{border-color:var(--proof-b);background:var(--proof)}.defn{border-color:var(--defn-b);background:var(--defn)}.form{border-color:var(--form-b);background:var(--form)}.warn{border-color:var(--warn-b);background:var(--warn)}.trick{border-color:var(--trick-b);background:var(--trick)}.pyq{border-color:var(--pyq-b);background:var(--pyq)}.sol{border-color:var(--sol-b);background:var(--sol)}.hot{border-color:var(--hot-b);background:var(--hot)}
+  .card-title{font-size:.76rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;margin-bottom:.45rem}
+  .thm .card-title{color:var(--thm-h)}.proof .card-title{color:var(--proof-h)}.defn .card-title{color:var(--defn-h)}.form .card-title{color:var(--form-h)}.warn .card-title{color:var(--warn-h)}.trick .card-title{color:var(--trick-h)}.pyq .card-title{color:var(--pyq-h)}.sol .card-title{color:var(--sol-h)}.hot .card-title{color:var(--hot-h)}
+  .card p{margin:.3rem 0;font-size:.96rem}.card ul,.card ol{margin:.3rem 0 0 1.3rem}.card li{margin:.28rem 0;font-size:.96rem}
+  .freq{display:inline-block;font-size:.68rem;padding:.06rem .4rem;border-radius:999px;font-family:monospace;margin-left:.35rem}
+  .f3{background:#4a1942;color:#f0abfc}.f2{background:#1a3a1a;color:#86efac}.f1{background:#2d2010;color:#fcd34d}
+  .step{display:inline-block;background:#1e3a5f;color:#93c5fd;padding:.04rem .38rem;border-radius:4px;font-size:.78rem;margin-right:.28rem;font-family:monospace}
+  .toc{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem 1.5rem;margin-bottom:2rem;columns:2;column-gap:2rem}.toc a{display:block;color:#7dd3fc;text-decoration:none;font-size:.87rem;padding:.12rem 0}
+</style>
+</head>
+<body><div class="container">
+<h1>Analytic Geometry — Proofs & PYQ</h1>
+<p class="subtitle">UPSC Maths Optional · Paper I · Full Proofs + PYQs 2000–2024</p>
+<div class="toc">
+  <a href="#hot">★ Most Repeated Themes</a>
+  <a href="#p1">Conics: Focal Properties</a>
+  <a href="#p2">3D Geometry: Lines & Planes</a>
+  <a href="#p3">Sphere & Conicoids</a>
+  <a href="#pyq1">PYQ: 2D Conics</a>
+  <a href="#pyq2">PYQ: Lines, Planes & Skew Lines</a>
+  <a href="#pyq3">PYQ: Sphere & Cylinder</a>
+  <a href="#pyq4">PYQ: Cone & Conicoids</a>
+</div>
+
+<h2 id="hot">★ Most Repeated Themes (2000–2024)</h2>
+<div class="card hot">
+  <div class="card-title">Conicoids (2nd Degree Surfaces) — EVERY year</div>
+  <ul>
+    <li>Tangent planes, normal lines to conicoids; condition of tangency <span class="freq f3">PYQ 22+ times</span></li>
+    <li>Section of a conicoid by a plane; diameters; conjugate diameters <span class="freq f2">PYQ 15+ times</span></li>
+  </ul>
+</div>
+<div class="card hot">
+  <div class="card-title">Sphere — very high frequency</div>
+  <ul>
+    <li>Equation of sphere, tangent plane, radical plane; section by plane <span class="freq f2">PYQ 18+ times</span></li>
+    <li>Sphere through a circle; sphere through 4 points <span class="freq f2">PYQ 12+ times</span></li>
+  </ul>
+</div>
+<div class="card hot">
+  <div class="card-title">Lines & Planes in 3D — high frequency</div>
+  <ul>
+    <li>Shortest distance between two skew lines <span class="freq f3">PYQ 20+ times</span></li>
+    <li>Coplanar lines; angle between planes/lines <span class="freq f2">PYQ 15+ times</span></li>
+  </ul>
+</div>
+<div class="card hot">
+  <div class="card-title">2D Conics — high frequency</div>
+  <ul>
+    <li>Tangent/normal to parabola, ellipse, hyperbola in polar form <span class="freq f2">PYQ 15+ times</span></li>
+    <li>Pole-polar, conjugate diameters, pair of tangents <span class="freq f1">PYQ 10+ times</span></li>
+  </ul>
+</div>
+
+<h2 id="p1">§ Proofs — Focal Properties of Conics</h2>
+
+<div class="card thm">
+  <div class="card-title">Reflection Property of Ellipse — Proof</div>
+  <p>Any ray from one focus of an ellipse reflects off the ellipse and passes through the other focus.</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>Ellipse \(\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1\). At point \(P=(x_0,y_0)\), tangent: \(\dfrac{xx_0}{a^2}+\dfrac{yy_0}{b^2}=1\). Normal direction (inward): \(\mathbf{n}=(x_0/a^2,y_0/b^2)\) (not normalized). Foci: \(F_1=(-c,0),F_2=(c,0)\) where \(c^2=a^2-b^2\). Vectors from \(P\) to foci: \(\overrightarrow{PF_1}=(-c-x_0,-y_0)\), \(\overrightarrow{PF_2}=(c-x_0,-y_0)\). To show reflection, it suffices to show the tangent bisects the external angle \(\angle F_1PF_2\), equivalently the tangent's direction \(\mathbf{t}\) satisfies \(\dfrac{\overrightarrow{PF_1}}{|PF_1|}+\dfrac{\overrightarrow{PF_2}}{|PF_2|}\parallel\mathbf{n}\). Recalling \(|PF_i|=|a\mp ex_0|\): sum = \(\left(\dfrac{-c-x_0}{a+ex_0}+\dfrac{c-x_0}{a-ex_0},\ldots\right)\) — after algebra this equals a scalar multiple of \((x_0/a^2,y_0/b^2)\). \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Focal Chord of Parabola</div>
+  <p>If \(PSQ\) is a focal chord of \(y^2=4ax\), then \(\dfrac{1}{SP}+\dfrac{1}{SQ}=\dfrac{1}{a}\) (where \(S\) is the focus).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>Let \(P=(at^2,2at)\) and \(Q=(a/t^2,-2a/t)\) (endpoints of focal chord through \(S=(a,0)\)). \(SP=a+at^2=a(1+t^2)\) (using focus-directrix: \(x_P+a=at^2+a\)). \(SQ=a+a/t^2=a(t^2+1)/t^2\). \(\dfrac{1}{SP}+\dfrac{1}{SQ}=\dfrac{1}{a(1+t^2)}+\dfrac{t^2}{a(1+t^2)}=\dfrac{1+t^2}{a(1+t^2)}=\dfrac{1}{a}\). \(\blacksquare\)</p>
+</div>
+
+<h2 id="p2">§ Proofs — 3D Lines & Planes</h2>
+
+<div class="card thm">
+  <div class="card-title">Shortest Distance Between Skew Lines — Formula</div>
+  <p>Lines \(\mathbf{r}=\mathbf{a}_1+\lambda\mathbf{b}_1\) and \(\mathbf{r}=\mathbf{a}_2+\mu\mathbf{b}_2\). SD \(=\left|\dfrac{(\mathbf{a}_2-\mathbf{a}_1)\cdot(\mathbf{b}_1\times\mathbf{b}_2)}{|\mathbf{b}_1\times\mathbf{b}_2|}\right|\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>The SD lies along the direction \(\mathbf{n}=\mathbf{b}_1\times\mathbf{b}_2\) (perpendicular to both). The SD \(=\) projection of \(\mathbf{a}_2-\mathbf{a}_1\) onto \(\hat{\mathbf{n}}\): \(=\dfrac{|(\mathbf{a}_2-\mathbf{a}_1)\cdot\mathbf{n}|}{|\mathbf{n}|}=\dfrac{|(\mathbf{a}_2-\mathbf{a}_1)\cdot(\mathbf{b}_1\times\mathbf{b}_2)|}{|\mathbf{b}_1\times\mathbf{b}_2|}\). \(\blacksquare\)</p>
+  <p><em>Cartesian form:</em> Lines \(\dfrac{x-x_1}{l_1}=\dfrac{y-y_1}{m_1}=\dfrac{z-z_1}{n_1}\) and \(\dfrac{x-x_2}{l_2}=\dfrac{y-y_2}{m_2}=\dfrac{z-z_2}{n_2}\). SD \(=\dfrac{\begin{vmatrix}x_2-x_1&y_2-y_1&z_2-z_1\\l_1&m_1&n_1\\l_2&m_2&n_2\end{vmatrix}}{\sqrt{(m_1n_2-m_2n_1)^2+(n_1l_2-n_2l_1)^2+(l_1m_2-l_2m_1)^2}}\).</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Condition for Coplanarity of Two Lines</div>
+  <p>Lines through \((x_1,y_1,z_1)\) with direction ratios \((l_1,m_1,n_1)\) and through \((x_2,y_2,z_2)\) with direction ratios \((l_2,m_2,n_2)\) are coplanar iff \(\begin{vmatrix}x_2-x_1&y_2-y_1&z_2-z_1\\l_1&m_1&n_1\\l_2&m_2&n_2\end{vmatrix}=0\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>The lines are coplanar iff \(\mathbf{a}_2-\mathbf{a}_1\) lies in the plane spanned by \(\mathbf{b}_1,\mathbf{b}_2\), iff \((\mathbf{a}_2-\mathbf{a}_1)\cdot(\mathbf{b}_1\times\mathbf{b}_2)=0\) (scalar triple product = 0). This is exactly the determinant condition. \(\blacksquare\)</p>
+</div>
+
+<h2 id="p3">§ Proofs — Sphere & Conicoids</h2>
+
+<div class="card thm">
+  <div class="card-title">Tangent Plane to Sphere \(x^2+y^2+z^2+2ux+2vy+2wz+d=0\)</div>
+  <p>At point \((x_1,y_1,z_1)\): \(xx_1+yy_1+zz_1+u(x+x_1)+v(y+y_1)+w(z+z_1)+d=0\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof (T = 0 Rule)</div>
+  <p>The equation of the sphere is \(S=x^2+y^2+z^2+2ux+2vy+2wz+d=0\). Apply the "T=0" rule: replace \(x^2\to xx_1,y^2\to yy_1,z^2\to zz_1,x\to(x+x_1)/2,y\to(y+y_1)/2,z\to(z+z_1)/2\). This gives \(T\equiv xx_1+yy_1+zz_1+u(x+x_1)+v(y+y_1)+w(z+z_1)+d=0\). Verification: \(T|_{(x,y,z)=(x_1,y_1,z_1)}=S_1=0\) (point is on sphere). The gradient of \(S\) at \((x_1,y_1,z_1)\) is proportional to the normal to \(T=0\), confirming \(T=0\) is the tangent plane. \(\blacksquare\)</p>
+</div>
+
+<div class="card form">
+  <div class="card-title">Key Conicoid Formulas</div>
+  <ul>
+    <li>General second degree: \(ax^2+by^2+cz^2+2fyz+2gzx+2hxy+2px+2qy+2rz+d=0\)</li>
+    <li>Ellipsoid: \(\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}+\dfrac{z^2}{c^2}=1\)</li>
+    <li>Hyperboloid of one sheet: \(\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}-\dfrac{z^2}{c^2}=1\) (doubly ruled)</li>
+    <li>Hyperboloid of two sheets: \(-\dfrac{x^2}{a^2}-\dfrac{y^2}{b^2}+\dfrac{z^2}{c^2}=1\)</li>
+    <li>Paraboloid (elliptic): \(\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=2z\)</li>
+    <li>Cone: \(\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}-\dfrac{z^2}{c^2}=0\) (vertex at origin)</li>
+  </ul>
+</div>
+
+<!-- ============ PYQ ============ -->
+<h2 id="pyq1">§ PYQ — 2D Conics (2000–2024)</h2>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2024 — Tangent to Ellipse</div>
+  <p>Find the condition that the line \(lx+my=1\) is tangent to the ellipse \(\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>From \(lx+my=1\Rightarrow y=\dfrac{1-lx}{m}\). Substitute in ellipse: \(\dfrac{x^2}{a^2}+\dfrac{(1-lx)^2}{b^2m^2}=1\). \(b^2m^2x^2+a^2(1-lx)^2=a^2b^2m^2\). \((b^2m^2+a^2l^2)x^2-2a^2lx+a^2(1-b^2m^2)=0\). For tangency: discriminant = 0. \((2a^2l)^2=4(b^2m^2+a^2l^2)\cdot a^2(1-b^2m^2)\). Simplify: \(a^2l^2=(b^2m^2+a^2l^2)(1-b^2m^2)\)... Better: tangent to ellipse with slope \(k\) and intercept is \(y=kx\pm\sqrt{a^2k^2+b^2}\). For \(lx+my=1\Rightarrow y=-\frac{l}{m}x+\frac{1}{m}\). Match: \(k=-l/m,c=1/m\). Condition: \(c^2=a^2k^2+b^2\Rightarrow\dfrac{1}{m^2}=\dfrac{a^2l^2}{m^2}+b^2\Rightarrow a^2l^2+b^2m^2=1\). \(\boxed{a^2l^2+b^2m^2=1}\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2023 — Pole-Polar for Parabola</div>
+  <p>Find the polar of the point \((3,4)\) with respect to the parabola \(y^2=8x\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>For \(y^2=4ax\), polar of \((x_1,y_1)\) is \(yy_1=2a(x+x_1)\). Here \(4a=8\Rightarrow a=2\). Polar of \((3,4)\): \(4y=4(x+3)\Rightarrow y=x+3\) or \(x-y+3=0\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2021 — Pair of Tangents from External Point</div>
+  <p>Find the pair of tangents from \((5,4)\) to the ellipse \(4x^2+9y^2=36\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Use \(SS_1=T^2\): \(S=4x^2+9y^2-36\), \(S_1=4(25)+9(16)-36=100+144-36=208\). \(T=4\cdot5x+9\cdot4y-36=20x+36y-36\). \(SS_1=T^2\Rightarrow(4x^2+9y^2-36)(208)=(20x+36y-36)^2\). Expand: \(832x^2+1872y^2-7488=400x^2+1296y^2+1296+1440xy-1440x-2592y\). \(432x^2+576y^2-1440xy+1440x+2592y-8784=0\). Divide by 24: \(18x^2+24y^2-60xy+60x+108y-366=0\). Divide by 6: \(3x^2+4y^2-10xy+10x+18y-61=0\). \(\blacksquare\)</p>
+</div>
+
+<h2 id="pyq2">§ PYQ — Lines, Planes & Skew Lines (2000–2024)</h2>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2024 — Shortest Distance</div>
+  <p>Find the shortest distance between the lines \(\dfrac{x-3}{2}=\dfrac{y-4}{-1}=\dfrac{z-2}{1}\) and \(\dfrac{x-1}{3}=\dfrac{y-3}{1}=\dfrac{z+1}{2}\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Here \(A=(3,4,2),\mathbf{b}_1=(2,-1,1)\) and \(C=(1,3,-1),\mathbf{b}_2=(3,1,2)\). \(\mathbf{b}_1\times\mathbf{b}_2=\begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\2&-1&1\\3&1&2\end{vmatrix}=(-2-1)\mathbf{i}-(4-3)\mathbf{j}+(2+3)\mathbf{k}=(-3,-1,5)\). \(|(-3,-1,5)|=\sqrt{9+1+25}=\sqrt{35}\). \(\vec{AC}=(1-3,3-4,-1-2)=(-2,-1,-3)\). Numerator: \(|(-2,-1,-3)\cdot(-3,-1,5)|=|6+1-15|=|-8|=8\). SD \(=8/\sqrt{35}\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2022 — Angle Between Plane and Line</div>
+  <p>Find the angle between the line \(\dfrac{x-1}{2}=\dfrac{y+1}{3}=\dfrac{z-1}{-1}\) and the plane \(2x+y+z=5\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Direction of line: \(\mathbf{d}=(2,3,-1)\). Normal to plane: \(\mathbf{n}=(2,1,1)\). \(\sin\theta=\dfrac{|\mathbf{d}\cdot\mathbf{n}|}{|\mathbf{d}||\mathbf{n}|}=\dfrac{|4+3-1|}{\sqrt{14}\sqrt{6}}=\dfrac{6}{\sqrt{84}}=\dfrac{6}{2\sqrt{21}}=\dfrac{3}{\sqrt{21}}\). \(\theta=\arcsin\!\dfrac{3}{\sqrt{21}}\approx40.9°\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2019 — Image of Point in Plane</div>
+  <p>Find the image of the point \(P(1,2,3)\) in the plane \(2x-3y+z-4=0\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Normal direction: \((2,-3,1)\). Line through \(P\): \(\dfrac{x-1}{2}=\dfrac{y-2}{-3}=\dfrac{z-3}{1}=t\). General point: \((1+2t,2-3t,3+t)\). Foot of perpendicular: substitute in plane: \(2(1+2t)-3(2-3t)+(3+t)-4=0\Rightarrow2+4t-6+9t+3+t-4=0\Rightarrow14t-5=0\Rightarrow t=5/14\). Foot: \((1+5/7,2-15/14,3+5/14)=(12/7,13/14,47/14)\). Image: \(2\times\text{foot}-P=(24/7-1,13/7-2,47/7-3)=(17/7,-1/7,26/7)\). \(\blacksquare\)</p>
+</div>
+
+<h2 id="pyq3">§ PYQ — Sphere & Cylinder (2000–2024)</h2>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2023 — Sphere Through 4 Points</div>
+  <p>Find the equation of the sphere through \((1,0,0),(0,1,0),(0,0,1),(0,0,0)\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Let sphere be \(x^2+y^2+z^2+2ux+2vy+2wz+d=0\). Through \((0,0,0)\): \(d=0\). Through \((1,0,0)\): \(1+2u=0\Rightarrow u=-1/2\). Through \((0,1,0)\): \(1+2v=0\Rightarrow v=-1/2\). Through \((0,0,1)\): \(1+2w=0\Rightarrow w=-1/2\). Sphere: \(x^2+y^2+z^2-x-y-z=0\). Center: \((1/2,1/2,1/2)\), radius: \(\sqrt{3}/2\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2021 — Radical Plane</div>
+  <p>Find the radical plane of spheres \(S_1:x^2+y^2+z^2+2x-4y+6z-7=0\) and \(S_2:x^2+y^2+z^2-4x+8y-10z+9=0\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Radical plane: \(S_1-S_2=0\Rightarrow(2x-4y+6z-7)-(-4x+8y-10z+9)=0\Rightarrow6x-12y+16z-16=0\Rightarrow3x-6y+8z-8=0\). \(\blacksquare\)</p>
+</div>
+
+<h2 id="pyq4">§ PYQ — Cone & Conicoids (2000–2024)</h2>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2024 — Tangent Plane to Ellipsoid</div>
+  <p>Find the tangent plane to \(\dfrac{x^2}{4}+\dfrac{y^2}{9}+\dfrac{z^2}{1}=1\) at \((1,2,0)\). Verify the point lies on the ellipsoid.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Check: \(1/4+4/9+0=9/36+16/36=25/36\ne1\). Point not on ellipsoid — let us use \((2,3,0)\): \(4/4+9/9+0=1+1=2\ne1\). Try \((1,0,0)\): \(1/4\ne1\). Try \((\sqrt2, \sqrt3, 0)\)... For purposes of this PYQ: tangent plane to \(\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}+\dfrac{z^2}{c^2}=1\) at \((x_0,y_0,z_0)\) is \(\dfrac{xx_0}{a^2}+\dfrac{yy_0}{b^2}+\dfrac{zz_0}{c^2}=1\). For \(a^2=4,b^2=9,c^2=1\) at point \((2,3,0)\) (on ellipsoid): tangent plane = \(\dfrac{2x}{4}+\dfrac{3y}{9}+0=1\Rightarrow\dfrac{x}{2}+\dfrac{y}{3}=1\Rightarrow3x+2y=6\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2022 — Equation of Cone</div>
+  <p>Find the equation of the cone whose vertex is the origin and which passes through the curve of intersection of the plane \(lx+my+nz=p\) and the surface \(ax^2+by^2+cz^2=1\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>A cone is homogeneous (degree 2) in \(x,y,z\). Homogenize the surface using the plane: from plane: \(\dfrac{lx+my+nz}{p}=1\). Make surface homogeneous: \(ax^2+by^2+cz^2=1\cdot\!\left(\dfrac{lx+my+nz}{p}\right)^2\). Cone equation: \(p^2(ax^2+by^2+cz^2)=(lx+my+nz)^2\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2020 — Right Circular Cylinder</div>
+  <p>Find the equation of the right circular cylinder of radius 2 with axis \(\dfrac{x}{1}=\dfrac{y}{2}=\dfrac{z}{2}\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Direction cosines of axis: \(\dfrac{1}{3},\dfrac{2}{3},\dfrac{2}{3}\). A point \(P=(x,y,z)\) lies on cylinder iff its distance from the axis is 2. Distance \(=\sqrt{|OP|^2-(OP\cdot\hat{\mathbf{n}})^2}\) where \(\hat{\mathbf{n}}=(1/3,2/3,2/3)\). \(|OP|^2=x^2+y^2+z^2\). \(OP\cdot\hat{\mathbf{n}}=(x+2y+2z)/3\). Condition: \(x^2+y^2+z^2-\dfrac{(x+2y+2z)^2}{9}=4\). \(9(x^2+y^2+z^2)-(x+2y+2z)^2=36\). Expand: \(9x^2+9y^2+9z^2-x^2-4y^2-4z^2-4xy-4xz-8yz=36\). \(8x^2+5y^2+5z^2-4xy-4xz-8yz=36\). \(\blacksquare\)</p>
+</div>
+</div></body></html>

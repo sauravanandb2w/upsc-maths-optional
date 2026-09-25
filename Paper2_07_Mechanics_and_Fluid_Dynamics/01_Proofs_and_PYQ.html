@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mechanics & Fluid Dynamics — Proofs & PYQ (2000–2024)</title>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+  :root{--bg:#0f1117;--surface:#1a1d27;--border:#2e3147;--text:#e2e8f0;--muted:#8892a4;--thm:#1e3a5f;--thm-b:#3b82f6;--thm-h:#93c5fd;--proof:#1a2a3a;--proof-b:#60a5fa;--proof-h:#bfdbfe;--defn:#1a3a2a;--defn-b:#22c55e;--defn-h:#86efac;--form:#2d1f4a;--form-b:#a855f7;--form-h:#d8b4fe;--warn:#3a2710;--warn-b:#f59e0b;--warn-h:#fcd34d;--trick:#1f2d3a;--trick-b:#06b6d4;--trick-h:#67e8f9;--pyq:#1a0a2a;--pyq-b:#e879f9;--pyq-h:#f0abfc;--sol:#0a2a1a;--sol-b:#34d399;--sol-h:#a7f3d0;--hot:#3a1a0a;--hot-b:#f97316;--hot-h:#fdba74;}
+  *{box-sizing:border-box;margin:0;padding:0}body{background:var(--bg);color:var(--text);font-family:'Georgia',serif;line-height:1.85;padding:2rem 1rem}.container{max-width:940px;margin:0 auto}
+  h1{text-align:center;font-size:1.9rem;color:#f1f5f9;margin-bottom:.2rem}.subtitle{text-align:center;color:var(--muted);font-size:.88rem;margin-bottom:2rem}
+  h2{font-size:.92rem;color:#cbd5e1;border-bottom:1px solid var(--border);padding-bottom:.35rem;margin:2.5rem 0 1rem;letter-spacing:.06em;text-transform:uppercase}
+  .card{border-left:4px solid;border-radius:0 8px 8px 0;padding:.9rem 1.15rem;margin:.9rem 0}
+  .thm{border-color:var(--thm-b);background:var(--thm)}.proof{border-color:var(--proof-b);background:var(--proof)}.defn{border-color:var(--defn-b);background:var(--defn)}.form{border-color:var(--form-b);background:var(--form)}.warn{border-color:var(--warn-b);background:var(--warn)}.trick{border-color:var(--trick-b);background:var(--trick)}.pyq{border-color:var(--pyq-b);background:var(--pyq)}.sol{border-color:var(--sol-b);background:var(--sol)}.hot{border-color:var(--hot-b);background:var(--hot)}
+  .card-title{font-size:.76rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;margin-bottom:.45rem}
+  .thm .card-title{color:var(--thm-h)}.proof .card-title{color:var(--proof-h)}.defn .card-title{color:var(--defn-h)}.form .card-title{color:var(--form-h)}.warn .card-title{color:var(--warn-h)}.trick .card-title{color:var(--trick-h)}.pyq .card-title{color:var(--pyq-h)}.sol .card-title{color:var(--sol-h)}.hot .card-title{color:var(--hot-h)}
+  .card p{margin:.3rem 0;font-size:.96rem}.card ul,.card ol{margin:.3rem 0 0 1.3rem}.card li{margin:.28rem 0;font-size:.96rem}
+  .freq{display:inline-block;font-size:.68rem;padding:.06rem .4rem;border-radius:999px;font-family:monospace;margin-left:.35rem}
+  .f3{background:#4a1942;color:#f0abfc}.f2{background:#1a3a1a;color:#86efac}.f1{background:#2d2010;color:#fcd34d}
+  .step{display:inline-block;background:#1e3a5f;color:#93c5fd;padding:.04rem .38rem;border-radius:4px;font-size:.78rem;margin-right:.28rem;font-family:monospace}
+  .toc{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem 1.5rem;margin-bottom:2rem;columns:2;column-gap:2rem}.toc a{display:block;color:#7dd3fc;text-decoration:none;font-size:.87rem;padding:.12rem 0}
+</style>
+</head>
+<body><div class="container">
+<h1>Mechanics & Fluid Dynamics — Proofs & PYQ</h1>
+<p class="subtitle">UPSC Maths Optional · Paper II · Full Proofs + PYQs 2000–2024</p>
+<div class="toc">
+  <a href="#hot">★ Most Repeated Themes</a>
+  <a href="#p1">Lagrangian & Hamiltonian Mechanics</a>
+  <a href="#p2">Fluid Kinematics</a>
+  <a href="#p3">Bernoulli's Theorem</a>
+  <a href="#p4">Fluid Dynamics: Euler & Navier-Stokes</a>
+  <a href="#pyq1">PYQ: Lagrangian Mechanics</a>
+  <a href="#pyq2">PYQ: Conservation Laws</a>
+  <a href="#pyq3">PYQ: Fluid Flow & Potential</a>
+  <a href="#pyq4">PYQ: Bernoulli & Applications</a>
+</div>
+
+<h2 id="hot">★ Most Repeated Themes (2000–2024)</h2>
+<div class="card hot">
+  <div class="card-title">Lagrange's Equations of Motion — EVERY year</div>
+  <ul>
+    <li>Derive equations of motion using Lagrangian \(L=T-V\); solve for small oscillations <span class="freq f3">PYQ 22+ times</span></li>
+    <li>Generalized coordinates; cyclic coordinates and conservation of momentum <span class="freq f2">PYQ 15+ times</span></li>
+  </ul>
+</div>
+<div class="card hot">
+  <div class="card-title">Bernoulli's Theorem — very high frequency</div>
+  <ul>
+    <li>State, prove, and apply Bernoulli's equation; Venturimeter, Pitot tube <span class="freq f3">PYQ 22+ times</span></li>
+  </ul>
+</div>
+<div class="card hot">
+  <div class="card-title">Fluid: Equation of Continuity — high frequency</div>
+  <ul>
+    <li>Continuity equation in 3D; irrotational flow; velocity potential <span class="freq f2">PYQ 18+ times</span></li>
+    <li>Stream function; 2D flow; complex potential <span class="freq f2">PYQ 15+ times</span></li>
+  </ul>
+</div>
+<div class="card hot">
+  <div class="card-title">Hamilton's Equations & Conservation</div>
+  <ul>
+    <li>Derive Hamilton's equations; Hamiltonian = total energy <span class="freq f2">PYQ 15+ times</span></li>
+    <li>Conservation laws: momentum, energy, angular momentum <span class="freq f1">PYQ 10+ times</span></li>
+  </ul>
+</div>
+
+<h2 id="p1">§ Proofs — Lagrangian & Hamiltonian Mechanics</h2>
+
+<div class="card thm">
+  <div class="card-title">Lagrange's Equations of Motion — Derivation</div>
+  <p>For a system with \(n\) generalized coordinates \(q_i\), the equations of motion are \(\dfrac{d}{dt}\!\left(\dfrac{\partial L}{\partial\dot{q}_i}\right)-\dfrac{\partial L}{\partial q_i}=0\) where \(L=T-V\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Derivation via Hamilton's Principle</div>
+  <p><span class="step">Step 1</span> Hamilton's principle: \(\delta\int_{t_1}^{t_2}L(q_i,\dot q_i,t)\,dt=0\).</p>
+  <p><span class="step">Step 2</span> Vary: \(\delta\int L\,dt=\int\!\left(\sum_i\dfrac{\partial L}{\partial q_i}\delta q_i+\dfrac{\partial L}{\partial\dot q_i}\delta\dot q_i\right)dt\).</p>
+  <p><span class="step">Step 3</span> Integrate second term by parts (\(\delta\dot q_i=\frac{d}{dt}\delta q_i\)): \(\int\dfrac{\partial L}{\partial\dot q_i}\delta\dot q_i\,dt=\left[\dfrac{\partial L}{\partial\dot q_i}\delta q_i\right]_{t_1}^{t_2}-\int\!\dfrac{d}{dt}\!\left(\dfrac{\partial L}{\partial\dot q_i}\right)\delta q_i\,dt\). Boundary: \(\delta q_i=0\) at endpoints.</p>
+  <p><span class="step">Step 4</span> So \(\delta\int L\,dt=\int\sum_i\!\left[\dfrac{\partial L}{\partial q_i}-\dfrac{d}{dt}\!\left(\dfrac{\partial L}{\partial\dot q_i}\right)\right]\delta q_i\,dt=0\). Since \(\delta q_i\) are arbitrary: \(\dfrac{d}{dt}\!\left(\dfrac{\partial L}{\partial\dot q_i}\right)-\dfrac{\partial L}{\partial q_i}=0\). \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Hamilton's Equations — Derivation from Lagrangian</div>
+  <p>With \(p_i=\partial L/\partial\dot q_i\) and \(H=\sum p_i\dot q_i-L\): \(\dot q_i=\partial H/\partial p_i\) and \(\dot p_i=-\partial H/\partial q_i\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Derivation (Legendre Transform)</div>
+  <p>\(dH=\sum(p_i\,d\dot q_i+\dot q_i\,dp_i)-\dfrac{\partial L}{\partial q_i}\,dq_i-\dfrac{\partial L}{\partial\dot q_i}\,d\dot q_i\). Since \(p_i=\partial L/\partial\dot q_i\): \(p_i\,d\dot q_i-\dfrac{\partial L}{\partial\dot q_i}d\dot q_i=0\). So \(dH=\sum(\dot q_i\,dp_i-\dot p_i\,dq_i)\) (using Lagrange eqs: \(\dot p_i=\partial L/\partial q_i\)). Comparing with \(dH=\sum\!\left(\dfrac{\partial H}{\partial p_i}dp_i+\dfrac{\partial H}{\partial q_i}dq_i\right)\): \(\dot q_i=\partial H/\partial p_i\) and \(\dot p_i=-\partial H/\partial q_i\). \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Conservation of Energy (Hamiltonian = Total Energy)</div>
+  <p>If \(L\) does not depend explicitly on time, then \(H=T+V=\) total energy is conserved.</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>\(\dfrac{dH}{dt}=\sum\!\left(\dfrac{\partial H}{\partial q_i}\dot q_i+\dfrac{\partial H}{\partial p_i}\dot p_i\right)+\dfrac{\partial H}{\partial t}=\sum(-\dot p_i\dot q_i+\dot q_i\dot p_i)+\dfrac{\partial H}{\partial t}=\dfrac{\partial H}{\partial t}\). If \(L\) (and hence \(H\)) does not depend on \(t\): \(dH/dt=0\Rightarrow H=\text{const}\). For holonomic systems with time-independent constraints: \(H=T+V\). \(\blacksquare\)</p>
+</div>
+
+<h2 id="p2">§ Proofs — Fluid Kinematics</h2>
+
+<div class="card thm">
+  <div class="card-title">Equation of Continuity — Derivation</div>
+  <p>For incompressible fluid: \(\text{div}(\mathbf{v})=0\), i.e., \(\dfrac{\partial u}{\partial x}+\dfrac{\partial v}{\partial y}+\dfrac{\partial w}{\partial z}=0\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Derivation (Control Volume)</div>
+  <p>Consider a small parallelepiped \([x,x+\delta x]\times[y,y+\delta y]\times[z,z+\delta z]\). Mass flux out in \(x\)-direction: \(\rho(u+\partial_x(\rho u)\delta x)\delta y\delta z-\rho u\delta y\delta z=\partial_x(\rho u)\delta x\delta y\delta z\). Similarly for \(y,z\). Total rate of mass increase inside: \(-\dfrac{\partial\rho}{\partial t}\delta x\delta y\delta z\). Conservation: \(\dfrac{\partial\rho}{\partial t}+\text{div}(\rho\mathbf{v})=0\). For incompressible (\(\rho=\text{const}\)): \(\text{div}(\mathbf{v})=\dfrac{\partial u}{\partial x}+\dfrac{\partial v}{\partial y}+\dfrac{\partial w}{\partial z}=0\). \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Irrotational Flow ↔ Velocity Potential</div>
+  <p>Flow is irrotational (\(\nabla\times\mathbf{v}=0\)) iff there exists a scalar \(\phi\) (velocity potential) such that \(\mathbf{v}=\nabla\phi\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>If \(\mathbf{v}=\nabla\phi\): \(\nabla\times\mathbf{v}=\nabla\times\nabla\phi=0\) (curl of gradient is zero). Conversely, if \(\nabla\times\mathbf{v}=0\) in a simply-connected domain: by Poincaré lemma there exists \(\phi\) with \(\mathbf{v}=\nabla\phi\). \(\blacksquare\)</p>
+  <p>For incompressible irrotational: \(\nabla\cdot(\nabla\phi)=0\Rightarrow\nabla^2\phi=0\) (Laplace equation). So \(\phi\) is harmonic.</p>
+</div>
+
+<h2 id="p3">§ Proofs — Bernoulli's Theorem</h2>
+
+<div class="card thm">
+  <div class="card-title">Bernoulli's Equation — Proof</div>
+  <p>Along a streamline in steady, irrotational, incompressible flow: \(p+\dfrac{1}{2}\rho v^2+\rho gz=\text{constant}\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof (via Euler's equation)</div>
+  <p><span class="step">Step 1</span> Euler's equation of motion for inviscid flow: \(\rho\dfrac{D\mathbf{v}}{Dt}=-\nabla p+\rho\mathbf{g}\). For steady flow: \(\dfrac{D\mathbf{v}}{Dt}=(\mathbf{v}\cdot\nabla)\mathbf{v}\).</p>
+  <p><span class="step">Step 2</span> Use identity: \((\mathbf{v}\cdot\nabla)\mathbf{v}=\nabla(v^2/2)-\mathbf{v}\times(\nabla\times\mathbf{v})\). For irrotational flow: \(\nabla\times\mathbf{v}=0\). So Euler's equation: \(\rho\nabla(v^2/2)=-\nabla p-\rho\nabla(gz)\) (taking \(\mathbf{g}=-g\hat{z}\)).</p>
+  <p><span class="step">Step 3</span> \(\nabla\!\left(\dfrac{p}{\rho}+\dfrac{v^2}{2}+gz\right)=0\Rightarrow\dfrac{p}{\rho}+\dfrac{v^2}{2}+gz=\text{const}\). Multiply by \(\rho\): \(p+\dfrac{1}{2}\rho v^2+\rho gz=C\). \(\blacksquare\)</p>
+</div>
+
+<h2 id="p4">§ Fluid Dynamics — Stream Function & Potential</h2>
+
+<div class="card thm">
+  <div class="card-title">Stream Function for 2D Incompressible Flow</div>
+  <p>For 2D incompressible flow with continuity \(\partial u/\partial x+\partial v/\partial y=0\): there exists \(\psi\) (stream function) with \(u=\partial\psi/\partial y,v=-\partial\psi/\partial x\). Streamlines: \(\psi=\text{const}\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>The continuity equation \(\partial u/\partial x+\partial v/\partial y=0\) is the compatibility condition for existence of \(\psi\) with \(u=\psi_y,v=-\psi_x\). Check: \(\psi_{yx}-(-\psi_{xy})=0\) automatically (mixed partials equal). For irrotational flow additionally: \(\partial v/\partial x-\partial u/\partial y=0\Rightarrow-\psi_{xx}-\psi_{yy}=0\Rightarrow\nabla^2\psi=0\). \(\blacksquare\)</p>
+  <p>Complex potential: \(w(z)=\phi+i\psi\) is analytic, \(dw/dz=u-iv\) (complex velocity).</p>
+</div>
+
+<!-- ============ PYQ ============ -->
+<h2 id="pyq1">§ PYQ — Lagrangian Mechanics (2000–2024)</h2>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2024 — Lagrangian for Atwood Machine</div>
+  <p>Set up Lagrange's equation for an Atwood machine (masses \(m_1,m_2\) connected by inextensible string over pulley).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Generalized coordinate: \(q=x\) (descent of \(m_1\)). \(T=\dfrac{1}{2}(m_1+m_2)\dot x^2\). \(V=-m_1gx+m_2gx=(m_2-m_1)gx\). \(L=T-V=\dfrac{1}{2}(m_1+m_2)\dot x^2-(m_2-m_1)gx\). Lagrange's equation: \((m_1+m_2)\ddot x=(m_1-m_2)g\Rightarrow\ddot x=\dfrac{(m_1-m_2)g}{m_1+m_2}\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2023 — Simple Pendulum via Lagrangian</div>
+  <p>Derive the equation of motion of a simple pendulum of length \(l\) using Lagrange's method.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Coordinate: \(\theta\) (angle from vertical). \(T=\dfrac{1}{2}ml^2\dot\theta^2\), \(V=-mgl\cos\theta\). \(L=\dfrac{ml^2\dot\theta^2}{2}+mgl\cos\theta\). \(\dfrac{\partial L}{\partial\dot\theta}=ml^2\dot\theta\), \(\dfrac{\partial L}{\partial\theta}=-mgl\sin\theta\). Lagrange: \(ml^2\ddot\theta+mgl\sin\theta=0\Rightarrow\ddot\theta+\dfrac{g}{l}\sin\theta=0\). For small \(\theta\): \(\ddot\theta+\dfrac{g}{l}\theta=0\) (SHM with \(\omega^2=g/l\), period \(T=2\pi\sqrt{l/g}\)). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2021 — Conservation Law: Cyclic Coordinate</div>
+  <p>For a particle moving in a central field, show that angular momentum is conserved using Lagrangian mechanics.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Use polar coordinates: \(T=\dfrac{m}{2}(\dot r^2+r^2\dot\theta^2)\), \(V=V(r)\). \(L=\dfrac{m}{2}(\dot r^2+r^2\dot\theta^2)-V(r)\). Since \(\theta\) does not appear in \(L\) (cyclic): \(\dfrac{\partial L}{\partial\theta}=0\Rightarrow\dfrac{d}{dt}\!\left(\dfrac{\partial L}{\partial\dot\theta}\right)=0\Rightarrow\dfrac{d}{dt}(mr^2\dot\theta)=0\Rightarrow L_z=mr^2\dot\theta=\text{const}\) (angular momentum). \(\blacksquare\)</p>
+</div>
+
+<h2 id="pyq2">§ PYQ — Conservation Laws (2000–2024)</h2>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2022 — Hamilton's Equations</div>
+  <p>Find Hamilton's equations for a harmonic oscillator with Lagrangian \(L=\dfrac{m\dot x^2}{2}-\dfrac{kx^2}{2}\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Generalized momentum: \(p=\partial L/\partial\dot x=m\dot x\Rightarrow\dot x=p/m\). Hamiltonian: \(H=p\dot x-L=\dfrac{p^2}{m}-\left(\dfrac{p^2}{2m}-\dfrac{kx^2}{2}\right)=\dfrac{p^2}{2m}+\dfrac{kx^2}{2}=T+V\). Hamilton's equations: \(\dot x=\partial H/\partial p=p/m\), \(\dot p=-\partial H/\partial x=-kx\). Eliminating \(p\): \(\ddot x=-kx/m\Rightarrow\) SHM. \(\blacksquare\)</p>
+</div>
+
+<h2 id="pyq3">§ PYQ — Fluid Flow & Potential (2000–2024)</h2>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2024 — Velocity Potential</div>
+  <p>Show that \(\phi=x^2-y^2\) is a velocity potential for 2D flow. Find the velocity and stream function.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Check: \(\nabla^2\phi=2-2=0\). \(\checkmark\) (\(\phi\) is harmonic). Velocity: \(u=\phi_x=2x,v=\phi_y=-2y\). Stream function: \(\psi_y=u=2x\Rightarrow\psi=2xy+f(x)\). \(\psi_x=-v=2y\Rightarrow2y+f'(x)=2y\Rightarrow f'=0\Rightarrow f=\text{const}\). Stream function: \(\psi=2xy\). Complex potential: \(w=\phi+i\psi=(x^2-y^2)+2ixy=(x+iy)^2=z^2\). Streamlines: \(2xy=C\) (rectangular hyperbolas). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2022 — Irrotational Flow</div>
+  <p>For the flow \(u=ax,v=-ay\) (where \(a>0\)), verify irrotationality, find velocity potential and stream function.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Continuity: \(\partial u/\partial x+\partial v/\partial y=a-a=0\). \(\checkmark\) Irrotationality: \(\partial v/\partial x-\partial u/\partial y=0-0=0\). \(\checkmark\) Velocity potential: \(\phi_x=u=ax\Rightarrow\phi=ax^2/2+g(y)\). \(\phi_y=g'(y)=v=-ay\Rightarrow g=-ay^2/2\). \(\phi=a(x^2-y^2)/2\). Stream function: \(\psi=axy\) (by analogous calculation, or since \(w=az^2/2\)). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2020 — Source and Sink</div>
+  <p>A source of strength \(m\) is at the origin in a uniform stream with velocity \(U\) in \(x\)-direction. Find the complex potential and stagnation point.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Complex potential: \(w=Uz+\dfrac{m}{2\pi}\ln z\). Velocity: \(\dfrac{dw}{dz}=U+\dfrac{m}{2\pi z}=u-iv\). Stagnation point: \(dw/dz=0\Rightarrow U=-m/(2\pi z)\Rightarrow z=-m/(2\pi U)\). Stagnation point at \((-m/(2\pi U),0)\) on negative \(x\)-axis. \(\blacksquare\)</p>
+</div>
+
+<h2 id="pyq4">§ PYQ — Bernoulli & Applications (2000–2024)</h2>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2023 — Venturimeter</div>
+  <p>A venturimeter has inlet diameter 20 cm and throat 10 cm. If the pressure difference is \(h=25\) cm of mercury, find the flow rate. (Take \(C_d=0.98\).)</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(A_1=\pi(0.1)^2=0.01\pi\) m², \(A_2=\pi(0.05)^2=0.0025\pi\) m². \(h=0.25\times13.6=3.4\) m of water. Flow rate: \(Q=C_d\dfrac{A_1A_2\sqrt{2gh}}{\sqrt{A_1^2-A_2^2}}\). \(\sqrt{2gh}=\sqrt{2\times9.81\times3.4}=\sqrt{66.708}=8.168\) m/s. \(A_1^2-A_2^2=(0.01\pi)^2-(0.0025\pi)^2=\pi^2(10^{-4}-6.25\times10^{-6})=\pi^2\times9.375\times10^{-5}\). \(\sqrt{A_1^2-A_2^2}=\pi\times9.682\times10^{-3}\). \(Q=0.98\times\dfrac{0.01\pi\times0.0025\pi\times8.168}{\pi\times9.682\times10^{-3}}=0.98\times\dfrac{2.5\times10^{-5}\pi\times8.168}{9.682\times10^{-3}}\approx0.98\times0.006624\approx0.00649\) m³/s \(=6.49\) litres/sec. \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2021 — Torricelli's Theorem</div>
+  <p>Prove Torricelli's theorem: speed of efflux from a small hole at depth \(h\) below the free surface is \(v=\sqrt{2gh}\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Apply Bernoulli between free surface (point A) and hole (point B). At A: \(p_A=p_0\) (atmosphere), \(v_A\approx0\) (large tank), height \(=h\) above hole. At B: \(p_B=p_0,v_B=v\), height \(=0\). Bernoulli: \(p_0+0+\rho gh=p_0+\dfrac{1}{2}\rho v^2+0\Rightarrow\rho gh=\dfrac{1}{2}\rho v^2\Rightarrow v=\sqrt{2gh}\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2019 — Equation of Continuity Application</div>
+  <p>Water flows through a pipe that narrows from cross-section \(A_1=0.04\) m² to \(A_2=0.01\) m². If velocity at wide end is \(v_1=2\) m/s, find \(v_2\) and the pressure difference (taking \(\rho=1000\) kg/m³).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Continuity: \(A_1v_1=A_2v_2\Rightarrow v_2=\dfrac{A_1v_1}{A_2}=\dfrac{0.04\times2}{0.01}=8\) m/s. Bernoulli (horizontal pipe): \(p_1+\dfrac{1}{2}\rho v_1^2=p_2+\dfrac{1}{2}\rho v_2^2\Rightarrow p_1-p_2=\dfrac{1}{2}\rho(v_2^2-v_1^2)=\dfrac{1000}{2}(64-4)=30000\) Pa \(=30\) kPa. \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2017 — Doublet & Flow Past Cylinder</div>
+  <p>Show that the complex potential \(w=Uz+\dfrac{Ua^2}{z}\) represents uniform flow past a cylinder of radius \(a\). Find the pressure distribution on the cylinder.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(w=U\!\left(z+\dfrac{a^2}{z}\right)=U\!\left(re^{i\theta}+\dfrac{a^2}{r}e^{-i\theta}\right)=U\!\left(r+\dfrac{a^2}{r}\right)\cos\theta+iU\!\left(r-\dfrac{a^2}{r}\right)\sin\theta\). Stream function: \(\psi=U\!\left(r-\dfrac{a^2}{r}\right)\sin\theta\). On \(r=a\): \(\psi=0\). So \(r=a\) is a streamline — the surface of the cylinder. \(\checkmark\) Velocity: \(\dfrac{dw}{dz}=U\!\left(1-\dfrac{a^2}{z^2}\right)\). On \(r=a\): \(|dw/dz|^2=4U^2\sin^2\theta\Rightarrow v^2=4U^2\sin^2\theta\). Bernoulli: \(p+\dfrac{1}{2}\rho v^2=p_\infty+\dfrac{1}{2}\rho U^2\). So \(p=p_\infty+\dfrac{1}{2}\rho U^2(1-4\sin^2\theta)\). \(\blacksquare\) Note: D'Alembert's paradox — net drag = 0 for ideal fluid.</p>
+</div>
+</div></body></html>

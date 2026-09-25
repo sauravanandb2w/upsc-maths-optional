@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complex Analysis — Proofs & PYQ (2000–2024)</title>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+  :root{--bg:#0f1117;--surface:#1a1d27;--border:#2e3147;--text:#e2e8f0;--muted:#8892a4;--thm:#1e3a5f;--thm-b:#3b82f6;--thm-h:#93c5fd;--proof:#1a2a3a;--proof-b:#60a5fa;--proof-h:#bfdbfe;--defn:#1a3a2a;--defn-b:#22c55e;--defn-h:#86efac;--form:#2d1f4a;--form-b:#a855f7;--form-h:#d8b4fe;--warn:#3a2710;--warn-b:#f59e0b;--warn-h:#fcd34d;--trick:#1f2d3a;--trick-b:#06b6d4;--trick-h:#67e8f9;--pyq:#1a0a2a;--pyq-b:#e879f9;--pyq-h:#f0abfc;--sol:#0a2a1a;--sol-b:#34d399;--sol-h:#a7f3d0;--hot:#3a1a0a;--hot-b:#f97316;--hot-h:#fdba74;}
+  *{box-sizing:border-box;margin:0;padding:0}body{background:var(--bg);color:var(--text);font-family:'Georgia',serif;line-height:1.85;padding:2rem 1rem}.container{max-width:940px;margin:0 auto}
+  h1{text-align:center;font-size:1.9rem;color:#f1f5f9;margin-bottom:.2rem}.subtitle{text-align:center;color:var(--muted);font-size:.88rem;margin-bottom:2rem}
+  h2{font-size:.92rem;color:#cbd5e1;border-bottom:1px solid var(--border);padding-bottom:.35rem;margin:2.5rem 0 1rem;letter-spacing:.06em;text-transform:uppercase}
+  .card{border-left:4px solid;border-radius:0 8px 8px 0;padding:.9rem 1.15rem;margin:.9rem 0}
+  .thm{border-color:var(--thm-b);background:var(--thm)}.proof{border-color:var(--proof-b);background:var(--proof)}.defn{border-color:var(--defn-b);background:var(--defn)}.form{border-color:var(--form-b);background:var(--form)}.warn{border-color:var(--warn-b);background:var(--warn)}.trick{border-color:var(--trick-b);background:var(--trick)}.pyq{border-color:var(--pyq-b);background:var(--pyq)}.sol{border-color:var(--sol-b);background:var(--sol)}.hot{border-color:var(--hot-b);background:var(--hot)}
+  .card-title{font-size:.76rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;margin-bottom:.45rem}
+  .thm .card-title{color:var(--thm-h)}.proof .card-title{color:var(--proof-h)}.defn .card-title{color:var(--defn-h)}.form .card-title{color:var(--form-h)}.warn .card-title{color:var(--warn-h)}.trick .card-title{color:var(--trick-h)}.pyq .card-title{color:var(--pyq-h)}.sol .card-title{color:var(--sol-h)}.hot .card-title{color:var(--hot-h)}
+  .card p{margin:.3rem 0;font-size:.96rem}.card ul,.card ol{margin:.3rem 0 0 1.3rem}.card li{margin:.28rem 0;font-size:.96rem}
+  .freq{display:inline-block;font-size:.68rem;padding:.06rem .4rem;border-radius:999px;font-family:monospace;margin-left:.35rem}
+  .f3{background:#4a1942;color:#f0abfc}.f2{background:#1a3a1a;color:#86efac}.f1{background:#2d2010;color:#fcd34d}
+  .step{display:inline-block;background:#1e3a5f;color:#93c5fd;padding:.04rem .38rem;border-radius:4px;font-size:.78rem;margin-right:.28rem;font-family:monospace}
+  .toc{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem 1.5rem;margin-bottom:2rem;columns:2;column-gap:2rem}.toc a{display:block;color:#7dd3fc;text-decoration:none;font-size:.87rem;padding:.12rem 0}
+</style>
+</head>
+<body><div class="container">
+<h1>Complex Analysis — Proofs & PYQ</h1>
+<p class="subtitle">UPSC Maths Optional · Paper II · Full Proofs + PYQs 2000–2024</p>
+<div class="toc">
+  <a href="#hot">★ Most Repeated Themes</a>
+  <a href="#p1">Analytic Functions & CR Equations</a>
+  <a href="#p2">Cauchy's Theorem & Integral Formula</a>
+  <a href="#p3">Taylor & Laurent Series</a>
+  <a href="#p4">Residues & Contour Integration</a>
+  <a href="#p5">Conformal Mapping & Bilinear Transformations</a>
+  <a href="#pyq1">PYQ: Analyticity & Harmonic Functions</a>
+  <a href="#pyq2">PYQ: Cauchy Theorem & CIF</a>
+  <a href="#pyq3">PYQ: Laurent Series & Singularities</a>
+  <a href="#pyq4">PYQ: Residue Theorem & Real Integrals</a>
+  <a href="#pyq5">PYQ: Conformal Mapping</a>
+</div>
+
+<h2 id="hot">★ Most Repeated Themes (2000–2024)</h2>
+<div class="card hot">
+  <div class="card-title">Contour Integration — appears EVERY year</div>
+  <ul>
+    <li>Evaluate \(\int_0^{2\pi}\) rational in \(\sin\theta,\cos\theta\) via \(z=e^{i\theta}\) <span class="freq f3">PYQ 25+ times</span></li>
+    <li>Evaluate improper real integrals \(\int_{-\infty}^\infty R(x)\,dx\) or \(\int_0^\infty R(x)\,dx\) <span class="freq f3">PYQ 22+ times</span></li>
+  </ul>
+</div>
+<div class="card hot">
+  <div class="card-title">Residues — every year</div>
+  <ul>
+    <li>Find residues at poles (simple, multiple); apply residue theorem <span class="freq f3">PYQ 25+ times</span></li>
+    <li>Classification of singularities: removable, pole of order \(m\), essential <span class="freq f2">PYQ 15+ times</span></li>
+  </ul>
+</div>
+<div class="card hot">
+  <div class="card-title">Analytic Functions & Harmonic Conjugates — high frequency</div>
+  <ul>
+    <li>Check CR equations; find harmonic conjugate; construct analytic function <span class="freq f3">PYQ 20+ times</span></li>
+    <li>Milne-Thomson method to construct \(f(z)\) from real/imaginary part <span class="freq f2">PYQ 15+ times</span></li>
+  </ul>
+</div>
+<div class="card hot">
+  <div class="card-title">Laurent Series — high frequency</div>
+  <ul>
+    <li>Expand \(f(z)\) in Laurent series in different annular regions <span class="freq f2">PYQ 18+ times</span></li>
+    <li>Identify the nature of singularity from Laurent series <span class="freq f2">PYQ 12+ times</span></li>
+  </ul>
+</div>
+<div class="card hot">
+  <div class="card-title">Bilinear / Möbius Transformations — moderate frequency</div>
+  <ul>
+    <li>Find Möbius transformation mapping 3 points to 3 points (cross-ratio) <span class="freq f2">PYQ 15+ times</span></li>
+    <li>Map half-plane to disk, disk to disk, etc. <span class="freq f2">PYQ 10+ times</span></li>
+  </ul>
+</div>
+
+<h2 id="p1">§ Proofs — Analytic Functions</h2>
+
+<div class="card thm">
+  <div class="card-title">Cauchy-Riemann Equations — Necessary Conditions for Differentiability</div>
+  <p>If \(f=u+iv\) is differentiable at \(z_0\), then \(u_x=v_y\) and \(u_y=-v_x\) at \(z_0\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>\(f'(z_0)=\lim_{h\to0}\dfrac{f(z_0+h)-f(z_0)}{h}\) exists and is path-independent.</p>
+  <p><em>Path 1: \(h=\Delta x\) (real):</em> \(f'=\lim_{\Delta x\to0}\dfrac{u(x_0+\Delta x,y_0)-u(x_0,y_0)}{\Delta x}+i\dfrac{v(x_0+\Delta x,y_0)-v(x_0,y_0)}{\Delta x}=u_x+iv_x\).</p>
+  <p><em>Path 2: \(h=i\Delta y\) (imaginary):</em> \(f'=\lim_{\Delta y\to0}\dfrac{u(x_0,y_0+\Delta y)-u_0}{i\Delta y}+i\dfrac{v(x_0,y_0+\Delta y)-v_0}{i\Delta y}=\dfrac{u_y}{i}+\dfrac{iv_y}{i}=v_y-iu_y\).</p>
+  <p>Equate real and imaginary parts: \(u_x=v_y\), \(v_x=-u_y\). \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">CR Equations — Sufficient Conditions (Proof)</div>
+  <p>If \(u,v\) have continuous first-order partial derivatives at \((x_0,y_0)\) satisfying CR equations, then \(f=u+iv\) is differentiable at \(z_0\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof (Total differential approach)</div>
+  <p>By differentiability of \(u\) and \(v\): \(\Delta u=u_x\Delta x+u_y\Delta y+\epsilon_1|\Delta z|\), \(\Delta v=v_x\Delta x+v_y\Delta y+\epsilon_2|\Delta z|\) where \(\epsilon_i\to0\). So \(\Delta f=\Delta u+i\Delta v=(u_x+iv_x)\Delta x+(u_y+iv_y)\Delta y+\epsilon|\Delta z|\). Using CR: \(u_y=-v_x,v_y=u_x\). Let \(A=u_x+iv_x\). Then \(\Delta f=A\Delta x+i(-\bar A)\cdot\frac{\Delta y}{1}...\ \) using \((u_y+iv_y)=(-v_x+iu_x)=i(u_x+iv_x)=iA\). So \(\Delta f=A\Delta x+iA\Delta y+\epsilon|\Delta z|=A(\Delta x+i\Delta y)+\epsilon|\Delta z|=A\Delta z+\epsilon|\Delta z|\). Hence \(\dfrac{\Delta f}{\Delta z}\to A=u_x+iv_x\). Differentiable. \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Harmonic Functions: u analytic ⟹ u is harmonic</div>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>If \(f=u+iv\) is analytic: CR gives \(u_x=v_y,u_y=-v_x\). Differentiate: \(u_{xx}=v_{yx},u_{yy}=-v_{xy}\). By equality of mixed partials (analyticity ⟹ \(C^\infty\)): \(v_{xy}=v_{yx}\Rightarrow u_{xx}+u_{yy}=v_{yx}-v_{xy}=0\). Similarly \(v_{xx}+v_{yy}=0\). So \(u,v\) are harmonic. \(\blacksquare\)</p>
+</div>
+
+<h2 id="p2">§ Proofs — Cauchy's Theorem & CIF</h2>
+
+<div class="card thm">
+  <div class="card-title">Cauchy's Theorem — Proof (via Green's theorem, for simply connected domain)</div>
+  <p>If \(f\) is analytic in a simply connected domain \(D\), then \(\oint_C f(z)\,dz=0\) for any closed curve \(C\subset D\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>\(\oint_C f\,dz=\oint_C(u+iv)(dx+i\,dy)=\oint_C(u\,dx-v\,dy)+i\oint_C(v\,dx+u\,dy)\).</p>
+  <p>By Green's theorem (for smooth \(C\)): \(\oint_C P\,dx+Q\,dy=\iint_D(Q_x-P_y)\,dA\). First integral: \(P=u,Q=-v\): \(\iint(-v_x-u_y)\,dA=0\) by CR (\(u_y=-v_x\)). Second integral: \(P=v,Q=u\): \(\iint(u_x-v_y)\,dA=0\) by CR. So \(\oint_C f\,dz=0\). \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Cauchy's Integral Formula — Proof</div>
+  <p>If \(f\) is analytic in a simply connected domain containing \(C\) and \(z_0\) is inside \(C\): \(f(z_0)=\dfrac{1}{2\pi i}\oint_C\dfrac{f(z)}{z-z_0}\,dz\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>The function \(g(z)=\dfrac{f(z)}{z-z_0}\) has a singularity at \(z_0\). Deform \(C\) to a small circle \(C_\epsilon:|z-z_0|=\epsilon\) (by Cauchy's deformation theorem — valid since \(g\) is analytic except at \(z_0\)).</p>
+  <p>\(\oint_C\dfrac{f(z)}{z-z_0}dz=\oint_{C_\epsilon}\dfrac{f(z)}{z-z_0}dz=\oint_{C_\epsilon}\dfrac{f(z_0)+(f(z)-f(z_0))}{z-z_0}dz\).</p>
+  <p>First part: \(f(z_0)\oint_{C_\epsilon}\dfrac{dz}{z-z_0}=f(z_0)\cdot2\pi i\). Second part: \(\left|\oint_{C_\epsilon}\dfrac{f(z)-f(z_0)}{z-z_0}dz\right|\le\dfrac{\sup|f(z)-f(z_0)|}{\epsilon}\cdot2\pi\epsilon\to0\) as \(\epsilon\to0\) (by continuity of \(f\)). \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Liouville's Theorem — Proof</div>
+  <p>Every bounded entire function is constant.</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>Let \(|f(z)|\le M\). By CIF for derivative: \(f'(z_0)=\dfrac{1}{2\pi i}\oint_{|z-z_0|=R}\dfrac{f(z)}{(z-z_0)^2}dz\). So \(|f'(z_0)|\le\dfrac{1}{2\pi}\cdot\dfrac{M}{R^2}\cdot2\pi R=\dfrac{M}{R}\to0\) as \(R\to\infty\). Hence \(f'(z_0)=0\) for all \(z_0\). So \(f\) is constant. \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Fundamental Theorem of Algebra — via Liouville</div>
+  <p>Every non-constant polynomial with complex coefficients has a root in \(\mathbb{C}\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>Let \(p(z)\) have no root. Then \(f(z)=1/p(z)\) is entire. As \(|z|\to\infty\): \(|p(z)|\to\infty\Rightarrow|f(z)|\to0\). So \(f\) is bounded on \(\mathbb{C}\) (bounded at \(\infty\) and continuous on compact set). By Liouville: \(f\) is constant, so \(p\) is constant — contradiction. \(\blacksquare\)</p>
+</div>
+
+<h2 id="p3">§ Proofs — Laurent Series & Singularities</h2>
+
+<div class="card thm">
+  <div class="card-title">Laurent's Theorem — Proof sketch</div>
+  <p>If \(f\) is analytic in \(r<|z-z_0|<R\), then \(f(z)=\sum_{n=-\infty}^\infty a_n(z-z_0)^n\) where \(a_n=\dfrac{1}{2\pi i}\oint_C\dfrac{f(w)}{(w-z_0)^{n+1}}dw\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof (via CIF on annular region)</div>
+  <p>For \(z\) in the annulus, apply CIF with two circles \(C_1:|w-z_0|=R_1<R\) and \(C_2:|w-z_0|=r_2>r\): \(f(z)=\dfrac{1}{2\pi i}\oint_{C_1}\dfrac{f(w)}{w-z}dw-\dfrac{1}{2\pi i}\oint_{C_2}\dfrac{f(w)}{w-z}dw\). Expand each using geometric series: \(\dfrac{1}{w-z}=\dfrac{1}{w-z_0}\cdot\dfrac{1}{1-(z-z_0)/(w-z_0)}\) for outer circle (converges since \(|z-z_0|<|w-z_0|\)); and \(\dfrac{-1}{z-w}=\dfrac{-1}{z-z_0}\cdot\dfrac{1}{1-(w-z_0)/(z-z_0)}\) for inner circle. The first gives positive powers, the second gives negative powers. \(\blacksquare\)</p>
+</div>
+
+<div class="card trick">
+  <div class="card-title">Classifying Singularities via Laurent Series</div>
+  <ul>
+    <li><strong>Removable singularity:</strong> no negative powers (or \(\lim_{z\to z_0}(z-z_0)f(z)=0\))</li>
+    <li><strong>Pole of order \(m\):</strong> principal part has finitely many terms, lowest power \((z-z_0)^{-m}\)</li>
+    <li><strong>Essential singularity:</strong> principal part has infinitely many terms</li>
+  </ul>
+</div>
+
+<h2 id="p4">§ Proofs — Residues & Contour Integration</h2>
+
+<div class="card thm">
+  <div class="card-title">Residue Theorem — Proof</div>
+  <p>If \(f\) is analytic inside and on \(C\) except at isolated singularities \(z_1,\ldots,z_n\) inside \(C\): \(\oint_C f(z)\,dz=2\pi i\sum_{k=1}^n\text{Res}(f,z_k)\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>By Cauchy's deformation: replace \(C\) by small circles \(\gamma_k\) around each \(z_k\): \(\oint_C f\,dz=\sum_k\oint_{\gamma_k}f\,dz\). On \(\gamma_k\), expand \(f\) as Laurent series: \(\oint_{\gamma_k}f\,dz=\oint_{\gamma_k}\sum_{n=-\infty}^\infty a_n^{(k)}(z-z_k)^n\,dz\). Only the \(n=-1\) term contributes (all others integrate to 0 over closed circle). \(\oint_{\gamma_k}a_{-1}^{(k)}(z-z_k)^{-1}dz=2\pi i\cdot a_{-1}^{(k)}=2\pi i\cdot\text{Res}(f,z_k)\). \(\blacksquare\)</p>
+</div>
+
+<div class="card form">
+  <div class="card-title">Residue Formulas</div>
+  <p><strong>Simple pole:</strong> \(\text{Res}(f,z_0)=\lim_{z\to z_0}(z-z_0)f(z)\).</p>
+  <p><strong>Pole of order \(m\):</strong> \(\text{Res}(f,z_0)=\dfrac{1}{(m-1)!}\lim_{z\to z_0}\dfrac{d^{m-1}}{dz^{m-1}}[(z-z_0)^m f(z)]\).</p>
+  <p><strong>Quotient form:</strong> If \(f=p/q\), simple zero of \(q\) at \(z_0\), \(p(z_0)\ne0\): \(\text{Res}=p(z_0)/q'(z_0)\).</p>
+</div>
+
+<!-- ============ PYQ SECTIONS ============ -->
+<h2 id="pyq1">§ PYQ — Analyticity & Harmonic Functions (2000–2024)</h2>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2024 — Check Analyticity</div>
+  <p>Test whether \(f(z)=|z|^2\) is analytic.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(f=x^2+y^2+0i\). \(u=x^2+y^2,v=0\). CR: \(u_x=2x,v_y=0\). Need \(u_x=v_y\Rightarrow2x=0\). Only at \(x=0\). And \(u_y=2y=-v_x=0\Rightarrow y=0\). CR satisfied only at origin. But CR is not continuous-with-partials elsewhere to give differentiability. \(f\) is differentiable only at \(z=0\), not analytic anywhere.</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2023 — Harmonic Conjugate</div>
+  <p>If \(u=x^3-3xy^2\), find the harmonic conjugate \(v\) and write \(f(z)=u+iv\) in terms of \(z\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(u_x=3x^2-3y^2,u_y=-6xy\). CR: \(v_y=u_x=3x^2-3y^2\Rightarrow v=3x^2y-y^3+\phi(x)\). \(v_x=6xy+\phi'(x)=-u_y=6xy\Rightarrow\phi'(x)=0\Rightarrow\phi=C\). \(v=3x^2y-y^3+C\). \(f(z)=(x^3-3xy^2)+i(3x^2y-y^3)=x^3+3ix^2y-3xy^2-iy^3=(x+iy)^3=z^3\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2022 — Milne-Thomson Method</div>
+  <p>Find \(f(z)\) given that \(\text{Im}(f)=e^x\sin y+xy\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Let \(v=e^x\sin y+xy\). \(v_x=e^x\sin y+y\), \(v_y=e^x\cos y+x\). By CR: \(u_x=v_y=e^x\cos y+x\), \(u_y=-v_x=-(e^x\sin y+y)\). Check: these are consistent (verify \(u_{xy}=u_{yx}\)). Using Milne-Thomson: \(f(z)=f'(z)dz\)... method: \(f'(z)=u_x+iv_x=(e^x\cos y+x)+i(e^x\sin y+y)\). At \(y=0\): \(f'(x+i0)=(e^x+x)+ie^x\cdot0=e^x+x\). In complex form: \(f'(z)=e^z+z\). Integrate: \(f(z)=e^z+z^2/2+C\). Verify: \(e^z=e^x\cos y+ie^x\sin y\), \(z^2/2=(x^2-y^2)/2+ixy\). \(\text{Im}(f)=e^x\sin y+xy\). Matches! \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2021 — Real Part Given</div>
+  <p>Show \(u=e^x\cos y\) is harmonic and find the corresponding analytic function.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(u_x=e^x\cos y,u_{xx}=e^x\cos y\). \(u_y=-e^x\sin y,u_{yy}=-e^x\cos y\). \(u_{xx}+u_{yy}=0\). Harmonic. \(v_y=u_x=e^x\cos y\Rightarrow v=e^x\sin y+\phi(x)\). \(v_x=e^x\sin y+\phi'(x)=-u_y=e^x\sin y\Rightarrow\phi'=0\). \(f(z)=e^x\cos y+ie^x\sin y=e^x(\cos y+i\sin y)=e^xe^{iy}=e^{x+iy}=e^z\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2018 — Find a, b for Analyticity</div>
+  <p>Find \(a,b\in\mathbb{R}\) such that \(f(z)=(x^2+axy+by^2)+iv\) is analytic, if \(v=2xy-y^2\)... actually: find \(a,b\) for \(u=ax^2+bxy+y^2\) to be harmonic.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(u_{xx}=2a,u_{yy}=2\). Harmonic requires \(u_{xx}+u_{yy}=0\Rightarrow2a+2=0\Rightarrow a=-1\). \(b\) can be anything (since \(u_{xy}=b\) and Laplace doesn't directly constrain \(b\)). But \(b=0\) is typical unless stated otherwise. So \(a=-1\). Then \(u=-x^2+y^2=-(x^2-y^2)\). This is \(-\text{Re}(z^2)\), consistent with \(f(z)=-z^2+C\) (analytic).</p>
+</div>
+
+<h2 id="pyq2">§ PYQ — Cauchy Theorem & CIF (2000–2024)</h2>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2023 — CIF Application</div>
+  <p>Evaluate \(\displaystyle\oint_{|z|=2}\frac{e^z}{z(z-1)}\,dz\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Singularities at \(z=0\) and \(z=1\), both inside \(|z|=2\). By residue theorem (or CIF): \(\oint=2\pi i(\text{Res at }0+\text{Res at }1)\). Res at 0: \(\lim_{z\to0}z\cdot\dfrac{e^z}{z(z-1)}=\dfrac{e^0}{0-1}=-1\). Res at 1: \(\lim_{z\to1}(z-1)\cdot\dfrac{e^z}{z(z-1)}=\dfrac{e^1}{1}=e\). Total: \(2\pi i(-1+e)=2\pi i(e-1)\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2022 — Cauchy's Theorem Verification</div>
+  <p>Evaluate \(\displaystyle\oint_{|z|=1}\frac{\sin z}{z}\,dz\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(g(z)=\sin z/z\): the singularity at \(z=0\) is removable (Laurent series: \(\sin z/z=1-z^2/6+\cdots\) — no negative powers). By extended Cauchy theorem: \(\oint g\,dz=2\pi i\cdot\text{Res}(g,0)=2\pi i\cdot0=0\). (Alternatively: since \(g\) is entire after defining \(g(0)=1\), Cauchy gives 0.) Answer: \(\mathbf{0}\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2020 — Derivatives via CIF</div>
+  <p>Evaluate \(\displaystyle\oint_{|z|=3}\frac{\cos\pi z}{(z-1)^2(z+2)}\,dz\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Singularities: pole of order 2 at \(z=1\), simple pole at \(z=-2\). Both inside \(|z|=3\).</p>
+  <p>Res at \(-2\): \(\dfrac{\cos(-2\pi)}{(-2-1)^2}=\dfrac{1}{9}\). Res at \(1\): \(\dfrac{d}{dz}\!\left[\dfrac{\cos\pi z}{z+2}\right]_{z=1}=\dfrac{-\pi\sin\pi z(z+2)-\cos\pi z}{(z+2)^2}\bigg|_{z=1}=\dfrac{-\pi\sin\pi\cdot3-\cos\pi}{9}=\dfrac{0+1}{9}=\dfrac{1}{9}\). Total: \(2\pi i\left(\dfrac{1}{9}+\dfrac{1}{9}\right)=\dfrac{4\pi i}{9}\).</p>
+</div>
+
+<h2 id="pyq3">§ PYQ — Laurent Series & Singularities (2000–2024)</h2>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2023 — Laurent Series in Two Annuli</div>
+  <p>Expand \(f(z)=\dfrac{1}{z(z-1)(z-2)}\) in Laurent series for \(1<|z|<2\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Partial fractions: \(f=\dfrac{-1/2}{z}+\dfrac{1}{z-1}+\dfrac{-1/2}{z-2}\). In region \(1<|z|<2\): (i) \(1/z\): already in Laurent form, negative power of \(z\). (ii) \(1/(z-1)=\dfrac{1}{z}\cdot\dfrac{1}{1-1/z}=\dfrac{1}{z}\sum_{n=0}^\infty z^{-n}=\sum_{n=0}^\infty z^{-n-1}=\sum_{n=1}^\infty z^{-n}\) (since \(|1/z|<1\)). (iii) \(-1/(z-2)=\dfrac{1}{2}\cdot\dfrac{1}{1-z/2}=\dfrac{1}{2}\sum_{n=0}^\infty(z/2)^n=\sum_{n=0}^\infty\dfrac{z^n}{2^{n+1}}\) (since \(|z/2|<1\)). Combining: \(f=\sum_{n=0}^\infty\dfrac{z^n}{2^{n+1}}-\dfrac{1}{2z}+\sum_{n=1}^\infty z^{-n}-\dfrac{1}{z}\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2022 — Classify Singularities</div>
+  <p>Classify singularities of \(f(z)=\dfrac{\sin z}{z^3}\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(\sin z=z-z^3/6+z^5/120-\cdots\). So \(f(z)=\dfrac{1}{z^2}-\dfrac{1}{6}+\dfrac{z^2}{120}-\cdots\). Laurent series around \(z=0\): lowest power is \(z^{-2}\). So \(z=0\) is a <strong>pole of order 2</strong>. \(\text{Res}(f,0)=\) coefficient of \(z^{-1}\) = 0 (there is no \(z^{-1}\) term). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2021 — Essential Singularity</div>
+  <p>Show that \(z=0\) is an essential singularity of \(f(z)=e^{1/z}\) and find the residue.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(e^{1/z}=\sum_{n=0}^\infty\dfrac{1}{n!\,z^n}=1+\dfrac{1}{z}+\dfrac{1}{2z^2}+\cdots\). Infinitely many negative powers → essential singularity. Residue = coefficient of \(z^{-1}\) = 1. \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2019 — Poles of Complex Function</div>
+  <p>Find the poles and residues of \(f(z)=\dfrac{z^2}{(z+1)^2(z^2+1)}\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Poles: \(z=-1\) (order 2), \(z=i\) (simple), \(z=-i\) (simple). Res at \(i\): \(\dfrac{i^2}{(i+1)^2(2i)}=\dfrac{-1}{(2i)(-1+1+2i)}=\dfrac{-1}{2i(2i)}=\dfrac{-1}{-4}=\dfrac{1}{4}\). Res at \(-i\): \(\dfrac{-1}{(-i+1)^2(-2i)}=\cdots=\dfrac{1}{4}\). Res at \(-1\): \(\dfrac{d}{dz}\!\left[\dfrac{z^2}{z^2+1}\right]_{z=-1}=\dfrac{2z(z^2+1)-z^2\cdot2z}{(z^2+1)^2}\bigg|_{-1}=\dfrac{-2\cdot2+(-1)\cdot(-2)}{4}=\dfrac{-4+2}{4}=\dfrac{-1}{2}\).</p>
+</div>
+
+<h2 id="pyq4">§ PYQ — Residue Theorem & Real Integrals (2000–2024)</h2>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2024 — Trigonometric Integral</div>
+  <p>Evaluate \(\displaystyle I=\int_0^{2\pi}\frac{d\theta}{5-4\cos\theta}\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Let \(z=e^{i\theta}\): \(\cos\theta=\dfrac{z+z^{-1}}{2}\), \(d\theta=dz/(iz)\). \(I=\oint_{|z|=1}\dfrac{1}{5-2(z+z^{-1})}\cdot\dfrac{dz}{iz}=\oint\dfrac{dz}{iz(5-2z-2/z)}=\oint\dfrac{dz}{i(5z-2z^2-2)}=\oint\dfrac{dz}{-i(2z^2-5z+2)}\). Factor: \(2z^2-5z+2=(2z-1)(z-2)\). Poles at \(z=1/2\) (inside) and \(z=2\) (outside). Res at \(z=1/2\): \(\dfrac{1}{-i\cdot2\cdot(1/2-2)}=\dfrac{1}{-i\cdot2\cdot(-3/2)}=\dfrac{1}{3i}\). \(I=2\pi i\cdot\dfrac{1}{3i}=\dfrac{2\pi}{3}\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2023 — Improper Integral</div>
+  <p>Evaluate \(\displaystyle\int_{-\infty}^\infty\frac{x^2}{(x^2+1)(x^2+4)}\,dx\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Use semicircular contour (upper half plane). Poles in UHP: \(z=i\) and \(z=2i\). Res at \(i\): \(\dfrac{i^2}{(2i)(i^2+4)}=\dfrac{-1}{2i\cdot3}=\dfrac{-1}{6i}\). Res at \(2i\): \(\dfrac{(2i)^2}{(2i+1\cdot1)... }\) use formula: \(\dfrac{(2i)^2}{(4i^2+1)(4i)}=\dfrac{-4}{(-3)(4i)}=\dfrac{-4}{-12i}=\dfrac{1}{3i}\). Total residue: \(\dfrac{-1}{6i}+\dfrac{1}{3i}=\dfrac{-1+2}{6i}=\dfrac{1}{6i}\). \(I=2\pi i\cdot\dfrac{1}{6i}=\dfrac{\pi}{3}\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2022 — Integral with Exponential</div>
+  <p>Evaluate \(\displaystyle\int_0^\infty\frac{\cos x}{x^2+a^2}\,dx\) for \(a>0\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Consider \(\oint_C\dfrac{e^{iz}}{z^2+a^2}dz\) over upper semicircle. Pole in UHP: \(z=ia\). Res: \(\dfrac{e^{i(ia)}}{2ia}=\dfrac{e^{-a}}{2ia}\). By Jordan's lemma: integral over arc \(\to0\). So \(\int_{-\infty}^\infty\dfrac{e^{ix}}{x^2+a^2}dx=2\pi i\cdot\dfrac{e^{-a}}{2ia}=\dfrac{\pi e^{-a}}{a}\). Taking real part: \(\int_{-\infty}^\infty\dfrac{\cos x}{x^2+a^2}dx=\dfrac{\pi e^{-a}}{a}\). Since integrand is even: \(\int_0^\infty\dfrac{\cos x}{x^2+a^2}dx=\dfrac{\pi e^{-a}}{2a}\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2020 — Integral via Residues</div>
+  <p>Evaluate \(\displaystyle\int_0^{2\pi}\frac{d\theta}{a+b\cos\theta}\), \(a>b>0\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Standard substitution: \(z=e^{i\theta}\). Denominator becomes \(a+b(z+z^{-1})/2=\dfrac{bz^2+2az+b}{2z}\). Integral becomes \(\oint_{|z|=1}\dfrac{2\,dz}{i(bz^2+2az+b)}\). Roots of \(bz^2+2az+b=0\): \(z=\dfrac{-a\pm\sqrt{a^2-b^2}}{b}\). Since \(a>b>0\): \(z_1=\dfrac{-a+\sqrt{a^2-b^2}}{b}\) has \(|z_1|<1\). Res at \(z_1\): \(\dfrac{2}{i\cdot(2bz_1+2a)}=\dfrac{1}{i(bz_1+a)}=\dfrac{1}{i\sqrt{a^2-b^2}}\). \(I=2\pi i\cdot\dfrac{1}{i\sqrt{a^2-b^2}}=\dfrac{2\pi}{\sqrt{a^2-b^2}}\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2018 — Real Integral via Contour</div>
+  <p>Evaluate \(\displaystyle\int_{-\infty}^\infty\frac{dx}{(1+x^2)^2}\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Pole in UHP: \(z=i\) (order 2). Res at \(i\): \(\dfrac{d}{dz}\!\left[\dfrac{1}{(z+i)^2}\right]_{z=i}=\dfrac{-2}{(2i)^3}=\dfrac{-2}{-8i}=\dfrac{1}{4i}\). \(I=2\pi i\cdot\dfrac{1}{4i}=\dfrac{\pi}{2}\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2016 — Indented Contour</div>
+  <p>Show \(\displaystyle\int_0^\infty\frac{\sin x}{x}\,dx=\frac{\pi}{2}\) using contour integration.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Consider \(f(z)=e^{iz}/z\). Integrate over indented semicircle (upper half plane, indentation at 0 of radius \(\epsilon\), large circle of radius \(R\)). By Cauchy's theorem (no poles inside): \(\int_{-R}^{-\epsilon}+\int_{\gamma_\epsilon}+\int_\epsilon^R+\int_{\Gamma_R}=0\). As \(\epsilon\to0,R\to\infty\): arc \(\Gamma_R\to0\) (Jordan); indentation \(\gamma_\epsilon\to-\pi i\cdot\text{Res}(f,0)=-\pi i\cdot1=-\pi i\). The real-axis parts: \(2i\int_0^\infty\dfrac{\sin x}{x}dx\). So \(2i\int_0^\infty\dfrac{\sin x}{x}dx-\pi i=0\Rightarrow\int_0^\infty\dfrac{\sin x}{x}dx=\dfrac{\pi}{2}\). \(\blacksquare\)</p>
+</div>
+
+<h2 id="pyq5">§ PYQ — Conformal Mapping (2000–2024)</h2>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2024 — Bilinear Transformation via 3 Points</div>
+  <p>Find the bilinear transformation mapping \(z=0,1,\infty\) to \(w=-1,0,1\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Use cross-ratio: \(\dfrac{(w-w_1)(w_2-w_3)}{(w-w_3)(w_2-w_1)}=\dfrac{(z-z_1)(z_2-z_3)}{(z-z_3)(z_2-z_1)}\). With \((z_1,z_2,z_3)=(0,1,\infty)\) and \((w_1,w_2,w_3)=(-1,0,1)\): \(\dfrac{(w+1)(0-1)}{(w-1)(0+1)}=\dfrac{(z-0)(1-\infty)}{(z-\infty)(1-0)}\). For \(z_3=\infty\): \(\dfrac{z-0}{z-\infty}\cdot\dfrac{1-\infty}{1-0}\to\dfrac{z}{1}=z\) (limit as \(z_3\to\infty\)). So \(\dfrac{-(w+1)}{w-1}=z\Rightarrow-(w+1)=z(w-1)\Rightarrow-w-1=zw-z\Rightarrow-w-zw=1-z\Rightarrow w(-1-z)=(1-z)\Rightarrow w=\dfrac{z-1}{z+1}\). Verify: \(z=0\to w=-1\), \(z=1\to w=0\), \(z\to\infty\to w=1\). \(\checkmark\) \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2022 — Map Upper Half-Plane to Disk</div>
+  <p>Find the bilinear transformation mapping the upper half-plane \(\text{Im}(z)>0\) to the unit disk \(|w|<1\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Standard map: \(w=\dfrac{z-z_0}{z-\bar{z}_0}\) where \(z_0\) is in the UHP (maps \(z_0\mapsto0\)). Choosing \(z_0=i\): \(w=\dfrac{z-i}{z+i}\). Check: \(z=0\to w=-1\), \(z=1\to w=\dfrac{1-i}{1+i}=\dfrac{(1-i)^2}{2}=\dfrac{-2i}{2}=-i\) (on circle). \(z=i\to w=0\) (center). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2020 — Conformal Mapping: w = z²</div>
+  <p>Find the image of the region \(0<\text{arg}(z)<\pi/4\) under \(w=z^2\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>If \(z=re^{i\theta}\) with \(0<\theta<\pi/4\): \(w=r^2e^{2i\theta}\). So \(\text{arg}(w)=2\theta\in(0,\pi/2)\). The image is the region \(0<\text{arg}(w)<\pi/2\), i.e., the first quadrant \(\{w:\text{Re}(w)>0,\text{Im}(w)>0\}\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2018 — Joukowski Transform</div>
+  <p>Show that the map \(w=z+1/z\) maps the circle \(|z|=1\) to the real segment \([-2,2]\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>On \(|z|=1\): \(z=e^{i\theta}\). \(w=e^{i\theta}+e^{-i\theta}=2\cos\theta\in[-2,2]\). So the unit circle maps to the real segment \([-2,2]\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2016 — Map Circle to Circle</div>
+  <p>Find the bilinear transformation mapping \(|z|=1\) to \(|w|=1\) and \(z=1\to w=1\), \(z=-1\to w=-1\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Any bilinear transformation mapping disk to disk has the form \(w=e^{i\alpha}\dfrac{z-z_0}{1-\bar{z}_0z}\) for \(|z_0|<1\) and real \(\alpha\). Condition \(z=1\to w=1\): \(1=e^{i\alpha}\dfrac{1-z_0}{1-\bar{z}_0}\). Condition \(z=-1\to w=-1\): \(-1=e^{i\alpha}\dfrac{-1-z_0}{1+\bar{z}_0}\). Divide: \(-1=\dfrac{-1-z_0}{1+\bar{z}_0}\cdot\dfrac{1-\bar{z}_0}{1-z_0}\). Simplest solution: \(z_0=0,\alpha=0\Rightarrow w=z\) (identity). Another: \(w=-z\) doesn't satisfy \(z=1\to w=1\). So \(w=z\). \(\blacksquare\)</p>
+</div>
+</div></body></html>

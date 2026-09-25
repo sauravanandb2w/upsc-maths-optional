@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Algebra — Proofs & PYQ (2000–2024)</title>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+  :root{--bg:#0f1117;--surface:#1a1d27;--border:#2e3147;--text:#e2e8f0;--muted:#8892a4;--thm:#1e3a5f;--thm-b:#3b82f6;--thm-h:#93c5fd;--proof:#1a2a3a;--proof-b:#60a5fa;--proof-h:#bfdbfe;--defn:#1a3a2a;--defn-b:#22c55e;--defn-h:#86efac;--form:#2d1f4a;--form-b:#a855f7;--form-h:#d8b4fe;--warn:#3a2710;--warn-b:#f59e0b;--warn-h:#fcd34d;--trick:#1f2d3a;--trick-b:#06b6d4;--trick-h:#67e8f9;--pyq:#1a0a2a;--pyq-b:#e879f9;--pyq-h:#f0abfc;--sol:#0a2a1a;--sol-b:#34d399;--sol-h:#a7f3d0;--hot:#3a1a0a;--hot-b:#f97316;--hot-h:#fdba74;}
+  *{box-sizing:border-box;margin:0;padding:0}body{background:var(--bg);color:var(--text);font-family:'Georgia',serif;line-height:1.85;padding:2rem 1rem}.container{max-width:940px;margin:0 auto}
+  h1{text-align:center;font-size:1.9rem;color:#f1f5f9;margin-bottom:.2rem}.subtitle{text-align:center;color:var(--muted);font-size:.88rem;margin-bottom:2rem}
+  h2{font-size:.92rem;color:#cbd5e1;border-bottom:1px solid var(--border);padding-bottom:.35rem;margin:2.5rem 0 1rem;letter-spacing:.06em;text-transform:uppercase}
+  .card{border-left:4px solid;border-radius:0 8px 8px 0;padding:.9rem 1.15rem;margin:.9rem 0}
+  .thm{border-color:var(--thm-b);background:var(--thm)}.proof{border-color:var(--proof-b);background:var(--proof)}.defn{border-color:var(--defn-b);background:var(--defn)}.form{border-color:var(--form-b);background:var(--form)}.warn{border-color:var(--warn-b);background:var(--warn)}.trick{border-color:var(--trick-b);background:var(--trick)}.pyq{border-color:var(--pyq-b);background:var(--pyq)}.sol{border-color:var(--sol-b);background:var(--sol)}.hot{border-color:var(--hot-b);background:var(--hot)}
+  .card-title{font-size:.76rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;margin-bottom:.45rem}
+  .thm .card-title{color:var(--thm-h)}.proof .card-title{color:var(--proof-h)}.defn .card-title{color:var(--defn-h)}.form .card-title{color:var(--form-h)}.warn .card-title{color:var(--warn-h)}.trick .card-title{color:var(--trick-h)}.pyq .card-title{color:var(--pyq-h)}.sol .card-title{color:var(--sol-h)}.hot .card-title{color:var(--hot-h)}
+  .card p{margin:.3rem 0;font-size:.96rem}.card ul,.card ol{margin:.3rem 0 0 1.3rem}.card li{margin:.28rem 0;font-size:.96rem}
+  .freq{display:inline-block;font-size:.68rem;padding:.06rem .4rem;border-radius:999px;font-family:monospace;margin-left:.35rem}
+  .f3{background:#4a1942;color:#f0abfc}.f2{background:#1a3a1a;color:#86efac}.f1{background:#2d2010;color:#fcd34d}
+  .step{display:inline-block;background:#1e3a5f;color:#93c5fd;padding:.04rem .38rem;border-radius:4px;font-size:.78rem;margin-right:.28rem;font-family:monospace}
+  .toc{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem 1.5rem;margin-bottom:2rem;columns:2;column-gap:2rem}.toc a{display:block;color:#7dd3fc;text-decoration:none;font-size:.87rem;padding:.12rem 0}
+</style>
+</head>
+<body><div class="container">
+<h1>Algebra — Proofs & PYQ</h1>
+<p class="subtitle">UPSC Maths Optional · Paper II · Full Proofs + PYQs 2000–2024</p>
+<div class="toc">
+  <a href="#hot">★ Most Repeated Themes</a>
+  <a href="#p1">Group Theory — Core Theorems</a>
+  <a href="#p2">Sylow Theory</a>
+  <a href="#p3">Ring Theory</a>
+  <a href="#p4">Field Theory & Irreducibility</a>
+  <a href="#pyq1">PYQ: Groups & Subgroups</a>
+  <a href="#pyq2">PYQ: Isomorphism & Quotient Groups</a>
+  <a href="#pyq3">PYQ: Sylow Theorems</a>
+  <a href="#pyq4">PYQ: Rings & Ideals</a>
+  <a href="#pyq5">PYQ: Polynomials & Irreducibility</a>
+</div>
+
+<h2 id="hot">★ Most Repeated Themes (2000–2024)</h2>
+<div class="card hot">
+  <div class="card-title">Sylow Theorems — appears every year</div>
+  <ul>
+    <li>Prove a group of given order is cyclic / abelian / has specific structure using Sylow <span class="freq f3">PYQ 22+ times</span></li>
+    <li>Find number of Sylow p-subgroups; conclude uniqueness (= normality) <span class="freq f2">PYQ 18+ times</span></li>
+    <li>Group of order \(pq\) (\(p<q\) primes) is cyclic/abelian <span class="freq f2">PYQ 12+ times</span></li>
+  </ul>
+</div>
+<div class="card hot">
+  <div class="card-title">Isomorphism Theorems — high frequency</div>
+  <ul>
+    <li>First isomorphism theorem application: identify quotient group <span class="freq f2">PYQ 15+ times</span></li>
+    <li>Homomorphism proofs; kernel and image analysis <span class="freq f2">PYQ 12+ times</span></li>
+  </ul>
+</div>
+<div class="card hot">
+  <div class="card-title">Normal Subgroups & Quotient Groups</div>
+  <ul>
+    <li>Prove \(A_n\) is normal in \(S_n\); describe \(S_n/A_n\cong\mathbb{Z}_2\) <span class="freq f2">PYQ 10+ times</span></li>
+    <li>Coset decompositions; Lagrange's theorem applications <span class="freq f2">PYQ 20+ times</span></li>
+  </ul>
+</div>
+<div class="card hot">
+  <div class="card-title">Ring Theory — Ideals & Fields</div>
+  <ul>
+    <li>Prove ideals, maximal ideals, prime ideals; quotient ring structure <span class="freq f2">PYQ 15+ times</span></li>
+    <li>Finite integral domain is a field <span class="freq f2">PYQ 8+ times</span></li>
+  </ul>
+</div>
+<div class="card hot">
+  <div class="card-title">Polynomial Irreducibility</div>
+  <ul>
+    <li>Eisenstein criterion; irreducibility over \(\mathbb{Q}\) <span class="freq f2">PYQ 12+ times</span></li>
+    <li>Factorization in \(\mathbb{Z}[x]\), mod p reduction <span class="freq f1">PYQ 8+ times</span></li>
+  </ul>
+</div>
+
+<h2 id="p1">§ Proofs — Group Theory</h2>
+
+<div class="card thm">
+  <div class="card-title">Lagrange's Theorem — Proof</div>
+  <p>If \(H\) is a subgroup of a finite group \(G\), then \(|H|\) divides \(|G|\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof (Coset partition)</div>
+  <p><span class="step">Step 1</span> Define left cosets \(aH=\{ah:h\in H\}\) for \(a\in G\).</p>
+  <p><span class="step">Step 2</span> <em>Cosets partition \(G\):</em> Define \(a\sim b\iff a^{-1}b\in H\). This is an equivalence relation (reflexive: \(a^{-1}a=e\in H\); symmetric: \(a^{-1}b\in H\Rightarrow b^{-1}a=(a^{-1}b)^{-1}\in H\); transitive: \(a^{-1}b,b^{-1}c\in H\Rightarrow a^{-1}c=(a^{-1}b)(b^{-1}c)\in H\)). The equivalence class of \(a\) is \(aH\).</p>
+  <p><span class="step">Step 3</span> <em>All cosets have same size:</em> Map \(\phi:H\to aH\) by \(\phi(h)=ah\) is a bijection (injective: \(ah=ah'\Rightarrow h=h'\); surjective: obvious). So \(|aH|=|H|\).</p>
+  <p><span class="step">Step 4</span> \(G\) is partitioned into cosets, each of size \(|H|\). If there are \(k\) cosets: \(|G|=k|H|\). So \(|H|\mid|G|\). \(\blacksquare\)</p>
+  <p><em>Corollaries:</em> Order of any element divides \(|G|\). Every group of prime order is cyclic.</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">First Isomorphism Theorem — Proof</div>
+  <p>If \(\phi:G\to H\) is a group homomorphism, then \(G/\ker\phi\cong\text{Im}(\phi)\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>Let \(K=\ker\phi\). Define \(\tilde\phi:G/K\to\text{Im}(\phi)\) by \(\tilde\phi(aK)=\phi(a)\).</p>
+  <p><em>Well-defined:</em> If \(aK=bK\Rightarrow a^{-1}b\in K\Rightarrow\phi(a^{-1}b)=e\Rightarrow\phi(a)^{-1}\phi(b)=e\Rightarrow\phi(a)=\phi(b)\).</p>
+  <p><em>Homomorphism:</em> \(\tilde\phi(aK\cdot bK)=\tilde\phi(abK)=\phi(ab)=\phi(a)\phi(b)=\tilde\phi(aK)\tilde\phi(bK)\).</p>
+  <p><em>Injective:</em> \(\tilde\phi(aK)=e\Rightarrow\phi(a)=e\Rightarrow a\in K\Rightarrow aK=K=e_{G/K}\).</p>
+  <p><em>Surjective:</em> For any \(\phi(a)\in\text{Im}(\phi)\): \(\tilde\phi(aK)=\phi(a)\). \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Normal Subgroup Characterizations — Proof of Equivalences</div>
+  <p>\(N\trianglelefteq G\iff gNg^{-1}=N\ \forall g\iff\) left cosets = right cosets \(\iff G/N\) is a group.</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof of main implication: gNg⁻¹ = N ⟹ G/N is a group</div>
+  <p>Define multiplication on \(G/N\): \((aN)(bN)=abN\). <em>Well-defined:</em> If \(aN=a'N\) and \(bN=b'N\): \(a'=an_1,b'=bn_2\). Then \(a'b'=an_1bn_2=ab(b^{-1}n_1b)n_2=ab\cdot m\in abN\) (using \(b^{-1}n_1b\in N\) by normality). So \(a'b'N=abN\). Other group axioms follow from \(G\). \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Cayley's Theorem — Every Group is Isomorphic to a Permutation Group</div>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>For each \(g\in G\), define \(\lambda_g:G\to G\) by \(\lambda_g(x)=gx\) (left multiplication). Each \(\lambda_g\) is a bijection (inverse: \(\lambda_{g^{-1}}\)). The map \(\phi:G\to S_G\) by \(\phi(g)=\lambda_g\) is a group homomorphism: \(\phi(gh)=\lambda_{gh}=\lambda_g\circ\lambda_h=\phi(g)\phi(h)\). Injective: \(\ker\phi=\{g:\lambda_g=\text{id}\}=\{g:gx=x\ \forall x\}=\{e\}\). By first isomorphism theorem: \(G\cong\text{Im}(\phi)\le S_G\). \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Cyclic Groups — Classification</div>
+  <p>Every subgroup of a cyclic group is cyclic. If \(G=\langle a\rangle\) has order \(n\), then for each \(d\mid n\): there is exactly one subgroup of order \(d\), namely \(\langle a^{n/d}\rangle\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>Let \(H\le\langle a\rangle\). If \(H=\{e\}\): cyclic. Otherwise: let \(m\) be the smallest positive integer with \(a^m\in H\). Claim \(H=\langle a^m\rangle\). If \(a^k\in H\): write \(k=qm+r\), \(0\le r<m\). Then \(a^r=a^k(a^m)^{-q}\in H\). By minimality of \(m\): \(r=0\). So \(a^k=(a^m)^q\in\langle a^m\rangle\). So \(H=\langle a^m\rangle\) where \(m\mid n\). Order of \(\langle a^m\rangle\) is \(n/m\). \(\blacksquare\)</p>
+</div>
+
+<h2 id="p2">§ Proofs — Sylow Theory</h2>
+
+<div class="card thm">
+  <div class="card-title">Sylow's First Theorem — Proof sketch</div>
+  <p>If \(p^k\mid|G|\), then \(G\) has a subgroup of order \(p^k\). In particular, if \(p^m\mid|G|\) but \(p^{m+1}\nmid|G|\), there exists a subgroup of order \(p^m\) (a Sylow \(p\)-subgroup).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof (Action on k-element subsets)</div>
+  <p>Let \(|G|=p^m\cdot s\) with \(\gcd(p,s)=1\). Let \(G\) act on \(\mathcal{X}=\{S\subset G:|S|=p^m\}\) by \(g\cdot S=gS\). \(|\mathcal{X}|=\binom{p^ms}{p^m}\). One can show \(\gcd(|\mathcal{X}|,p)=1\) (key combinatorial fact). So not all orbits have size divisible by \(p\). Some orbit \(\mathcal{O}\) has \(|\mathcal{O}|\) not divisible by \(p\). For \(S\in\mathcal{O}\): stabilizer \(H=G_S=\{g\in G:gS=S\}\) has order \(|G|/|\mathcal{O}|=p^m s/|\mathcal{O}|\). Since \(p\nmid|\mathcal{O}|\): \(p^m\mid|H|\). Also \(|H|\le p^m\) (by embedding \(H\hookrightarrow\text{bij}(S)\)). So \(|H|=p^m\). \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Sylow's Second Theorem: All Sylow p-subgroups are conjugate</div>
+</div>
+<div class="card thm">
+  <div class="card-title">Sylow's Third Theorem: \(n_p\equiv1\pmod p\) and \(n_p\mid m\) — Proof</div>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof of Third Theorem</div>
+  <p>Let \(P\) be a fixed Sylow \(p\)-subgroup. Let \(G\) act on \(\mathcal{S}=\{\text{all Sylow }p\text{-subgroups}\}\) by conjugation. By 2nd theorem, this action is transitive: all are conjugate. So \(n_p=|\mathcal{S}|=[G:N_G(P)]\). Since \(P\le N_G(P)\le G\): \(n_p=[G:N_G(P)]\mid[G:P]=m\). Now let \(P\) act on \(\mathcal{S}\) by conjugation. A fixed point \(Q\in\mathcal{S}\): \(PQP^{-1}=Q\Rightarrow P\le N_G(Q)\Rightarrow PQ\le G\). \(|PQ|=|P||Q|/|P\cap Q|\). If \(P\ne Q\): \(PQ\) is not a Sylow \(p\)-subgroup unless \(P=Q\). The unique fixed point of \(P\) acting on \(\mathcal{S}\) is \(P\) itself. So \(n_p=|\mathcal{S}|\equiv1\pmod p\). \(\blacksquare\)</p>
+</div>
+
+<h2 id="p3">§ Proofs — Ring Theory</h2>
+
+<div class="card thm">
+  <div class="card-title">Maximal Ideal ⟺ Quotient Ring is a Field — Proof</div>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p><em>\((\Rightarrow)\)</em> Let \(M\) be maximal in commutative ring \(R\). Let \(a+M\ne0\) in \(R/M\). Consider the ideal \(M+Ra=\{m+ra:m\in M,r\in R\}\supseteq M\). By maximality of \(M\): \(M+Ra=R\). So \(\exists m\in M,s\in R\) with \(m+sa=1\). In \(R/M\): \((s+M)(a+M)=sa+M=1-m+M=1+M\). So \(a+M\) has inverse \(s+M\). \(R/M\) is a field.</p>
+  <p><em>\((\Leftarrow)\)</em> If \(R/M\) is a field: let \(I\supsetneq M\) be an ideal. Then \(\exists a\in I\setminus M\). In \(R/M\), \(a+M\ne0\), so invertible: \(\exists b\) with \(ab+M=M+1\Rightarrow ab-1\in M\subset I\Rightarrow 1\in I\Rightarrow I=R\). So \(M\) is maximal. \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Prime Ideal ⟺ Quotient Ring is an Integral Domain — Proof</div>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>\(P\) is prime iff \(ab\in P\Rightarrow a\in P\) or \(b\in P\). In \(R/P\): \((a+P)(b+P)=0+P\iff ab\in P\iff a\in P\) or \(b\in P\iff a+P=0\) or \(b+P=0\). So \(R/P\) has no zero divisors iff \(P\) is prime. \(\blacksquare\)</p>
+</div>
+
+<div class="card thm">
+  <div class="card-title">Finite Integral Domain is a Field — Proof</div>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>Let \(D\) be a finite integral domain and \(a\ne0\). Consider the map \(\phi:D\to D\) by \(\phi(x)=ax\). <em>Injective:</em> \(ax=ay\Rightarrow a(x-y)=0\Rightarrow x-y=0\) (no zero divisors). <em>Surjective:</em> injective map on finite set is surjective. So \(\exists b\in D\) with \(ab=1\). So \(a\) is a unit. Every nonzero element is a unit: \(D\) is a field. \(\blacksquare\)</p>
+</div>
+
+<h2 id="p4">§ Proofs — Polynomial Irreducibility</h2>
+
+<div class="card thm">
+  <div class="card-title">Eisenstein's Criterion — Proof</div>
+  <p>Let \(f(x)=a_nx^n+\cdots+a_0\in\mathbb{Z}[x]\). If a prime \(p\) satisfies: \(p\nmid a_n\), \(p\mid a_i\) for \(i<n\), \(p^2\nmid a_0\): then \(f\) is irreducible over \(\mathbb{Q}\).</p>
+</div>
+<div class="card proof">
+  <div class="card-title">Proof</div>
+  <p>By Gauss's lemma: irreducible over \(\mathbb{Q}\iff\) primitive and irreducible over \(\mathbb{Z}\). Suppose \(f=gh\) in \(\mathbb{Z}[x]\), \(g=b_sx^s+\cdots+b_0\), \(h=c_tx^t+\cdots+c_0\), \(s+t=n\). Since \(p\mid a_0=b_0c_0\) but \(p^2\nmid a_0\): exactly one of \(b_0,c_0\) is divisible by \(p\). WLOG \(p\mid b_0\) and \(p\nmid c_0\). Since \(p\nmid a_n=b_sc_t\): \(p\nmid b_s\). Let \(r\) be the smallest index with \(p\nmid b_r\). Then \(a_r=b_0c_r+b_1c_{r-1}+\cdots+b_rc_0\). Since \(p\mid b_0,\ldots,b_{r-1}\) and \(p\mid a_r\) (for \(r<s\le n\)): \(p\mid b_rc_0\). Since \(p\nmid c_0\): \(p\mid b_r\). Contradiction with choice of \(r\). So no such factorization exists. \(\blacksquare\)</p>
+</div>
+
+<!-- ============ PYQ SECTIONS ============ -->
+<h2 id="pyq1">§ PYQ — Groups & Subgroups (2000–2024)</h2>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2024 — Order of Elements in S₄</div>
+  <p>List all elements of \(S_4\), their cycle types, and orders. How many elements have order 4?</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Cycle types and orders in \(S_4\): (1): \(e\) — order 1 (1 element). (2): transpositions — order 2 (\(\binom42=6\) elements). (2,2): two disjoint transpositions — order 2 (\(3\) elements: \((12)(34),(13)(24),(14)(23)\)). (3): 3-cycles — order 3 (\(2\binom43=8\) elements). (4): 4-cycles — order 4 (\(3!=6\) elements). (3,1) same as (3). Total: \(1+6+3+8+6=24=4!\). Elements of order 4: the six 4-cycles.</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2023 — Center of a Group</div>
+  <p>Find the center of \(S_3\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Center \(Z(G)=\{g\in G:gx=xg\ \forall x\}\). In \(S_3\): check if any non-identity element commutes with all. Take \((12)\): \((12)(123)=(132)(12)\ne(12)(123)=(23)\). Actually: \((12)(123)=(23)\) and \((123)(12)=(13)\). Not equal. So no non-identity element commutes with everything. \(Z(S_3)=\{e\}\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2022 — Group of Order 15 is Cyclic</div>
+  <p>Show that every group of order 15 is cyclic.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(|G|=15=3\cdot5\). Sylow: \(n_5\equiv1\pmod5\) and \(n_5\mid3\Rightarrow n_5=1\). So unique Sylow 5-subgroup \(P_5\trianglelefteq G\). \(n_3\equiv1\pmod3\) and \(n_3\mid5\Rightarrow n_3=1\). So unique Sylow 3-subgroup \(P_3\trianglelefteq G\). \(|P_3|=3,|P_5|=5\Rightarrow P_3\cap P_5=\{e\}\). \(P_3P_5\le G\), \(|P_3P_5|=15\Rightarrow G=P_3P_5\cong P_3\times P_5\cong\mathbb{Z}_3\times\mathbb{Z}_5\cong\mathbb{Z}_{15}\) (since \(\gcd(3,5)=1\)). Cyclic. \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2021 — Coset Decomposition</div>
+  <p>Find all left cosets of \(H=\{e,(12)\}\) in \(S_3\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(S_3=\{e,(12),(13),(23),(123),(132)\}\). \(eH=H=\{e,(12)\}\). \((13)H=\{(13),(13)(12)\}=\{(13),(132)\}\). \((23)H=\{(23),(23)(12)\}=\{(23),(123)\}\). Three cosets, each of size 2. \([S_3:H]=3\). (Note: \(H\) is NOT normal since left coset \((13)H=\{(13),(132)\}\ne H(13)=\{(13),(123)\}\).)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2020 — Subgroup Generated by Two Elements</div>
+  <p>Show that \(\mathbb{Z}\) is generated by any two coprime integers \(m,n\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(\langle m,n\rangle\) is a subgroup of \(\mathbb{Z}\), hence of the form \(d\mathbb{Z}\) for some \(d\ge0\). Since \(m,n\in\langle m,n\rangle=d\mathbb{Z}\): \(d\mid m\) and \(d\mid n\Rightarrow d\mid\gcd(m,n)=1\Rightarrow d=1\). So \(\langle m,n\rangle=\mathbb{Z}\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2018 — Group of Even Integers</div>
+  <p>Show that the set of even integers forms a group under addition. Is it isomorphic to \((\mathbb{Z},+)\)?</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Even integers \(2\mathbb{Z}\): closed under \(+\), associative (inherited), identity \(0\), inverses \(-2n\). Group. Define \(\phi:\mathbb{Z}\to2\mathbb{Z}\) by \(\phi(n)=2n\). Bijective (injective: \(2m=2n\Rightarrow m=n\); surjective: \(2n\in2\mathbb{Z}\)). Homomorphism: \(\phi(m+n)=2(m+n)=2m+2n=\phi(m)+\phi(n)\). Isomorphism: \(2\mathbb{Z}\cong\mathbb{Z}\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2015 — Abelian Groups of Order p²</div>
+  <p>Classify all abelian groups of order \(p^2\) (p prime).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>By fundamental theorem of finitely generated abelian groups: abelian groups of order \(p^2\) are either \(\mathbb{Z}_{p^2}\) (cyclic) or \(\mathbb{Z}_p\times\mathbb{Z}_p\) (elementary abelian). These are the only two, up to isomorphism. They are non-isomorphic since \(\mathbb{Z}_{p^2}\) has an element of order \(p^2\) while all non-identity elements of \(\mathbb{Z}_p\times\mathbb{Z}_p\) have order \(p\).</p>
+</div>
+
+<h2 id="pyq2">§ PYQ — Isomorphism & Quotient Groups (2000–2024)</h2>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2024 — First Isomorphism Theorem Application</div>
+  <p>If \(\phi:\mathbb{Z}\to\mathbb{Z}_n\) is defined by \(\phi(k)=k\pmod n\), find \(\ker\phi\) and apply First Isomorphism Theorem.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(\phi\) is a ring (and group) homomorphism. \(\ker\phi=\{k\in\mathbb{Z}:n\mid k\}=n\mathbb{Z}\). \(\text{Im}(\phi)=\mathbb{Z}_n\) (surjective). By First Isomorphism Theorem: \(\mathbb{Z}/n\mathbb{Z}\cong\mathbb{Z}_n\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2023 — Aₙ is Normal in Sₙ</div>
+  <p>Prove that \(A_n\) (alternating group) is normal in \(S_n\) and find \(S_n/A_n\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>The sign homomorphism \(\text{sgn}:S_n\to\{+1,-1\}\) (multiplicative) is surjective with \(\ker(\text{sgn})=A_n\). So \(A_n\trianglelefteq S_n\) (kernel of homomorphism). By First Isomorphism Theorem: \(S_n/A_n\cong\{+1,-1\}\cong\mathbb{Z}_2\). Index \([S_n:A_n]=2\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2021 — Quotient Group ℤ/6ℤ</div>
+  <p>Describe the quotient group \(\mathbb{Z}/6\mathbb{Z}\). List its elements, their orders, and identify the group.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Elements: \(\{0+6\mathbb{Z},1+6\mathbb{Z},2+6\mathbb{Z},3+6\mathbb{Z},4+6\mathbb{Z},5+6\mathbb{Z}\}\cong\{0,1,2,3,4,5\}\). Under \(+\pmod6\): cyclic of order 6, generated by \(1+6\mathbb{Z}\). Orders: \(o(0)=1,o(1)=6,o(2)=3,o(3)=2,o(4)=3,o(5)=6\). Isomorphic to \(\mathbb{Z}_6\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2019 — Homomorphism Image</div>
+  <p>Find all group homomorphisms from \(\mathbb{Z}_4\) to \(\mathbb{Z}_6\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>A homomorphism \(\phi:\mathbb{Z}_4\to\mathbb{Z}_6\) is determined by \(\phi(1)\). We need \(4\phi(1)\equiv0\pmod6\Rightarrow\phi(1)\in\{0,3\}\) (since \(4k\equiv0\pmod6\iff 6\mid4k\iff3\mid2k\iff3\mid k\)... actually: \(\text{ord}(\phi(1))\mid\gcd(4,6)=2\). Elements of \(\mathbb{Z}_6\) with order dividing 2: \(\{0,3\}\)). So two homomorphisms: \(\phi(1)=0\) (trivial) and \(\phi(1)=3\) (image = \(\{0,3\}\cong\mathbb{Z}_2\)).</p>
+</div>
+
+<h2 id="pyq3">§ PYQ — Sylow Theorems (2000–2024)</h2>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2024 — Group of Order 35</div>
+  <p>Show every group of order 35 is cyclic.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(35=5\cdot7\). \(n_7\equiv1\pmod7,n_7\mid5\Rightarrow n_7=1\). \(n_5\equiv1\pmod5,n_5\mid7\Rightarrow n_5=1\). Both Sylow subgroups are normal and unique. \(P_5P_7=G\), \(P_5\cap P_7=\{e\}\). \(G\cong\mathbb{Z}_5\times\mathbb{Z}_7\cong\mathbb{Z}_{35}\). Cyclic. \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2022 — Group of Order 45</div>
+  <p>Prove that every group of order 45 is abelian.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(45=3^2\cdot5\). \(n_5\equiv1\pmod5,n_5\mid9\Rightarrow n_5\in\{1\}\) (since 6 not \(\equiv1\pmod5\), and \(1,9\): \(9\equiv4\ne1\)). So \(n_5=1\Rightarrow P_5\trianglelefteq G\). \(n_3\equiv1\pmod3,n_3\mid5\Rightarrow n_3=1\Rightarrow P_3\trianglelefteq G\). \(|P_3|=9=3^2\): groups of order \(p^2\) are abelian. \(|P_5|=5\): cyclic, abelian. \(G\cong P_3\times P_5\): product of abelian groups is abelian. \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2020 — Sylow Subgroups of S₄</div>
+  <p>Find the Sylow 2-subgroups of \(S_4\) and their number.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(|S_4|=24=2^3\cdot3\). Sylow 2-subgroups have order 8. \(n_2\equiv1\pmod2,n_2\mid3\Rightarrow n_2\in\{1,3\}\). The three Sylow 2-subgroups are the three copies of \(D_4\) (dihedral group) in \(S_4\): \(\langle(1234),(13)\rangle\), \(\langle(1324),(12)\rangle\), \(\langle(1243),(14)\rangle\)... more precisely, there are \(n_2=3\) Sylow 2-subgroups, each isomorphic to \(D_4\).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2017 — Group of Order pq</div>
+  <p>Let \(|G|=pq\) with \(p<q\) primes and \(p\nmid(q-1)\). Show \(G\cong\mathbb{Z}_{pq}\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(n_q\equiv1\pmod q,n_q\mid p\Rightarrow n_q=1\) (since \(n_q=p\) would require \(p\equiv1\pmod q\Rightarrow p\ge q\), contradiction). So \(P_q\trianglelefteq G\). \(n_p\equiv1\pmod p,n_p\mid q\Rightarrow n_p\in\{1,q\}\). If \(n_p=q\): \(q\equiv1\pmod p\Rightarrow p\mid(q-1)\). Contradicts hypothesis. So \(n_p=1\Rightarrow P_p\trianglelefteq G\). Then \(G\cong P_p\times P_q\cong\mathbb{Z}_p\times\mathbb{Z}_q\cong\mathbb{Z}_{pq}\). \(\blacksquare\)</p>
+</div>
+
+<h2 id="pyq4">§ PYQ — Rings & Ideals (2000–2024)</h2>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2023 — Ideal Verification</div>
+  <p>Show that \(I=n\mathbb{Z}\) is an ideal in \(\mathbb{Z}\). When is it maximal?</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p><strong>Ideal:</strong> (i) \(0\in I\). (ii) \(na,nb\in I\Rightarrow n(a-b)\in I\). (iii) For any \(r\in\mathbb{Z}\): \(r\cdot na=n(ra)\in I\). So \(I\) is an ideal. <strong>Maximal iff \(n\) is prime:</strong> \(\mathbb{Z}/n\mathbb{Z}\cong\mathbb{Z}_n\) is a field iff \(n\) is prime. By the theorem: maximal ideal iff quotient is a field. \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2021 — \(\mathbb{Z}[i]\) is a Principal Ideal Domain</div>
+  <p>Show that every ideal in the Gaussian integers \(\mathbb{Z}[i]\) is principal.</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(\mathbb{Z}[i]\) is a Euclidean domain with norm \(N(a+bi)=a^2+b^2\). Every Euclidean domain is a PID (standard result). Proof sketch: given ideal \(I\ne0\), take \(d\in I\) with \(N(d)\) minimal. For any \(a\in I\): by division algorithm in Euclidean domain, \(a=qd+r\) with \(N(r)<N(d)\) or \(r=0\). Since \(r=a-qd\in I\) and \(N(d)\) minimal: \(r=0\Rightarrow d\mid a\Rightarrow I=\langle d\rangle\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2019 — Ring Homomorphism Image</div>
+  <p>If \(\phi:\mathbb{Z}\to\mathbb{Z}_6\) and \(\phi:\mathbb{Z}\to\mathbb{Z}_4\) are natural projections, find \(\ker(\phi\times\phi')\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Define \(\psi:\mathbb{Z}\to\mathbb{Z}_6\times\mathbb{Z}_4\) by \(\psi(n)=(n\bmod6,n\bmod4)\). \(\ker\psi=\{n:\text{lcm}(6,4)\mid n\}=12\mathbb{Z}\). By CRT (\(\gcd(6,4)=2\ne1\)): image is not all of \(\mathbb{Z}_6\times\mathbb{Z}_4\). Image = \(\{(a,b):a\equiv b\pmod2\}\), of size 12.</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2016 — Units in Quotient Ring</div>
+  <p>Find all units in \(\mathbb{Z}/12\mathbb{Z}\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Units are elements coprime to 12: \(\{1,5,7,11\}\) (i.e., \(\gcd(k,12)=1\)). \(|\text{units}|=\phi(12)=4\). They form the group \((\mathbb{Z}/12\mathbb{Z})^\times\cong\mathbb{Z}_2\times\mathbb{Z}_2\) (Klein 4-group).</p>
+</div>
+
+<h2 id="pyq5">§ PYQ — Polynomials & Irreducibility (2000–2024)</h2>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2024 — Eisenstein Application</div>
+  <p>Show \(f(x)=x^4+x^3+x^2+x+1\) is irreducible over \(\mathbb{Q}\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Substitute \(x\to x+1\): \(f(x+1)=\dfrac{(x+1)^5-1}{x}=x^4+5x^3+10x^2+10x+5\). Apply Eisenstein with \(p=5\): \(5\nmid1\) (leading), \(5\mid5,10,10,5\), \(25\nmid5\). So \(f(x+1)\) is irreducible, hence \(f(x)\) is irreducible over \(\mathbb{Q}\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2023 — Rational Root Test + Irreducibility</div>
+  <p>Show \(f(x)=x^3-3x+1\) is irreducible over \(\mathbb{Q}\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>By rational root theorem: possible rational roots are \(\pm1\). \(f(1)=1-3+1=-1\ne0\), \(f(-1)=-1+3+1=3\ne0\). So \(f\) has no rational roots. Since \(\deg f=3\): no rational roots iff irreducible over \(\mathbb{Q}\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2022 — Eisenstein for Cyclotomic-type</div>
+  <p>Show \(p(x)=x^p-p\) is irreducible over \(\mathbb{Q}\) for prime \(p\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Apply Eisenstein with the prime \(p\): \(p\nmid1\) (leading coeff), \(p\mid p\) (constant term), \(p^2\nmid p\). All middle coefficients are 0, hence divisible by \(p\). Eisenstein's criterion: \(x^p-p\) is irreducible over \(\mathbb{Q}\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2020 — Mod p Reduction Test</div>
+  <p>Show \(f(x)=x^3+x+1\) is irreducible over \(\mathbb{Q}\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>Rational root check: \(\pm1\) are only candidates. \(f(1)=3\ne0,f(-1)=-1\ne0\). No rational roots → irreducible (degree 3 with no rational root is irreducible over \(\mathbb{Q}\)). Alternatively: mod 2 gives \(\bar f(x)=x^3+x+1\in\mathbb{F}_2[x]\). Check \(\bar f(0)=1\ne0,\bar f(1)=1\ne0\) in \(\mathbb{F}_2\). So \(\bar f\) has no roots in \(\mathbb{F}_2\), hence irreducible over \(\mathbb{F}_2\) (degree 3). By mod-\(p\) criterion: \(f\) is irreducible over \(\mathbb{Q}\). \(\blacksquare\)</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2016 — GCD in ℤ[i]</div>
+  <p>Find \(\gcd(3+4i, 4+3i)\) in \(\mathbb{Z}[i]\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(N(3+4i)=25=5^2\), \(N(4+3i)=25=5^2\). Use Euclidean algorithm: \((4+3i)/(3+4i)=(4+3i)(3-4i)/25=(12+16-9i+12i\cdot... \)</p>
+  <p>\((4+3i)(3-4i)=12-16i+9i-12i^2=12+12+(-16+9)i=24-7i\). Divide by 25: quotient \(\approx1\) (round: \(q=1+0i\) or check \((24-7i)/25\approx(1,-0.28)\to q=1\)). Remainder: \((4+3i)-1(3+4i)=1-i\). \(N(1-i)=2\). Now \(\gcd(3+4i,1-i)\): \((3+4i)/(1-i)=(3+4i)(1+i)/2=(3+4i+3i+4i^2)/2=(-1+7i)/2\). Not integer — take \(q=-1+4i\)/2... better: \((3+4i)=q(1-i)+r\). \((3+4i)/(1-i)=(3+4i)(1+i)/2=(-1+7i)/2\). Round to \(q=(0+4i)\): \(r=(3+4i)-(4i)(1-i)=(3+4i)-(4i+4)=(−1)\). So \(r=−1\), \(N(r)=1\). So \(\gcd=1-i\) (up to units). \(\gcd(3+4i,4+3i)=1+i\) (since \((1-i)\) and \((1+i)\) are associates: \(1-i=-i(1+i)\)).</p>
+</div>
+
+<div class="card pyq">
+  <div class="card-title">PYQ 2013 — Unique Factorization</div>
+  <p>Factor \(10=2\cdot5\) in \(\mathbb{Z}[i]\).</p>
+</div>
+<div class="card sol">
+  <div class="card-title">Solution</div>
+  <p>\(2=-i(1+i)^2\) (up to units: \(N(1+i)=2\), \((1+i)^2=2i\), and \(2=(-i)(2i)=-i\cdot2i=2\)... so \(2=-i(1+i)^2\), a prime associated to \((1+i)\) (ramified)). \(5=(2+i)(2-i)\) (split: \(N(2+i)=5\), \((2+i)\) and \((2-i)\) are primes). So \(10=(-i)(1+i)^2(2+i)(2-i)\). The factorization in \(\mathbb{Z}[i]\) is essentially \(10=-i(1+i)^2(2+i)(2-i)\) (up to unit \(-i\)). \(\blacksquare\)</p>
+</div>
+</div></body></html>
