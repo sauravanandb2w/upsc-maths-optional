@@ -22,13 +22,19 @@
   .link{font-size:.75rem;padding:.2rem .6rem;border-radius:4px;text-decoration:none;font-family:monospace}
   .l1{background:#1e3a5f;color:#93c5fd}.l1:hover{background:#2a4d7a}
   .l2{background:#1a3a2a;color:#86efac}.l2:hover{background:#234d38}
+  .stats{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.55rem}
+  .badge{font-size:.68rem;padding:.15rem .5rem;border-radius:20px;font-family:monospace;font-weight:600;white-space:nowrap}
+  .b-pyq{background:#1a0a2a;color:#e879f9;border:1px solid #a21caf}
+  .b-thm{background:#1e3a5f;color:#93c5fd;border:1px solid #1d4ed8}
+  .b-proof{background:#1a2a3a;color:#bfdbfe;border:1px solid #3b82f6}
+  .b-hot{background:#3a1a0a;color:#fdba74;border:1px solid #ea580c}
   footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:3rem;padding-top:1rem;border-top:1px solid var(--border)}
 </style>
 </head>
 <body>
 <div class="container">
   <h1>UPSC Maths Optional</h1>
-  <p class="subtitle">All 13 chapters · Full proofs · PYQs 2000–2024 · Most repeated themes</p>
+  <p class="subtitle">13 chapters · 1,346 PYQs · 128 Theorems · 113 Proofs · Years 2000–2024</p>
 
   <h2>Paper I</h2>
   <div class="grid">
@@ -36,7 +42,13 @@
     <a class="card" href="Paper1_01_Linear_Algebra/01_Proofs_and_PYQ.html">
       <div class="card-num">P1 · Ch 1</div>
       <div class="card-title">Linear Algebra</div>
-      <div class="links">
+      <div class="stats">
+        <span class="badge b-pyq">103 PYQs</span>
+        <span class="badge b-thm">15 Theorems</span>
+        <span class="badge b-proof">14 Proofs</span>
+        <span class="badge b-hot">5 Hot Topics</span>
+      </div>
+      <div class="links" style="margin-top:.5rem">
         <span class="l1">Proofs + PYQ</span>
         <a class="l2" href="Paper1_01_Linear_Algebra/00_Formulae_and_Theorems.html" onclick="event.stopPropagation()">Formulae</a>
       </div>
@@ -45,7 +57,13 @@
     <a class="card" href="Paper1_02_Calculus/01_Proofs_and_PYQ.html">
       <div class="card-num">P1 · Ch 2</div>
       <div class="card-title">Calculus</div>
-      <div class="links">
+      <div class="stats">
+        <span class="badge b-pyq">105 PYQs</span>
+        <span class="badge b-thm">12 Theorems</span>
+        <span class="badge b-proof">11 Proofs</span>
+        <span class="badge b-hot">5 Hot Topics</span>
+      </div>
+      <div class="links" style="margin-top:.5rem">
         <span class="l1">Proofs + PYQ</span>
         <a class="l2" href="Paper1_02_Calculus/00_Formulae_and_Theorems.html" onclick="event.stopPropagation()">Formulae</a>
       </div>
@@ -54,7 +72,13 @@
     <a class="card" href="Paper1_03_Analytic_Geometry/01_Proofs_and_PYQ.html">
       <div class="card-num">P1 · Ch 3</div>
       <div class="card-title">Analytic Geometry</div>
-      <div class="links">
+      <div class="stats">
+        <span class="badge b-pyq">101 PYQs</span>
+        <span class="badge b-thm">5 Theorems</span>
+        <span class="badge b-proof">5 Proofs</span>
+        <span class="badge b-hot">4 Hot Topics</span>
+      </div>
+      <div class="links" style="margin-top:.5rem">
         <span class="l1">Proofs + PYQ</span>
         <a class="l2" href="Paper1_03_Analytic_Geometry/00_Formulae_and_Theorems.html" onclick="event.stopPropagation()">Formulae</a>
       </div>
@@ -63,7 +87,13 @@
     <a class="card" href="Paper1_04_Ordinary_Differential_Equations/01_Proofs_and_PYQ.html">
       <div class="card-num">P1 · Ch 4</div>
       <div class="card-title">Ordinary Differential Equations</div>
-      <div class="links">
+      <div class="stats">
+        <span class="badge b-pyq">105 PYQs</span>
+        <span class="badge b-thm">6 Theorems</span>
+        <span class="badge b-proof">6 Proofs</span>
+        <span class="badge b-hot">5 Hot Topics</span>
+      </div>
+      <div class="links" style="margin-top:.5rem">
         <span class="l1">Proofs + PYQ</span>
         <a class="l2" href="Paper1_04_Ordinary_Differential_Equations/00_Formulae_and_Theorems.html" onclick="event.stopPropagation()">Formulae</a>
       </div>
@@ -72,7 +102,13 @@
     <a class="card" href="Paper1_05_Dynamics_and_Statics/01_Proofs_and_PYQ.html">
       <div class="card-num">P1 · Ch 5</div>
       <div class="card-title">Dynamics & Statics</div>
-      <div class="links">
+      <div class="stats">
+        <span class="badge b-pyq">100 PYQs</span>
+        <span class="badge b-thm">7 Theorems</span>
+        <span class="badge b-proof">7 Proofs</span>
+        <span class="badge b-hot">5 Hot Topics</span>
+      </div>
+      <div class="links" style="margin-top:.5rem">
         <span class="l1">Proofs + PYQ</span>
         <a class="l2" href="Paper1_05_Dynamics_and_Statics/00_Formulae_and_Theorems.html" onclick="event.stopPropagation()">Formulae</a>
       </div>
@@ -81,7 +117,13 @@
     <a class="card" href="Paper1_06_Vector_Analysis/01_Proofs_and_PYQ.html">
       <div class="card-num">P1 · Ch 6</div>
       <div class="card-title">Vector Analysis</div>
-      <div class="links">
+      <div class="stats">
+        <span class="badge b-pyq">109 PYQs</span>
+        <span class="badge b-thm">7 Theorems</span>
+        <span class="badge b-proof">7 Proofs</span>
+        <span class="badge b-hot">4 Hot Topics</span>
+      </div>
+      <div class="links" style="margin-top:.5rem">
         <span class="l1">Proofs + PYQ</span>
         <a class="l2" href="Paper1_06_Vector_Analysis/00_Formulae_and_Theorems.html" onclick="event.stopPropagation()">Formulae</a>
       </div>
@@ -95,7 +137,13 @@
     <a class="card" href="Paper2_01_Algebra/01_Proofs_and_PYQ.html">
       <div class="card-num">P2 · Ch 1</div>
       <div class="card-title">Algebra</div>
-      <div class="links">
+      <div class="stats">
+        <span class="badge b-pyq">105 PYQs</span>
+        <span class="badge b-thm">12 Theorems</span>
+        <span class="badge b-proof">11 Proofs</span>
+        <span class="badge b-hot">5 Hot Topics</span>
+      </div>
+      <div class="links" style="margin-top:.5rem">
         <span class="l1">Proofs + PYQ</span>
         <a class="l2" href="Paper2_01_Algebra/00_Formulae_and_Theorems.html" onclick="event.stopPropagation()">Formulae</a>
       </div>
@@ -104,7 +152,13 @@
     <a class="card" href="Paper2_02_Real_Analysis/01_Proofs_and_PYQ.html">
       <div class="card-num">P2 · Ch 2</div>
       <div class="card-title">Real Analysis</div>
-      <div class="links">
+      <div class="stats">
+        <span class="badge b-pyq">103 PYQs</span>
+        <span class="badge b-thm">19 Theorems</span>
+        <span class="badge b-proof">19 Proofs</span>
+        <span class="badge b-hot">6 Hot Topics</span>
+      </div>
+      <div class="links" style="margin-top:.5rem">
         <span class="l1">Proofs + PYQ</span>
         <a class="l2" href="Paper2_02_Real_Analysis/00_Formulae_and_Theorems.html" onclick="event.stopPropagation()">Formulae</a>
       </div>
@@ -113,7 +167,13 @@
     <a class="card" href="Paper2_03_Complex_Analysis/01_Proofs_and_PYQ.html">
       <div class="card-num">P2 · Ch 3</div>
       <div class="card-title">Complex Analysis</div>
-      <div class="links">
+      <div class="stats">
+        <span class="badge b-pyq">103 PYQs</span>
+        <span class="badge b-thm">9 Theorems</span>
+        <span class="badge b-proof">9 Proofs</span>
+        <span class="badge b-hot">5 Hot Topics</span>
+      </div>
+      <div class="links" style="margin-top:.5rem">
         <span class="l1">Proofs + PYQ</span>
         <a class="l2" href="Paper2_03_Complex_Analysis/00_Formulae_and_Theorems.html" onclick="event.stopPropagation()">Formulae</a>
       </div>
@@ -122,7 +182,13 @@
     <a class="card" href="Paper2_04_Linear_Programming/01_Proofs_and_PYQ.html">
       <div class="card-num">P2 · Ch 4</div>
       <div class="card-title">Linear Programming</div>
-      <div class="links">
+      <div class="stats">
+        <span class="badge b-pyq">100 PYQs</span>
+        <span class="badge b-thm">7 Theorems</span>
+        <span class="badge b-proof">6 Proofs</span>
+        <span class="badge b-hot">4 Hot Topics</span>
+      </div>
+      <div class="links" style="margin-top:.5rem">
         <span class="l1">Proofs + PYQ</span>
         <a class="l2" href="Paper2_04_Linear_Programming/00_Formulae_and_Theorems.html" onclick="event.stopPropagation()">Formulae</a>
       </div>
@@ -131,7 +197,13 @@
     <a class="card" href="Paper2_05_Partial_Differential_Equations/01_Proofs_and_PYQ.html">
       <div class="card-num">P2 · Ch 5</div>
       <div class="card-title">Partial Differential Equations</div>
-      <div class="links">
+      <div class="stats">
+        <span class="badge b-pyq">113 PYQs</span>
+        <span class="badge b-thm">6 Theorems</span>
+        <span class="badge b-proof">6 Proofs</span>
+        <span class="badge b-hot">5 Hot Topics</span>
+      </div>
+      <div class="links" style="margin-top:.5rem">
         <span class="l1">Proofs + PYQ</span>
         <a class="l2" href="Paper2_05_Partial_Differential_Equations/00_Formulae_and_Theorems.html" onclick="event.stopPropagation()">Formulae</a>
       </div>
@@ -140,7 +212,13 @@
     <a class="card" href="Paper2_06_Numerical_Analysis_and_Computer_Programming/01_Proofs_and_PYQ.html">
       <div class="card-num">P2 · Ch 6</div>
       <div class="card-title">Numerical Analysis</div>
-      <div class="links">
+      <div class="stats">
+        <span class="badge b-pyq">99 PYQs</span>
+        <span class="badge b-thm">6 Theorems</span>
+        <span class="badge b-proof">6 Proofs</span>
+        <span class="badge b-hot">4 Hot Topics</span>
+      </div>
+      <div class="links" style="margin-top:.5rem">
         <span class="l1">Proofs + PYQ</span>
         <a class="l2" href="Paper2_06_Numerical_Analysis_and_Computer_Programming/00_Formulae_and_Theorems.html" onclick="event.stopPropagation()">Formulae</a>
       </div>
@@ -149,7 +227,13 @@
     <a class="card" href="Paper2_07_Mechanics_and_Fluid_Dynamics/01_Proofs_and_PYQ.html">
       <div class="card-num">P2 · Ch 7</div>
       <div class="card-title">Mechanics & Fluid Dynamics</div>
-      <div class="links">
+      <div class="stats">
+        <span class="badge b-pyq">100 PYQs</span>
+        <span class="badge b-thm">7 Theorems</span>
+        <span class="badge b-proof">7 Proofs</span>
+        <span class="badge b-hot">4 Hot Topics</span>
+      </div>
+      <div class="links" style="margin-top:.5rem">
         <span class="l1">Proofs + PYQ</span>
         <a class="l2" href="Paper2_07_Mechanics_and_Fluid_Dynamics/00_Formulae_and_Theorems.html" onclick="event.stopPropagation()">Formulae</a>
       </div>
