@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formula videos — UPSC Maths Optional</title>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+  :root {
+    --bg: #0f1117; --surface: #1a1d27; --border: #2e3147; --text: #e2e8f0; --muted: #8892a4;
+    --thm: #1e3a5f; --thm-border: #3b82f6; --thm-head: #93c5fd;
+    --form: #2d1f4a; --form-border: #a855f7; --form-head: #d8b4fe;
+    --vid: #3a1a2a; --vid-border: #ec4899; --vid-head: #f9a8d4;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: Georgia, serif; line-height: 1.75; padding: 2rem 1rem; }
+  .container { max-width: 900px; margin: 0 auto; }
+  h1 { text-align: center; font-size: 2rem; color: #f1f5f9; margin-bottom: 0.25rem; }
+  .subtitle { text-align: center; color: var(--muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
+  .nav { text-align: center; margin-bottom: 2rem; font-size: 0.88rem; }
+  .nav a { color: #7dd3fc; text-decoration: none; margin: 0 0.5rem; }
+  .nav a:hover { color: #bae6fd; }
+  h2 {
+    font-size: 0.95rem; color: #cbd5e1; border-bottom: 1px solid var(--border);
+    padding-bottom: 0.4rem; margin: 2.5rem 0 1rem; letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  .card { border-left: 4px solid; border-radius: 0 8px 8px 0; padding: 0.85rem 1.1rem; margin: 0.85rem 0; background: var(--surface); }
+  .card.vid { border-color: var(--vid-border); background: var(--vid); }
+  .card.form { border-color: var(--form-border); background: var(--form); }
+  .card.thm { border-color: var(--thm-border); background: var(--thm); }
+  .card-title { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.4rem; }
+  .vid .card-title { color: var(--vid-head); }
+  .form .card-title { color: var(--form-head); }
+  .thm .card-title { color: var(--thm-head); }
+  .card p, .card li { font-size: 0.97rem; margin: 0.35rem 0; }
+  .card ul { margin: 0.3rem 0 0 1.2rem; }
+  .yt {
+    display: inline-block; margin-top: 0.5rem; padding: 0.45rem 0.9rem; border-radius: 8px;
+    background: #cc0000; color: #fff; text-decoration: none; font-size: 0.88rem; font-weight: 600;
+  }
+  .yt:hover { background: #e60000; }
+  .toc { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 2rem; }
+  .toc a { display: block; color: #7dd3fc; text-decoration: none; font-size: 0.9rem; padding: 0.15rem 0; }
+  table { width: 100%; border-collapse: collapse; margin: 0.75rem 0; font-size: 0.92rem; }
+  th, td { border: 1px solid var(--border); padding: 0.5rem 0.65rem; text-align: left; vertical-align: top; }
+  th { background: var(--surface); color: var(--muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Formula video links</h1>
+  <p class="subtitle">Proofs & intuition beside the chapter <strong>Formulae</strong> sheets</p>
+  <p class="nav">
+    <a href="index.html">← Master index</a>
+    <a href="Paper1_02_Calculus/00_Formulae_and_Theorems.html#s3">Calculus §3 Taylor</a>
+  </p>
+
+  <div class="toc">
+    <a href="#maclaurin">Maclaurin series (σ form)</a>
+    <a href="#euler">Euler’s identity via Taylor series</a>
+    <a href="#more">More videos (add later)</a>
+  </div>
+
+  <h2 id="maclaurin">§1 · Maclaurin expansions</h2>
+  <p style="color:var(--muted);font-size:0.9rem;margin-bottom:1rem;">Same list as <a href="Paper1_02_Calculus/00_Formulae_and_Theorems.html#s3" style="color:#7dd3fc">Calculus formulae §3</a>; use this page when you want video + compact σ notation.</p>
+
+  <div class="card form">
+    <div class="card-title">Standard series (|x| small enough for convergence)</div>
+    <table>
+      <thead><tr><th>Function</th><th>Series</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>\(e^x\)</td><td>\(\displaystyle\sum_{n=0}^{\infty}\frac{x^n}{n!} = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots\)</td><td>All real \(x\)</td></tr>
+        <tr><td>\(\sin x\)</td><td>\(\displaystyle\sum_{n=0}^{\infty}\frac{(-1)^n x^{2n+1}}{(2n+1)!} = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \cdots\)</td><td>All real \(x\)</td></tr>
+        <tr><td>\(\cos x\)</td><td>\(\displaystyle\sum_{n=0}^{\infty}\frac{(-1)^n x^{2n}}{(2n)!} = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \cdots\)</td><td>All real \(x\)</td></tr>
+        <tr><td>\(\ln(1+x)\)</td><td>\(\displaystyle\sum_{n=1}^{\infty}\frac{(-1)^{n+1}x^n}{n} = x - \frac{x^2}{2} + \frac{x^3}{3} - \cdots\)</td><td>\(-1 &lt; x \le 1\)</td></tr>
+        <tr><td>\((1+x)^\alpha\)</td><td>\(\displaystyle\sum_{n=0}^{\infty}\binom{\alpha}{n}x^n\)</td><td>\(|x| &lt; 1\)</td></tr>
+        <tr><td>\(\sinh x\)</td><td>\(\displaystyle\sum_{n=0}^{\infty}\frac{x^{2n+1}}{(2n+1)!}\)</td><td>Odd terms only</td></tr>
+        <tr><td>\(\cosh x\)</td><td>\(\displaystyle\sum_{n=0}^{\infty}\frac{x^{2n}}{(2n)!}\)</td><td>Even terms only</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card thm">
+    <div class="card-title">Taylor at \(x=a\)</div>
+    <p>\[f(x) = \sum_{k=0}^{n}\frac{f^{(k)}(a)}{k!}(x-a)^k + R_n, \qquad R_n = \frac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1}.\]</p>
+    <p>Maclaurin = Taylor at \(a=0\). Coefficient of \(x^n\): \(f^{(n)}(0)/n!\).</p>
+  </div>
+
+  <h2 id="euler">§2 · Euler’s identity (\(e^{i\pi}+1=0\))</h2>
+
+  <div class="card vid">
+    <div class="card-title">Video — proof via Taylor series</div>
+    <p>Substitute Maclaurin series for \(e^x\), \(\cos x\), \(\sin x\); compare real and imaginary parts to get \(e^{ix}=\cos x+i\sin x\), then set \(x=\pi\).</p>
+    <a class="yt" href="https://www.youtube.com/watch?v=ppRgvfIJsgU" target="_blank" rel="noopener">▶ YouTube — Euler’s identity (Taylor proof)</a>
+  </div>
+
+  <div class="card form">
+    <div class="card-title">Steps (match the video)</div>
+    <ol style="margin:0.4rem 0 0 1.2rem;">
+      <li>\(e^x = 1 + x + \dfrac{x^2}{2!} + \dfrac{x^3}{3!} + \cdots\)</li>
+      <li>Replace \(x\) by \(ix\): \(e^{ix} = 1 + ix - \dfrac{x^2}{2!} - i\dfrac{x^3}{3!} + \dfrac{x^4}{4!} + \cdots\)</li>
+      <li>Group real / imaginary: \(\mathrm{Re}(e^{ix}) = 1 - \dfrac{x^2}{2!} + \dfrac{x^4}{4!} - \cdots = \cos x\)</li>
+      <li>\(\mathrm{Im}(e^{ix}) = x - \dfrac{x^3}{3!} + \dfrac{x^5}{5!} - \cdots = \sin x\)</li>
+      <li><strong>Euler’s formula:</strong> \(e^{ix} = \cos x + i\sin x\)</li>
+      <li>At \(x=\pi\): \(e^{i\pi} = \cos\pi + i\sin\pi = -1\) ⇒ \(e^{i\pi}+1=0\)</li>
+    </ol>
+  </div>
+
+  <div class="card thm">
+    <div class="card-title">Useful corollaries (optional / complex analysis)</div>
+    <ul>
+      <li>\(e^{x+iy} = e^x(\cos y + i\sin y)\)</li>
+      <li>\(\cos x = \dfrac{e^{ix}+e^{-ix}}{2}\), &nbsp; \(\sin x = \dfrac{e^{ix}-e^{-ix}}{2i}\)</li>
+      <li>De Moivre: \((\cos\theta+i\sin\theta)^n = \cos n\theta + i\sin n\theta\)</li>
+    </ul>
+  </div>
+
+  <h2 id="more">§3 · More videos</h2>
+  <div class="card" style="border-color:var(--border);">
+    <p style="color:var(--muted);">Add links here as you collect them (same format as §2). Chapter formula sheets stay in each folder’s <code>00_Formulae_and_Theorems.html</code>.</p>
+  </div>
+</div>
+</body>
+</html>
