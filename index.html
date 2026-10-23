@@ -22,41 +22,60 @@
   .link{font-size:.75rem;padding:.2rem .6rem;border-radius:4px;text-decoration:none;font-family:monospace}
   .l1{background:#1e3a5f;color:#93c5fd}.l1:hover{background:#2a4d7a}
   .l2{background:#1a3a2a;color:#86efac}.l2:hover{background:#234d38}
-  .l3{background:#3a1a2a;color:#f9a8d4}.l3:hover{background:#4d2340}
   .stats{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.55rem}
   .badge{font-size:.68rem;padding:.15rem .5rem;border-radius:20px;font-family:monospace;font-weight:600;white-space:nowrap}
   .b-pyq{background:#1a0a2a;color:#e879f9;border:1px solid #a21caf}
   .b-thm{background:#1e3a5f;color:#93c5fd;border:1px solid #1d4ed8}
   .b-proof{background:#1a2a3a;color:#bfdbfe;border:1px solid #3b82f6}
   .b-hot{background:#3a1a0a;color:#fdba74;border:1px solid #ea580c}
+  .hero-meta{text-align:center;margin:1rem 0 0}
+  .legend{
+    background:var(--surface);border:1px solid var(--border);border-radius:10px;
+    padding:.9rem 1.15rem;margin:1.75rem 0 1rem;font-size:.84rem;color:var(--muted);line-height:1.55
+  }
+  .legend-title{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.45rem}
+  .legend-row{display:flex;flex-wrap:wrap;gap:.65rem 1rem;align-items:center}
+  .legend-row span{display:inline-flex;align-items:center;gap:.35rem}
+  .quick-ref{
+    display:flex;align-items:center;justify-content:space-between;gap:1rem;
+    background:#1e1830;border:1px solid #5b21b6;border-radius:10px;padding:.85rem 1.15rem;
+    margin:0 0 1.75rem;text-decoration:none;color:inherit;transition:border-color .2s,background .2s
+  }
+  .quick-ref:hover{border-color:#a855f7;background:#251f3d}
+  .quick-ref-kicker{font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:#c4b5fd;margin-bottom:.2rem}
+  .quick-ref-title{font-size:.95rem;color:#f3e8ff;font-weight:600}
+  .quick-ref-desc{font-size:.8rem;color:var(--muted);margin-top:.2rem}
+  .quick-ref-go{font-size:.8rem;color:#e9d5ff;white-space:nowrap;font-family:monospace}
   footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:3rem;padding-top:1rem;border-top:1px solid var(--border)}
+  footer a{color:#7dd3fc;text-decoration:none}
 </style>
 </head>
 <body>
 <div class="container">
   <h1>UPSC Maths Optional</h1>
   <p class="subtitle">13 chapters · 1,473 PYQs · 128 Theorems · 113 Proofs · Years 2000–2026</p>
-  <div style="display:inline-block;background:#e8f5e9;border:1.5px solid #43a047;border-radius:20px;padding:4px 16px;font-size:.82rem;color:#2e7d32;font-weight:700;margin-top:6px">✅ PYQs updated till 2026 | Oct 2026</div>
+  <div class="hero-meta">
+    <span style="display:inline-block;background:#e8f5e9;border:1.5px solid #43a047;border-radius:20px;padding:4px 16px;font-size:.82rem;color:#2e7d32;font-weight:700">✅ PYQs updated till 2026</span>
+  </div>
 
-  <h2>Formulae &amp; videos</h2>
-  <div class="grid" style="margin-bottom:.5rem">
-    <a class="card" href="Formulae_Video_Links.html" style="border-color:#a855f7">
-      <div class="card-num">Reference</div>
-      <div class="card-title">Formula video links</div>
-      <p style="font-size:.85rem;color:var(--muted);margin:.35rem 0 0">Taylor / Maclaurin expansions, Euler’s identity proof, YouTube walkthroughs.</p>
-      <div class="links" style="margin-top:.6rem">
-        <span class="l3">Videos</span>
-        <a class="l2" href="Paper1_02_Calculus/00_Formulae_and_Theorems.html" onclick="event.stopPropagation()">Calculus formulae</a>
-      </div>
-    </a>
-    <div class="card" style="cursor:default;border-style:dashed">
-      <div class="card-num">13 chapters</div>
-      <div class="card-title">Formula sheets</div>
-      <p style="font-size:.85rem;color:var(--muted);margin:.35rem 0 0">Each chapter card below has a green <strong>Formulae</strong> link → <code>00_Formulae_and_Theorems.html</code>.</p>
+  <div class="legend">
+    <div class="legend-title">How this page works</div>
+    <div class="legend-row">
+      <span><span class="l1">Proofs + PYQ</span> Main chapter — solutions &amp; past questions</span>
+      <span><span class="l2">Formulae</span> That chapter’s formula &amp; theorem sheet</span>
     </div>
   </div>
 
-  <h2>Paper I</h2>
+  <a class="quick-ref" href="Formulae_Video_Links.html">
+    <div>
+      <div class="quick-ref-kicker">Extra reference (not tied to one chapter)</div>
+      <div class="quick-ref-title">Taylor &amp; Maclaurin series · Euler’s identity</div>
+      <div class="quick-ref-desc">σ-notation cheat sheet + YouTube proof walkthrough</div>
+    </div>
+    <span class="quick-ref-go">Open →</span>
+  </a>
+
+  <h2>Paper I — chapters</h2>
   <div class="grid">
 
     <a class="card" href="Paper1_01_Linear_Algebra/01_Proofs_and_PYQ.html">
@@ -86,7 +105,6 @@
       <div class="links" style="margin-top:.5rem">
         <span class="l1">Proofs + PYQ</span>
         <a class="l2" href="Paper1_02_Calculus/00_Formulae_and_Theorems.html" onclick="event.stopPropagation()">Formulae</a>
-        <a class="l3" href="Formulae_Video_Links.html#euler" onclick="event.stopPropagation()">Videos</a>
       </div>
     </a>
 
@@ -152,7 +170,7 @@
 
   </div>
 
-  <h2>Paper II</h2>
+  <h2>Paper II — chapters</h2>
   <div class="grid">
 
     <a class="card" href="Paper2_01_Algebra/01_Proofs_and_PYQ.html">
@@ -261,7 +279,10 @@
     </a>
 
   </div>
-  <footer>UPSC Mathematics Optional · Saurav Anand · Updated 2024–2026</footer>
+  <footer>
+    UPSC Mathematics Optional · Saurav Anand · Updated 2024–2026<br>
+    <a href="Formulae_Video_Links.html">Taylor series &amp; Euler identity (videos)</a>
+  </footer>
 </div>
 </body>
 </html>
