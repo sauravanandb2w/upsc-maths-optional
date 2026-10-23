@@ -34,11 +34,13 @@
   .thm .card-title { color: var(--thm-head); }
   .card p, .card li { font-size: 0.97rem; margin: 0.35rem 0; }
   .card ul { margin: 0.3rem 0 0 1.2rem; }
+  .yt-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.55rem; }
   .yt {
-    display: inline-block; margin-top: 0.5rem; padding: 0.45rem 0.9rem; border-radius: 8px;
+    display: inline-block; padding: 0.45rem 0.9rem; border-radius: 8px;
     background: #cc0000; color: #fff; text-decoration: none; font-size: 0.88rem; font-weight: 600;
   }
   .yt:hover { background: #e60000; }
+  .yt-meta { font-size: 0.82rem; color: #fbcfe8; margin-top: 0.35rem; }
   .toc { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 2rem; }
   .toc a { display: block; color: #7dd3fc; text-decoration: none; font-size: 0.9rem; padding: 0.15rem 0; }
   table { width: 100%; border-collapse: collapse; margin: 0.75rem 0; font-size: 0.92rem; }
@@ -89,13 +91,19 @@
   <h2 id="euler">§2 · Euler’s identity (\(e^{i\pi}+1=0\))</h2>
 
   <div class="card vid">
-    <div class="card-title">Video — proof via Taylor series</div>
-    <p>Substitute Maclaurin series for \(e^x\), \(\cos x\), \(\sin x\); compare real and imaginary parts to get \(e^{ix}=\cos x+i\sin x\), then set \(x=\pi\).</p>
-    <a class="yt" href="https://www.youtube.com/watch?v=ppRgvfIJsgU" target="_blank" rel="noopener">▶ YouTube — Euler’s identity (Taylor proof)</a>
+    <div class="card-title">Videos</div>
+    <p><strong>1 · Taylor series proof</strong> — plug Maclaurin series for \(e^x\), \(\cos x\), \(\sin x\); compare real and imaginary parts → \(e^{ix}=\cos x+i\sin x\), then \(x=\pi\).</p>
+    <div class="yt-row">
+      <a class="yt" href="https://www.youtube.com/watch?v=ppRgvfIJsgU" target="_blank" rel="noopener">▶ Taylor proof</a>
+    </div>
+    <p style="margin-top:0.85rem"><strong>2 · Intuition (Mathologer)</strong> — <em>e to the pi i for dummies</em>: geometric / conceptual path to \(e^{i\pi}=-1\) without getting lost in symbols.</p>
+    <div class="yt-row">
+      <a class="yt" href="https://www.youtube.com/watch?v=-dhHrg-KbJ0" target="_blank" rel="noopener">▶ Mathologer — \(e^{\pi i}\)</a>
+    </div>
   </div>
 
   <div class="card form">
-    <div class="card-title">Steps (match the video)</div>
+    <div class="card-title">Steps (Taylor proof — video 1)</div>
     <ol style="margin:0.4rem 0 0 1.2rem;">
       <li>\(e^x = 1 + x + \dfrac{x^2}{2!} + \dfrac{x^3}{3!} + \cdots\)</li>
       <li>Replace \(x\) by \(ix\): \(e^{ix} = 1 + ix - \dfrac{x^2}{2!} - i\dfrac{x^3}{3!} + \dfrac{x^4}{4!} + \cdots\)</li>
